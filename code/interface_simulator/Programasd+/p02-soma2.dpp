@@ -1,0 +1,13 @@
+var int c;
+
+main()
+	var char a,b;
+	a=10;
+	b=20;
+	c=a+b;
+	print(c);
+end
+
+    
+ 
+ 

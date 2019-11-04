@@ -1,0 +1,14 @@
+function potencia(int base, int exp)
+   int res = 1;
+   for i = 1 to exp do
+      res = res * base;
+   next
+   return res;
+end-function
+
+main()
+   var int x,y,p;
+   scan(x,y);
+   p = potencia(x,y,z);
+   println(x,"^",y," = ",p);
+end

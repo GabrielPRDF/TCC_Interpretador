@@ -1,0 +1,30 @@
+var int a;
+sub p1()
+var int teste = tete + 1;
+end_sub
+
+sub main()
+	a=0;
+	p1();
+	p1();
+	print(a);
+end-sub
+
+main()
+	a=0;
+	p1();
+	if aaa then
+		b=1;
+	else
+	end-if
+	while aaa do
+		p1();
+	loop
+end
+
+main()
+	for a = aa to aaa do
+		a=0;
+		p1();
+	next
+end

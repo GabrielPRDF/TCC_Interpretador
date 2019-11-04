@@ -1,0 +1,13 @@
+var int a;
+var real b;
+
+sub p1()
+end_sub
+
+var char c;
+
+sub p2()
+end_sub
+
+sub main()
+end_sub

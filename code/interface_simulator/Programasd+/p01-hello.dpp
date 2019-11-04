@@ -1,0 +1,11 @@
+main()
+   var int a;
+   var real b;
+   
+   var char c;
+   a = 1;
+   b = 2.2;
+   c = 'a';
+   print("Alo Mundo!!");
+   println(a,"=",b,"+",c);
+end

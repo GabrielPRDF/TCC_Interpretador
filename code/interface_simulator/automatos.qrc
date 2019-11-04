@@ -1,0 +1,36 @@
+<RCC>
+    <qresource prefix="/Figuras"/>
+    <qresource prefix="/automato"/>
+    <qresource prefix="/">
+        <file>automatos/state1.png</file>
+        <file>automatos/state2.png</file>
+        <file>automatos/state3.png</file>
+        <file>automatos/state4.png</file>
+        <file>automatos/state5.png</file>
+        <file>automatos/state6.png</file>
+        <file>automatos/state7.png</file>
+        <file>automatos/state8.png</file>
+        <file>automatos/state9.png</file>
+        <file>automatos/state10.png</file>
+        <file>automatos/state11.png</file>
+        <file>automatos/state12.png</file>
+        <file>automatos/state13.png</file>
+        <file>automatos/state14.png</file>
+        <file>automatos/state15.png</file>
+        <file>automatos/stateDisabled1.png</file>
+        <file>automatos/stateDisabled2.png</file>
+        <file>automatos/stateDisabled3.png</file>
+        <file>automatos/stateDisabled4.png</file>
+        <file>automatos/stateDisabled5.png</file>
+        <file>automatos/stateDisabled6.png</file>
+        <file>automatos/stateDisabled7.png</file>
+        <file>automatos/stateDisabled8.png</file>
+        <file>automatos/stateDisabled9.png</file>
+        <file>automatos/stateDisabled10.png</file>
+        <file>automatos/stateDisabled11.png</file>
+        <file>automatos/stateDisabled12.png</file>
+        <file>automatos/stateDisabled13.png</file>
+        <file>automatos/stateDisabled14.png</file>
+        <file>automatos/stateDisabled15.png</file>
+    </qresource>
+</RCC>

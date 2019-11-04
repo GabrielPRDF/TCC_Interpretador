@@ -1,0 +1,9 @@
+
+main()
+	var int x,y, soma;
+	scan(x);
+	scan(y);
+	soma = x+y;
+	print("Soma = ");
+	println(soma);
+end

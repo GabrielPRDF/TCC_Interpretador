@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Interpretador D+</DisplayName>
+    <Description>Interpretador D+ integrado a uma interface.</Description>
+    <Version>1.0.0-1</Version>
+    <ReleaseDate>2019-10-28</ReleaseDate>
+    <Default>true</Default>
+    <Script>installscript.qs</Script>
+</Package>

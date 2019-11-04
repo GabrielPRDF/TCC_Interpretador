@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Installer>
+    <Name>Instalador do Interpratador D+ integrado a Interface</Name>
+    <Version>2.0.0</Version>
+    <Title>Interpretador D+</Title>
+    <Publisher>Gabriel Pinto Ribeiro da Fonseca</Publisher>
+    <!-- Directory name is used in component.xml -->
+    <StartMenuDir>Interpretador D+ - Interface</StartMenuDir>
+    <TargetDir>@HomeDir@/InterpretadorD+/startmenu</TargetDir>
+</Installer>

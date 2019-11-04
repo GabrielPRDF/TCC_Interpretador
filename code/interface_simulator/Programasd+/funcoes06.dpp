@@ -1,0 +1,101 @@
+/*codigo teste*/
+//var int a;
+const $_a1=2;
+function char teste (var bool b by ref) 
+	return 10; 
+end-function
+sub bool booleana   (var int ab by ref,var char xx by value)
+	 println(ab+1); 
+end-sub
+sub float f(var float f1 by value,var char c1 by ref,var int i1,i2,i3 by ref)
+	var int decl;
+	print(decl);
+	return c1+i1;
+end-sub
+sub float fl() end-sub
+function bool testeEncadeamentoDeParms(var int g,h,i by ref)
+	return 1;
+end-function
+//sub char testeRedeclara(var char variavel by ref,var int  variavel by value) //REDECLARACAO DENTRO DOS PARAMETROS DA FUNCAO
+//end-sub
+//function bool teste() //ERRO SEMANTICO REDECLARACAO DE FUNCAO
+//end-function
+/*
+function int main()
+	var int a1;//decl var //
+	//$_a$_1;
+	var int a2; 		  //lista de decl
+	var float f10;		  //
+	println("alo mundo"); //print com mudança de linha
+	print(a1+a2);
+	a=a1*a2;//atribuição
+	if a2	
+	then
+	a2=f10;
+	end-if
+	const variavel =" ";
+	var char ch; //variavel pode ser declarada em qualquer lugar do codigo-tipo string soh na completa
+	ch='a';
+end-function
+*/
+var int global;
+function int main()
+	var int a, b,c,z[1]; //versao completa
+	//var bool b;			var string s;
+	scan(a);	
+	const q=1;
+	//booleana(z,a);//ERRO SEMANTICO - 'Z' NAUM INICIALIZADO PARA UTILIZAÇÃO
+	scan(b,c);//versao completa
+//scan(p);//ERRO SEMANTICO - VAR NAUM DECLARADA
+//fl(a); //ERRO SEMANTICO - NUMERO DE PARAMETROS INCOMPATIVEL
+//	sem_nome(); //ERRO SEMANTICO - FUNCAO NAUM DECLARADA
+	var int r;
+	teste (a);//ERRO SEMANTICO - VAR 'PS' NAUM DECLARADA
+	if a>b then
+		var int interno;
+		if a>c then
+			//var bool interno;//ERRO - SEMANTICO VARIAVEL REDECLARADA
+			r=a;
+			//q=10; //ERRO SEMANTICO - ATRIBUICAO EM CONST
+		else	
+			//var char a;//ERRO - SEMANTICO VARIAVEL REDECLARADA
+			const interna=10;
+			r=c;
+		end-if
+	else
+		var int interna;//TESTE SEMANTICO- NAUM GERA ERRO POIS 'INTERNA' EH CONST INTERNA DO 'ELSE' ACIMA E JAH SAIU DO ESCOPO
+		if b>c then 
+			r=b;
+			else 
+				r=c;
+		end-if 	 //deve funcionar assim tambem
+	end-if
+	var char interno; //TESTE SEMANTICO- NAUM GERA ERRO POIS 'INTERNO' EH UMA VARIAVEL INTERNA DO 'IF' ACIMA E JAH SAIU DO ESCOPO
+	print("o resultado",r);//versao completa
+	while a<b do  //qndo existe 2 do's seguidos ele valida o proximo(???)
+		var int wh;
+		do{ 
+			//var bool wh;//ERRO - SEMANTICO VARIAVEL REDECLARADA
+			do{
+				//interna=20;// ERRO - SEMANTICO VARIAVEL NAUM DECLARADA
+			}while /*wh*/ 1; //ERRO SEMANTICO - VARIAVEL 'WH' NAUM INICIALIZADA P/ UTILIZAÇÃO
+			a=c;
+			while b==c do
+				print(a);
+			while (a);
+			do{
+				//q=100;//ERRO - SEMANTICO CONST NAUM PODE SE ATRIBUIDA
+				scanln(a,b,c);
+				//print(wh); //ERRO SEMANTICO - VARIAVEL 'WH' NAUM INICIALIZADA P/ UTILIZAÇÃO
+			}while a;
+			loop
+		}while a<c;
+	loop
+
+end-function
+var char ch;
+/*
+function int main()
+
+
+end-function*/

@@ -1,0 +1,13 @@
+main()
+   var int n;
+   scan(n);
+   var int p;
+   p = 1;
+   var int i;
+   i = n;
+   while i>1 do
+     p = p * i;
+	 i--;
+   loop
+   println("Fatorial de ",n," = ",p);
+end

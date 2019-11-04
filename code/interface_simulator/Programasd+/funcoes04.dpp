@@ -1,0 +1,20 @@
+function int b ( var int b by value , var int f by value ) 
+ var int g;
+ const a = 3;	
+ g = 3;
+ while { a < 3 do 
+ 
+ } loop
+ return g ;
+end-function
+
+function int i ( var int c by value , var int f by value ) 
+ var int a;
+ 
+ return a;
+end-function
+
+function int j ( )
+ return 0;
+end-function
+#

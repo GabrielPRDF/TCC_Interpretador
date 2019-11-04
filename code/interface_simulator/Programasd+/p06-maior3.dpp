@@ -1,0 +1,17 @@
+ main()
+   var int a,b,c;
+   scan(a,b,c);
+   if a>b then
+      if a>c then
+	     print("maior=",a);
+	  else
+	     print("maior=",c);
+	  endif
+	else
+	  if b>c then
+	     print("maior=",b);
+	  else
+	     print("maior=",c);
+	  endif
+	endif
+ end

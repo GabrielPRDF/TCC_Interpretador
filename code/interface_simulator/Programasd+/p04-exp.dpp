@@ -1,0 +1,9 @@
+main()
+	var int a;
+	var int b;
+	var int c,e;
+	a = 25;
+	b = a;
+	c = a + b - a*d/e;
+	print(c);
+end

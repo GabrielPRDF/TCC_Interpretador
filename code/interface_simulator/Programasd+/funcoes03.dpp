@@ -1,0 +1,30 @@
+const constante = 50;
+
+var int z;
+
+function int testes(var int x by value)
+	var int y;
+	y = 25;
+	
+/*	while y <> 100 do
+		if x >= y then
+			print("x maior que y");
+		else
+			scanln(y);
+		end-if
+	loop*/
+	return y;
+end-function
+
+function int main()
+	z = 0;
+//	print("digite 1 valor para x ");
+	scanln(z);
+	
+	var int w;
+	w = z - 1 + ( z * 8);
+	
+//	print(testes(w));
+		
+	return 0;
+end-function

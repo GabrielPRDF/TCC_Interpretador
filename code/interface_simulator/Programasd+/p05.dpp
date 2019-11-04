@@ -1,0 +1,15 @@
+sub main()
+	var int a,b,c,e;
+	scan(a);
+	scan(b);
+	if a>b then
+		c = 9;
+	else
+		c = 2;
+	end_if
+	while (a<b) do
+		c= c + 1;
+		a++;
+	loop
+	println(c);
+end_sub
