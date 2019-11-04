@@ -14,3 +14,13 @@ using namespace std;
 
 string setSimbolTable();
 void clearSimbol();
+const string typeID [6] ={
+    "ID_INTEGER",
+    "ID_FLOAT",
+    "ID_CHAR",
+    "ID_BOLEAN",
+    "ID_STRING",
+    "ID_REAL"
+};
+bool comparType(int x);
+void setType();

@@ -447,7 +447,7 @@
       </widget>
      </widget>
     </item>
-    <item row="0" column="2">
+    <item row="0" column="2" alignment="Qt::AlignLeft">
      <widget class="QTabWidget" name="Saida_das_analises">
       <property name="font">
        <font>
@@ -466,7 +466,7 @@
        </attribute>
        <layout class="QGridLayout" name="gridLayout">
         <item row="0" column="0">
-         <widget class="QTextBrowser" name="saidaLexica">
+         <widget class="QTextBrowser" name="saidaLexicaLexema">
           <property name="palette">
            <palette>
             <active>
@@ -944,6 +944,26 @@ p, li { white-space: pre-wrap; }
           </property>
          </widget>
         </item>
+        <item row="0" column="1">
+         <widget class="QTextBrowser" name="saidaLexicaToken">
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="mouseTracking">
+           <bool>true</bool>
+          </property>
+          <property name="tabletTracking">
+           <bool>true</bool>
+          </property>
+          <property name="contextMenuPolicy">
+           <enum>Qt::ActionsContextMenu</enum>
+          </property>
+         </widget>
+        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="sintatica">
@@ -967,11 +987,19 @@ p, li { white-space: pre-wrap; }
       </widget>
       <widget class="QWidget" name="tabelaIdentificador">
        <attribute name="title">
-        <string>Page</string>
+        <string>Tabela de Simbolos</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_10">
         <item row="0" column="0">
-         <widget class="QTextBrowser" name="saidaSemantica"/>
+         <widget class="QTextBrowser" name="saidaSemantica">
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -1005,7 +1033,7 @@ p, li { white-space: pre-wrap; }
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>443</width>
+             <width>371</width>
              <height>535</height>
             </rect>
            </property>
@@ -1160,7 +1188,7 @@ p, li { white-space: pre-wrap; }
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>443</width>
+             <width>371</width>
              <height>535</height>
             </rect>
            </property>

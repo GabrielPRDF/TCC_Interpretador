@@ -77,7 +77,7 @@ static std::string tree = "";
 static std::string treeTerminal = "";
 static std::string logAnaliseSintatica = "Analise Sintatica";
 static std::string tokensLexemasTable [1000][3];
-static std::string simbolTable [1000][3];
+static std::string simbolTable [1000][5];
 static std::string gramatica = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">"
                                "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">"
                                "p, li { white-space: pre-wrap; }"
@@ -238,9 +238,11 @@ void interface::on_actionPlay_triggered()
     line = ui->textEdit->toPlainText().toStdString();
     lineTextNumber = ui->textEdit->toPlainText().toStdString();
     analiseLexica();
-    std::string textAnaliseLexica = "Lexema\t\t\tToken\n";
+    std::string textAnaliseLexicaLexema = "Lexema\n";
+    std::string textAnaliseLexicaToken = "Token\n";
     std::string textAnaliseSintatica = "Análise Sintática";
     std::string textWithLineNumber = "1. ";
+    std::string textSimbolTable = "#\tNome\tTipo\tCategoria\t\tLinha\n";
     aux = 0;
     int lineNumberCode = 2;
     if(erroLexico == ""){
@@ -254,31 +256,34 @@ void interface::on_actionPlay_triggered()
         }
         aux = 0;
         while (!queueTokenLexema.empty()){
-            textAnaliseLexica  += queueTokenLexema.dequeue() +
-                                       "\t\t\t" + queueTokenLexema.dequeue() + "\n";
+            textAnaliseLexicaLexema  += queueTokenLexema.dequeue() + "\n";
+            textAnaliseLexicaToken  += queueTokenLexema.dequeue() + "\n";
         }
-        textAnaliseLexica += "\n";
         textAnaliseSintatica = analiseSintatica();
         textAnaliseSintatica += "\n Log " + logAnaliseSintatica;
         gramaticaOn();
         QString gramaticaConvert = QString::fromStdString(gramatica);
-        QString lexico = QString::fromStdString(textAnaliseLexica);
+        QString lexicoLexema = QString::fromStdString(textAnaliseLexicaLexema);
+        QString lexicoToken = QString::fromStdString(textAnaliseLexicaToken);
         QString sintatico = QString::fromStdString(textAnaliseSintatica);
         QString codeNumberText = QString::fromStdString(textWithLineNumber);
         if(keySintatico == 1) tree = "Erro na Análise Sintática, impossivel gerar arvore";
         QString treeText = QString::fromStdString(tree);
-        QString simbol = QString::fromStdString(setSimbolTable());
-        ui->saidaLexica->setText(lexico);
+        setType();
+        textSimbolTable +=  setSimbolTable();
+        QString simbol = QString::fromStdString(textSimbolTable);
+        ui->saidaLexicaLexema->setText(lexicoLexema);
+        ui->saidaLexicaToken->setText(lexicoToken);
         ui->saidaSintatica->setText(sintatico);
         ui->codeNumber->setText(codeNumberText);
         ui->textGramatica->setHtml(gramaticaConvert);
         ui->arvoreText->setText(treeText);
         ui->saidaSemantica->setText(simbol);
     }else{
-        textAnaliseLexica = "Erro Lexico, CARACTER INCORRETO: " + erroLexico;
+        textAnaliseLexicaLexema = "Erro Lexico, CARACTER INCORRETO: " + erroLexico;
         setAutomaton();
-        QString lexico = QString::fromStdString(textAnaliseLexica);
-        ui->saidaLexica->setText(lexico);
+        QString lexico = QString::fromStdString(textAnaliseLexicaLexema);
+        ui->saidaLexicaLexema->setText(lexico);
         erroLexico = "";
     }
 
@@ -390,6 +395,7 @@ void interface::on_actionPlay_triggered()
         ui->automato15->setPixmap(automatoState15.scaled(480,150));
     }
     setAutomaton();
+    limpaSintatico();
     setGramatica();
     gramaticaClear();
     clearSimbol();
@@ -538,12 +544,29 @@ void queueValue(){
     tokensLexemasTable [auxSintatico][0] = lexema;
     tokensLexemasTable [auxSintatico][1] = token;
     tokensLexemasTable [auxSintatico][2] = to_string(lineNumber);
-    auxSintatico++;
-    if(token == "IDENTIFICADOR"){
-        simbolTable[auxSimbolTable][0] = lexema;
-        simbolTable[auxSimbolTable][1] = to_string(lineNumber);
-        auxSimbolTable++;
+    if(auxSintatico > 0){
+        if(token == "IDENTIFICADOR" && (tokensLexemasTable [auxSintatico-1][0] == "CONST" || tokensLexemasTable [auxSintatico-2][0] == "VAR")){
+            simbolTable[auxSimbolTable][0] = to_string(auxSimbolTable);
+            simbolTable[auxSimbolTable][1] = lexema;
+            simbolTable[auxSimbolTable][4] = to_string(lineNumber);
+            for(int i = auxSintatico - 1; simbolTable[auxSimbolTable][2] == ""; i--){
+                if(comparType(i) && tokensLexemasTable [i][2] == simbolTable[auxSimbolTable][4]){
+                    simbolTable[auxSimbolTable][2] = tokensLexemasTable [i][0];
+                    simbolTable[auxSimbolTable][3] = "VARIAVEL";
+                    break;
+                }
+                if(tokensLexemasTable[i][1] == "ID_CONST" && tokensLexemasTable [i][2] == simbolTable[auxSimbolTable][4]){
+                    simbolTable[auxSimbolTable][2] = tokensLexemasTable [i][0];
+                    simbolTable[auxSimbolTable][3] = "CONSTANTE";
+                    break;
+                }
+                if(i <= 0) break;
+            }
+            auxSimbolTable++;
+        }
+
     }
+    auxSintatico++;
 }
 
 void clearQueue(){
@@ -807,7 +830,7 @@ void state07(){
     automato7 = true;
     nextChar();
     if(line[aux] == '='){
-        state = 18;
+        state = 20;
         return;
     }
     lexema = "=";
@@ -960,6 +983,7 @@ void state19(){
 }
 
 void state20(){
+    nextChar();
     lexema = "==";
     token = "OPERATOR_COMPARATION";
     queueValue();
@@ -1136,14 +1160,10 @@ string analiseSintatica(){
             string retorno = "Erro Sintático na linha: " + tokensLexemasTable[tamanho][2];
             if(tokensLexemasTable[tamanho][2] == "")
                 retorno = "Erro Sintático na linha: " + tokensLexemasTable[tamanho-1][2];
-            tamanho = 0;
-            limpaSintatico();
             return retorno;
         }
         tamanho++;
     }
-    tamanho = 0;
-    limpaSintatico();
     return "Compilado, Sucesso na Análise Sintática";
 }
 
@@ -1227,7 +1247,7 @@ void D(){
                     treeSintatico();
                     tamanho++;
                     DF();
-                    nivel--;
+                    nivel -= 2;
                 }else{
                     if(testValue("ID_MAIN")){
                         nivel++;
@@ -1237,7 +1257,7 @@ void D(){
                         treeSintatico();
                         tamanho++;
                         DM();
-                        nivel--;
+                        nivel -= 2;
                     }else{
                         logAnaliseSintatica += "\nErro: Não encontrado o comando de abertura!";
                         keySintatico = 1;
@@ -1442,7 +1462,6 @@ void LV(){
     gramatica37 = true;
     nivel++;
     VAR();
-   string teste = tokensLexemasTable[tamanho][1];
     if(testValue("SIGNAL_COMMA")){
         treeSintatico();
         tamanho++;
@@ -1547,7 +1566,6 @@ void LC(){
     if(stopBlock != 1) tamanho++;
     else stopBlock = 0;
     if(!conditionStopBloc()){
-        nivel--;
         LC();
     }
     nivel--;
@@ -1957,6 +1975,7 @@ void CE(){
     treeSintatico();
     gramatica22 = true;
     if(testValue("ID_PRINT") || testValue("ID_PRINTLN")){
+        nivel++;
         treeSintatico();
         tamanho++;
         if(testValue("ID_BRACKETRIGHT")){
@@ -1981,6 +2000,7 @@ void CE(){
             logAnaliseSintatica += "\nErro: Erro comando de escrita";
             keySintatico = 1;
         }
+        nivel--;
     }else{
         logAnaliseSintatica += "\nErro: Erro comando de escrita";
         keySintatico = 1;
@@ -1997,7 +2017,6 @@ void VAR(){
         treeSintatico();
         tamanho++;
         if(testValue("SIGNAL_HOOKRIGHT")){
-            nivel++;
             treeSintatico();
             tamanho++;
             EXPS();
@@ -2008,7 +2027,6 @@ void VAR(){
                 logAnaliseSintatica += "\nErro: declaração de VAR IDENTIFICADOR";
                 keySintatico = 1;
             }
-            nivel--;
         }
         nivel--;
     }else{
@@ -2019,20 +2037,23 @@ void VAR(){
 
 void EXP(){
     nivel++;
+    int i = nivel;
     treeTerminal = "exp";
     treeSintatico();
     gramatica25 = true;
     EXPS();
     if(OR()){
+        nivel++;
         treeTerminal = "op-relac";
         treeSintatico();
         nivel++;
         treeSintatico();
-        nivel--;
+        nivel -= 2;
         gramatica26 = true;
         tamanho++;
         EXPS();
     }
+    int x = nivel;
     nivel--;
 }
 
@@ -2081,11 +2102,12 @@ void EXPS(){
     gramatica27 = true;
     EXPM();
     if(OS()){
+        nivel++;
         treeTerminal = "op-soma";
         treeSintatico();
         nivel++;
         treeSintatico();
-        nivel--;
+        nivel -= 2;
         gramatica28 = true;
         tamanho++;
         EXPS();
@@ -2100,11 +2122,12 @@ void EXPM(){
     gramatica29 = true;
     EXPSP();
     if(OM()){
+        nivel++;
         treeTerminal = "op-mult";
         treeSintatico();
         nivel++;
         treeSintatico();
-        nivel--;
+        nivel -= 2;
         gramatica30 = true;
         tamanho++;
         EXPSP();
@@ -2114,7 +2137,7 @@ void EXPM(){
 
 void EXPSP(){
     nivel++;
-    treeTerminal = "exp-mult";
+    treeTerminal = "exp-simples";
     treeSintatico();
     gramatica31 = true;
     if(testValue("ID_BRACKETRIGHT")){
@@ -2126,11 +2149,11 @@ void EXPSP(){
             treeSintatico();
             tamanho++;
             logAnaliseSintatica += "\n Sucesso na expreção (EXP)";
-            nivel--;
         }else{
             logAnaliseSintatica += "\nErro: Erro comando de EXPREÇÃO";
             keySintatico = 1;
         }
+        nivel--;
     }else{
         if(testValue("IDENTIFICADOR") && tokensLexemasTable[tamanho+1][1] != "ID_BRACKETRIGHT"){
             nivel++;
@@ -2240,7 +2263,7 @@ void AR(){
         nivel++;
         treeTerminal = "ε";
         treeSintatico();
-        nivel--;
+        nivel -= 2;
         return;
     }
     LE();
@@ -2250,7 +2273,7 @@ void AR(){
 string setSimbolTable(){
     string text = "";
     for (int i = 0; simbolTable[i][0] != ""; i++){
-        text += simbolTable[i][0] + "\t" + simbolTable[i][1] + "\n";
+        text += simbolTable[i][0] + "\t" + simbolTable[i][1] + "\t" + simbolTable[i][2] + "\t" + simbolTable[i][3] + "\n";
     }
     return text;
 }
@@ -2260,5 +2283,51 @@ void clearSimbol(){
         simbolTable[i][0] = "";
         simbolTable[i][1] = "";
         simbolTable[i][2] = "";
+    }
+    auxSimbolTable = 0;
+}
+
+bool comparType(int x){
+    for(int i =0; i < 6; i++){
+        if(typeID[i] == tokensLexemasTable[x][1]){
+            return true;
+        }
+    }
+    return false;
+}
+
+void setType(){
+    tamanho = 0;
+    int x = 0;
+    while(simbolTable[x][0] != ""){
+        if(simbolTable[x][2] == "CONST"){
+            while(auxSintatico > tamanho){
+                if(tokensLexemasTable[tamanho][0] == "CONST" && tokensLexemasTable[tamanho][2] == simbolTable[x][4]){
+                    tamanho += 3;
+                    if(testValue("NUMINT")){
+                        simbolTable[x][2] = "INT";
+                    }else{
+                        if(testValue("NUMREAL")){
+                            simbolTable[x][2] = "FLOAT";
+                        }else{
+                            if(testValue("CARACTER")){
+                                simbolTable[x][2] = "CHAR";
+                            }else{
+                                if(testValue("STRING")){
+                                    simbolTable[x][2] = "STRING";
+                                }else{
+                                    if(testValue("TRUE") || testValue("FALSE") || testValue("BOOL")){
+                                        simbolTable[x][2] = "BOOL";
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                tamanho++;
+            }
+            tamanho = 0;
+        }
+        x++;
     }
 }

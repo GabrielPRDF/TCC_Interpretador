@@ -13,6 +13,7 @@
 using namespace std;
 
 string analiseSintatica();
+void limpaSintatico();
 bool testValue(string valueTest);
 void gramaticaOn();
 void setGramatica();
