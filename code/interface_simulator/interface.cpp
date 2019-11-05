@@ -77,7 +77,7 @@ static std::string tree = "";
 static std::string treeTerminal = "";
 static std::string logAnaliseSintatica = "Analise Sintatica";
 static std::string tokensLexemasTable [1000][3];
-static std::string simbolTable [1000][5];
+static std::string simbolTable [1000][6];
 static std::string gramatica = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">"
                                "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">"
                                "p, li { white-space: pre-wrap; }"
@@ -246,7 +246,7 @@ void interface::on_actionPlay_triggered()
     std::string textSimbolNome = "Nome\n";
     std::string textSimbolTipo = "Tipo\n";
     std::string textSimbolCategoria = "Categoria\n";
-    std::string textSimbolLine = "Linha\n";
+    std::string textSimbolNivel = "Linha\n";
     aux = 0;
     int lineNumberCode = 2;
     if(erroLexico == ""){
@@ -278,12 +278,12 @@ void interface::on_actionPlay_triggered()
         textSimbolNome += setSimbolTableNome();
         textSimbolTipo += setSimbolTableTipo();
         textSimbolCategoria += setSimbolTableCategoria();
-        textSimbolLine += setSimbolTableLinha();
+        textSimbolNivel += setSimbolTableNivel();
         QString simbolNumber = QString::fromStdString(textSimbolNumber);
         QString simbolNome = QString::fromStdString(textSimbolNome);
         QString simbolTipo = QString::fromStdString(textSimbolTipo);
         QString simbolCategoria = QString::fromStdString(textSimbolCategoria);
-        QString simbolLine = QString::fromStdString(textSimbolLine);
+        QString simbolNivel = QString::fromStdString(textSimbolNivel);
         ui->saidaLexicaLexema->setText(lexicoLexema);
         ui->saidaLexicaToken->setText(lexicoToken);
         ui->saidaSintatica->setText(sintatico);
@@ -294,7 +294,7 @@ void interface::on_actionPlay_triggered()
         ui->nome->setText(simbolNome);
         ui->tipo->setText(simbolTipo);
         ui->categoria->setText(simbolCategoria);
-        ui->numeroLinha->setText(simbolLine);
+        ui->numeroLinha->setText(simbolNivel);
     }else{
         textAnaliseLexicaLexema = "Erro Lexico, CARACTER INCORRETO: " + erroLexico;
         setAutomaton();
@@ -561,22 +561,26 @@ void queueValue(){
     tokensLexemasTable [auxSintatico][1] = token;
     tokensLexemasTable [auxSintatico][2] = to_string(lineNumber);
     if(auxSintatico > 0){
-        if(token == "IDENTIFICADOR" && (tokensLexemasTable [auxSintatico-1][0] == "CONST" || tokensLexemasTable [auxSintatico-1][0] == "," || tokensLexemasTable[auxSintatico-2][0] == "VAR")){
+        if(token == "IDENTIFICADOR" /*&& (tokensLexemasTable [auxSintatico-1][0] == "CONST" || tokensLexemasTable [auxSintatico-1][0] == "," || tokensLexemasTable[auxSintatico-2][0] == "VAR")*/){
             simbolTable[auxSimbolTable][0] = to_string(auxSimbolTable);
             simbolTable[auxSimbolTable][1] = lexema;
-            simbolTable[auxSimbolTable][4] = to_string(lineNumber);
+            if(nivel == 0) simbolTable[auxSimbolTable][4] = "GLOBAL";
+            else simbolTable[auxSimbolTable][4] = "LOCAL";
+            simbolTable[auxSimbolTable][5] = to_string(lineNumber);
             for(int i = auxSintatico - 1; simbolTable[auxSimbolTable][2] == ""; i--){
-                if(comparType(i) && tokensLexemasTable [i][2] == simbolTable[auxSimbolTable][4]){
+                if(comparType(i) && tokensLexemasTable [i][2] == simbolTable[auxSimbolTable][5]){
                     simbolTable[auxSimbolTable][2] = tokensLexemasTable [i][0];
                     simbolTable[auxSimbolTable][3] = "VARIAVEL";
+                    if(tokensLexemasTable[i-1][0] == "SUB") simbolTable[auxSimbolTable][3] = "PROCEDURE";
+                    if(tokensLexemasTable[i-1][0] == "FUNCTION") simbolTable[auxSimbolTable][3] = "FUNÇÃO";
                     break;
                 }
-                if(tokensLexemasTable[i][1] == "ID_CONST" && tokensLexemasTable [i][2] == simbolTable[auxSimbolTable][4]){
+                if(tokensLexemasTable[i][1] == "ID_CONST" && tokensLexemasTable [i][2] == simbolTable[auxSimbolTable][5]){
                     simbolTable[auxSimbolTable][2] = tokensLexemasTable [i][0];
                     simbolTable[auxSimbolTable][3] = "CONSTANTE";
                     break;
                 }
-                if(i <= 0) break;
+                if(simbolTable[auxSimbolTable][5] < tokensLexemasTable [i][2]) break;
             }
             auxSimbolTable++;
         }
@@ -2318,10 +2322,10 @@ string setSimbolTableCategoria(){
     return text;
 }
 
-string setSimbolTableLinha(){
+string setSimbolTableNivel(){
     string text = "";
     for (int i = 0; simbolTable[i][0] != ""; i++){
-        text += simbolTable[i][4] + "\n";
+        text += simbolTable[i][5] + "\n";
     }
     return text;
 }
