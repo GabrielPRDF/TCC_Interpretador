@@ -242,7 +242,11 @@ void interface::on_actionPlay_triggered()
     std::string textAnaliseLexicaToken = "Token\n";
     std::string textAnaliseSintatica = "Análise Sintática";
     std::string textWithLineNumber = "1. ";
-    std::string textSimbolTable = "#\tNome\tTipo\tCategoria\t\tLinha\n";
+    std::string textSimbolNumber = "#\n";
+    std::string textSimbolNome = "Nome\n";
+    std::string textSimbolTipo = "Tipo\n";
+    std::string textSimbolCategoria = "Categoria\n";
+    std::string textSimbolLine = "Linha\n";
     aux = 0;
     int lineNumberCode = 2;
     if(erroLexico == ""){
@@ -270,15 +274,27 @@ void interface::on_actionPlay_triggered()
         if(keySintatico == 1) tree = "Erro na Análise Sintática, impossivel gerar arvore";
         QString treeText = QString::fromStdString(tree);
         setType();
-        textSimbolTable +=  setSimbolTable();
-        QString simbol = QString::fromStdString(textSimbolTable);
+        textSimbolNumber +=  setSimbolTableNumber();
+        textSimbolNome += setSimbolTableNome();
+        textSimbolTipo += setSimbolTableTipo();
+        textSimbolCategoria += setSimbolTableCategoria();
+        textSimbolLine += setSimbolTableLinha();
+        QString simbolNumber = QString::fromStdString(textSimbolNumber);
+        QString simbolNome = QString::fromStdString(textSimbolNome);
+        QString simbolTipo = QString::fromStdString(textSimbolTipo);
+        QString simbolCategoria = QString::fromStdString(textSimbolCategoria);
+        QString simbolLine = QString::fromStdString(textSimbolLine);
         ui->saidaLexicaLexema->setText(lexicoLexema);
         ui->saidaLexicaToken->setText(lexicoToken);
         ui->saidaSintatica->setText(sintatico);
         ui->codeNumber->setText(codeNumberText);
         ui->textGramatica->setHtml(gramaticaConvert);
         ui->arvoreText->setText(treeText);
-        ui->saidaSemantica->setText(simbol);
+        ui->numero->setText(simbolNumber);
+        ui->nome->setText(simbolNome);
+        ui->tipo->setText(simbolTipo);
+        ui->categoria->setText(simbolCategoria);
+        ui->numeroLinha->setText(simbolLine);
     }else{
         textAnaliseLexicaLexema = "Erro Lexico, CARACTER INCORRETO: " + erroLexico;
         setAutomaton();
@@ -545,7 +561,7 @@ void queueValue(){
     tokensLexemasTable [auxSintatico][1] = token;
     tokensLexemasTable [auxSintatico][2] = to_string(lineNumber);
     if(auxSintatico > 0){
-        if(token == "IDENTIFICADOR" && (tokensLexemasTable [auxSintatico-1][0] == "CONST" || tokensLexemasTable [auxSintatico-2][0] == "VAR")){
+        if(token == "IDENTIFICADOR" && (tokensLexemasTable [auxSintatico-1][0] == "CONST" || tokensLexemasTable [auxSintatico-1][0] == "," || tokensLexemasTable[auxSintatico-2][0] == "VAR")){
             simbolTable[auxSimbolTable][0] = to_string(auxSimbolTable);
             simbolTable[auxSimbolTable][1] = lexema;
             simbolTable[auxSimbolTable][4] = to_string(lineNumber);
@@ -1609,7 +1625,6 @@ void C(){
             nivel++;
             VAR();
             nivel--;
-            tamanho++;
             CA();
             nivel--;
         }else{
@@ -1679,6 +1694,7 @@ void C(){
 
 void CA(){
     gramatica17 = true;
+    string teste = tokensLexemasTable[tamanho][0];
     if(testValue("OPERATOR_ATRIBUT")){
         treeSintatico();
         tamanho++;
@@ -2270,10 +2286,42 @@ void AR(){
     nivel--;
 }
 
-string setSimbolTable(){
+string setSimbolTableNumber(){
     string text = "";
     for (int i = 0; simbolTable[i][0] != ""; i++){
-        text += simbolTable[i][0] + "\t" + simbolTable[i][1] + "\t" + simbolTable[i][2] + "\t" + simbolTable[i][3] + "\n";
+        text += simbolTable[i][0] + "\n";
+    }
+    return text;
+}
+
+string setSimbolTableNome(){
+    string text = "";
+    for (int i = 0; simbolTable[i][0] != ""; i++){
+        text += simbolTable[i][1] + "\n";
+    }
+    return text;
+}
+
+string setSimbolTableTipo(){
+    string text = "";
+    for (int i = 0; simbolTable[i][0] != ""; i++){
+        text += simbolTable[i][2] + "\n";
+    }
+    return text;
+}
+
+string setSimbolTableCategoria(){
+    string text = "";
+    for (int i = 0; simbolTable[i][0] != ""; i++){
+        text += simbolTable[i][3] + "\n";
+    }
+    return text;
+}
+
+string setSimbolTableLinha(){
+    string text = "";
+    for (int i = 0; simbolTable[i][0] != ""; i++){
+        text += simbolTable[i][4] + "\n";
     }
     return text;
 }

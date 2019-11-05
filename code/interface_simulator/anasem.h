@@ -12,7 +12,11 @@
 
 using namespace std;
 
-string setSimbolTable();
+string setSimbolTableNumber();
+string setSimbolTableNome();
+string setSimbolTableTipo();
+string setSimbolTableCategoria();
+string setSimbolTableLinha();
 void clearSimbol();
 const string typeID [6] ={
     "ID_INTEGER",
