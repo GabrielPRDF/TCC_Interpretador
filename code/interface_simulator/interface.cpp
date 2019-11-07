@@ -561,7 +561,7 @@ void queueValue(){
     tokensLexemasTable [auxSintatico][1] = token;
     tokensLexemasTable [auxSintatico][2] = to_string(lineNumber);
     if(auxSintatico > 0){
-        if(token == "IDENTIFICADOR" /*&& (tokensLexemasTable [auxSintatico-1][0] == "CONST" || tokensLexemasTable [auxSintatico-1][0] == "," || tokensLexemasTable[auxSintatico-2][0] == "VAR")*/){
+        if(token == "IDENTIFICADOR" && validaIdentificado()){
             simbolTable[auxSimbolTable][0] = to_string(auxSimbolTable);
             simbolTable[auxSimbolTable][1] = lexema;
             if(nivel == 0) simbolTable[auxSimbolTable][4] = "GLOBAL";
@@ -1195,8 +1195,10 @@ bool testValue(string valueTest){
 }
 
 void P(){
-    treeTerminal = "Programa";
-    treeSintatico();
+    if(tree == ""){
+        treeTerminal = "Programa";
+        treeSintatico();
+    }
     gramatica1 = true;
     LD();
 }
@@ -2382,4 +2384,16 @@ void setType(){
         }
         x++;
     }
+}
+bool validaIdentificado(){
+    if(tokensLexemasTable [auxSintatico-1][0] == "CONST" || tokensLexemasTable[auxSintatico-2][0] == "VAR" || tokensLexemasTable[auxSintatico-2][0] == "SUB" || tokensLexemasTable[auxSintatico-2][0] == "FUNCTION")
+        return true;
+    int i = 0;
+    while(simbolTable[auxSimbolTable][5] == tokensLexemasTable[auxSintatico - i][2]){
+        if(tokensLexemasTable [auxSintatico - i][0] == "VAR"){
+            return true;
+        }
+        i++;
+    }
+    return false;
 }

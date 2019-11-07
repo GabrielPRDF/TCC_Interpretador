@@ -17,6 +17,7 @@ string setSimbolTableNome();
 string setSimbolTableTipo();
 string setSimbolTableCategoria();
 string setSimbolTableNivel();
+bool validaIdentificado();
 void clearSimbol();
 const string typeID [6] ={
     "ID_INTEGER",
