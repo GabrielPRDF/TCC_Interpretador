@@ -1,0 +1,549 @@
+% =======================================================================
+% =                                                                     =
+% = ABNTEX - UTP                                                        =
+% =                                                                     =
+% =======================================================================
+% -----------------------------------------------------------------------
+% Author: Chaua Queirolo
+% Data:   01/07/2017
+% -----------------------------------------------------------------------
+\documentclass[12pt,oneside,a4paper,chapter=TITLE,section=TITLE,sumario=tradicional]{abntex2}
+
+% Regras da abnt
+\usepackage{packages/abnt-UTP}
+\usepackage{lipsum}
+
+% =======================================================================
+% =                                                                     =
+% = DADOS DO TRABALHO                                                   =
+% =                                                                     =
+% =======================================================================
+
+% Informações de dados para CAPA e FOLHA DE ROSTO
+\titulo{Título do Trabalho}
+
+\autor{Gabriel Pinto Ribeiro da Fonseca}
+
+\orientador{Prof. Diógenes Cogo Furlan}
+
+\preambulo{Trabalho de Conclusão de Curso apresentado ao curso de Bacharelado 
+em Ciência da Computação da Faculdade de Ciências Exatas e de Tecnologia da 
+Universidade Tuiuti do Paraná, como requisito à obtenção ao grau de Bacharel.}
+
+\instituicao{Universidade Tuiuti do Paraná}
+\local{Curitiba}
+\data{2019}
+
+% =======================================================================
+% =                                                                     =
+% = DOCUMENTO                                                           =
+% =                                                                     =
+% =======================================================================
+\begin{document}
+
+% -----------------------------------------------------------------------
+% -                                                                     -
+% - ELEMENTOS PRÉ-TEXTUAIS                                              -
+% -                                                                     -
+% -----------------------------------------------------------------------
+
+% Capa e folha de rosto
+\imprimircapa
+\imprimirfolhaderosto
+
+% Resumo
+\begin{comment}
+\begin{resumo}
+    Texto do resumo.
+    
+    \palavraschave{Palavra 1, Palavra 2, Palavra 3}    
+\end{resumo}
+\end{comment}
+% Listas
+\listadefiguras
+%\listadegraficos
+%\listadetabelas
+\listadequadros
+%\listadecodigos
+%\listadealgoritmos
+\begin{comment}
+% Lista de siglas
+\begin{siglas}
+  \item[ABNT] Associação Brasileira de Normas Técnicas
+\end{siglas}
+% ---
+\end{comment}
+% Lista de símbolos
+%\begin{simbolos}
+ % \item[$ \Gamma $] Letra grega Gama
+%  \item[$ \Lambda $] Lambda
+%  \item[$ \zeta $] Letra grega minúscula zeta
+%  \item[$ \in $] Pertence
+%\end{simbolos}
+
+% Sumario
+\sumario
+
+% -----------------------------------------------------------------------
+% -                                                                     -
+% - ELEMENTOS TEXTUAIS                                                  -
+% -                                                                     -
+% -----------------------------------------------------------------------
+% Inicia a numeracao das páginas
+\textual
+
+% -----------------------------------------------------------------------
+% -----------------------------------------------------------------------
+\chapter{Introdução}
+\label{cap:introducao}
+
+
+Dentro do curso de bacharelado em ciências da computação. A disciplina de compiladores é responsável por apresentar ao aluno a forma e o significado contidos na construção de um compilador. Um compilador, de forma convencional, apresenta fases de código fonte, e fases de síntese, oras quais o código fonte de alto nível e transformado em código máquina. A disciplina de compiladores apresenta uma considerável dificuldade no seu aprendizado, uma vez que é uma disciplina muito abrangente e muito profunda. Ele faz uma síntese de todo curso de bacharelado em ciências da computação, uma vez que exige conhecimentos em algoritmos, programação estruturado e orientado a objetos, estrutura de dados, métodos de autômatos, gramáticas e ainda conhecimento de assemble. 
+
+O presente projeto tem como objetivo o desenvolvimento de um interpretador da linguagem D+, para auxiliar os alunos na absorção do conteúdo, ajudando-os a fixar melhor os conceitos. O interpretador compila linha por linha e mostra visualmente em um terminal o programa já compilado. Neste software vai aplicar conteúdos visto em sala de aula na prática, proporcionando ao aluno entender como eles são elaborados dentro dos processos de analise léxica e sintática.
+
+Para desenvolver este software, é utilizado um compilador D+, linguagem elaborada pelo mestre Diógenes Cogo Furlan. Este compilador terá modificações para se tornar um interpretador. Para o desenvolvimento da interfase, é utilizado o editor QT Creator com a linguagem C++, pelo fato de este editor junto desta linguagem, disponibilizam ferramentas que facilitariam sua criação.
+
+Com este projeto, os alunos da disciplina de compiladores, terão ao seu alcance uma ferramenta (software) que o auxiliaram no aprendizado da matéria. Podendo criar códigos, e ver a transformação que passa pelo compilador, passando pela análise léxica, análise sintática e análise semântica. Os alunos que utilizarem este software, terão exemplos de árvores ascendentes e árvores descendentes no código escrito na interface em tempo real. Com toda esta possibilidade, o aprendizado dos alunos da disciplina compiladores terão um aprendizado melhor.
+\begin{comment}
+O aprendizado na área de compiladores é difícil, por conta da disciplina ter grande volume de conteúdo teórico, pouca pratica e apenas 6 meses de ensino, para o aluno compreender seus conceitos e analisar o passo a passo do compilador. Um interpretador desenvolvido da linguagem D+, auxilia os alunos na absorção do conteúdo, ajudando-os a fixar melhor a matéria da disciplina de compiladores, pois seria a implementação, no desenvolvimento de um compilador. Após inserir um código na interface, o interpretador compilará linha por linha ilustrando o código objeto. Caso exista um erro semântico ou alguma palavra especial esteja incorreta, de forma léxica ou de forma sintática, terá uma destaque com uma cor. O objetivo deste trabalho é desenvolver uma ferramenta que vai aplicar conteúdos visto em sala de aula na prática, proporcionando ao aluno entender como eles são elaborados 
+dentro dos processos de analise léxica e sintática, ilustrando a saída do código em cada etapa das análises. Outra justificativa se dá na área de documentação, os materiais disponíveis sobre o funcionamento, desenvolvimento e aplicação de interpretadores são escassos. Desta forma, o estudo proposto documentará o desenvolvimento de um interpretador com a gramática da linguagem D+, relatando as dificuldades encontradas e soluções obtidas, para ajudar no entendimento do tema.
+6.2. Problema Proposto: Com o desenvolvimento do interpretador da linguagem D+, pode-se questionar: • Como é possível criar um interpretador? • É possível tem uma melhor compreensão do processo de compilação, mostrando a entrada do código e saída de cada análise? • Como é possível mostrar de forma clara os erros de compilação do programa, de forma a auxiliar o programador a solucionar seus erros? • É possível criar uma interface funcional para um interpretador? • É possível que a criação de um interpretador para a linguagem D+ auxilie o aluno a entendê-la melhor? 
+ 
+6.3. Objetivos: O objetivo principal deste projeto é a criação de um interpretador da linguagem D+, que executará junto a uma interface desenvolvida para facilitar o aprendizado do estudante. Objetivos específicos: • Compilar um código desenvolvido em tempo real; • Ilustrar a saída dos estágios de análise léxica e análise sintática. • Caso o código tenha algum erro de análise léxica ou análise sintática, mostrar em tempo real ao desenvolvedor o erro; • Facilitar o entendimento para alunos que estejam estudando compiladores; • Criar a documentação do funcionamento do interpretador
+\end{comment}
+
+%\begin{lista}
+ %   \item a problematização, a motivação e a justificativa da escolha do tema;
+%    \item o problema de pesquisa e suas hipóteses, se houver,
+ %   \item a metodologia da pesquisa;
+ %   \item o referencial teórico e, ainda,
+  %  \item os tópicos principais do desenvolvimento, dando o roteiro ou
+%    ordem de exposição no decorrer da parte textual.
+%\end{lista}
+
+
+% -----------------------------------------------------------------------
+% -----------------------------------------------------------------------
+%\chapter{Fundamentação Teórica}
+\chapter{Teoria da Compilação}
+\label{cap:teoria-da-compilação}
+
+Este capítulo tem como objetivo apresentar os conceitos envolvendo a compilação, técnicas encontradas nela, razão pelo qual foi criado, seu funcionamento e sua estrutura, como análise léxica, análise sintática e analise semântica, também explicando o funcionamento de um compilador e um interpretador, dando ênfase em suas diferenças.
+
+Um processo de compilação designa o conjunto de tarefas que o compilador deve realizar para poder gerar uma descrição em uma linguagem a partir de outra \cite{pedro2018}. No começo da compilação, o compilador deve garantir que a tradução efetuada do código inserido seja correta, para que a execução dos comandos seja feita sem nenhum erro.
+
+O motivo que influenciou o desenvolvimento dos compiladores se deve ao fato de se obter uma maior eficiência de programação. No princípio os computadores possuíam arquiteturas distintas entre eles, tornando assim a mesma instrução diferente para todas. Este mesmo problema era encontrado na representação de dados \cite{ricarte2008}.
+
+Na figura 1 é ilustrado uma situação em que se utiliza uma instrução de soma, nesta imagem pode se observar a complexidade que a comunicação atingia ao transmitir para outra máquina a instrução. Devido a este empecilho, era necessária uma intervenção humana, ocasionando em contratar um especialista para resolver este problema, para cada plataforma. Uma situação pouco eficiente e de alto custo para a empresas  \cite{ricarte2008}.
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{A programação antes dos compiladores}
+    \fig{scale=1.3}{imagens/figura1}
+    \fonte{\cite{ricarte2008}}
+\end{figure}
+
+Para solucionar este problema, em busca de uma solução automática, procurando traduzir as especificações genéricas  \cite{ricarte2008}. Com este objetivo desenvolveu os compiladores.
+
+A figura 2, ilustra o processo já incluindo os compiladores. Com essa automação na tradução do código, se obteve economia pelo fato de não ser necessário a contratação de um especialista para esta tarefa, e aumento de produtividade por ter retirado a intervenção humana em uma parte do processo. 
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{A programação com compiladores}
+    \fig{scale=1.3}{imagens/figura2}
+    \fonte{\cite{ricarte2008}}
+\end{figure}
+
+\section{Compiladores}
+\label{sec:compiladores}
+
+Para se conceituar um compilador de forma simples, o compilador é um programa responsável por traduzir outro programa de uma linguagem fonte para outra linguagem alvo \cite{alfred1995}. Na figura 3 se demostrando a forma do funcionamento dos compiladores como descrito acima. 
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Exemplo do Funcionamento de um Compilador}
+    \fig{scale=0.7}{imagens/figura3}
+    \fonte{O próprio autor}
+\end{figure}
+
+O compilador segue passos para a tradução correta do código fonte para o código de saída. Os passos de análises são: análise léxica (AL), análise sintática (AS) e análise semântica (ASE). Os passos de tradução, são a Geração de código intermediário, a otimização de código, a geração de código final e a otimização de código final. Na figura 4 é ilustrado os passos seguidos dentro de um compilador, quando um código entra em seu processo, e é finalizado como o código de máquina alvo. 
+
+\section{Interpretadores}
+\label{sec:interpretadores}
+
+O interpretador é programa que converte a linguagem atual para uma especifica, mas ao contrário do compilador, ele não converte o código todo para linguagem de máquina de uma vez. Ele executa diretamente cada instrução, passo a passo. MATLAB, LISP, Perl e PHP são apontadas como interpretadas \cite{penelope2019}.  O interpretador efetua a tradução em operações especificadas, dependendo de como foi construído, podendo percorrer o código e ao decorrer desta análise, efetuar as operações necessárias. 
+
+Na figura 4 é ilustrado um fluxo geral de como é convertido o código, comparando o compilador ao interpretador. O que difere entre ambos é em qual momento ocorre a inserção de dados, tempo de execução e a diferença na saída de arquivos após os processos, o compilador gera um arquivo com a linguagem alvo (neste caso linguagem de máquina), e o interpretador executa diretamente a instrução, sem criar um arquivo fonte.
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Comparação Compilador x Interpretador}
+    \fig{scale=0.8}{imagens/figura4}
+    \fonte{O próprio autor.}
+\end{figure}
+
+Caso o código seja executado uma segunda vez, ocorrerá uma nova tradução, pois a tradução ocorrida anteriormente não fica armazenada para futuras execuções. Compiladores e interpretadores utilizam nas análises léxica, análise sintática e análise semântica.
+
+\section{Análise Léxica}
+\label{sec:analise-lexica}
+
+A análise Léxica, também chamada de análise scanning, é responsável por analisar os caracteres no programa da esquerda para a direita, e agrupa-los para a formação de tokens. Tokens são sequencias de caracteres que possuem um significado coletivo \cite{alfred1995}.
+
+Um exemplo que pode ser dado, é analisando um programa na linguagem C como ilustrado na figura 5.
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Exemplo dos passos presentes em um compilador}
+    \fig{scale=0.8}{imagens/figura5}
+    \fonte{\cite{maragon2015}}
+\end{figure}
+
+A figura 5 expõe os passos internos de um compilador, e o que é gerado em cada passo, como os tokens na análise léxica, árvore sintática na análise sintática e a tabela de símbolos.
+
+Efetuando uma análise léxica no código na linguagem C++ presente na figura 5, é possível apontar os tokens criados e os erros encontrados neste passo. 
+
+Começamos descrevendo as linhas corretas e os tokens retirados dela.
+
+\begin{lista}
+	\item Identificador    X 
+	\item Atribuição        = 
+	\item Número            6 
+	\item Identificador    Y
+\end{lista}
+
+Estes tokens citados acima, são os gerados na análise léxica, atribuídos e guardados para a próxima análise. Porém o código da figura 5 contém erros, impedindo de avançar para o próximo etapa.
+
+Os erros encontrados na análise léxica são:
+
+\begin{lista}
+	\item Linha 8, o analisador léxico não conhece o caractere () como algo valido.
+	\item Linha 8, o analisador léxico não conhece o caractere ) como algo valido.
+	\item Linha 10, a variável é declarada do tipo string (texto), mas na atribuição não é fechada as (“) para delimitar o fim do texto.
+	\item Linha 11, é iniciado um comando de bloco de comentário (/*), mas não é fechado com (*/).
+\end{lista}
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Código de exemplo para Análise Léxica}
+    \fig{scale=1.0}{imagens/figura6}
+    \fonte{O próprio autor}
+\end{figure}
+
+Na figura 5 ocorrem erros de análise sintática, que é o passo que abordaremos em seguida.
+
+\section{Análise Síntatica}
+\label{sec:analise-sintatica}
+
+A análise Sintática é chamada também de análise hierárquica ou análise gramatical. Este passo utiliza dos tokens criados pela análise léxica, para criar um significado coletivo, obtendo uma ordem sequencial \cite{alfred1995}.
+
+O analisador sintático, é responsável por avaliar se os tokens obtidos pelo passo anterior são válidos para a linguagem de programação em que ele e empregado, validando expressões, funções e métodos. A análise sintática geralmente utiliza de gramatica livre de contexto para especificar a sintaxe de uma linguagem de programação \cite{maragon2015}.
+
+Na figura 7, é apresentado um código na linguagem C++ com alguns erros encontrados na análise sintática, estes erros estão descritos abaixo da figura.
+
+\begin{lista}
+	\item Na linha 7, função main não fecha o “(“.
+	\item Na linha 8, não foi acrescentado o ; no final da linha, com isso o analisador não consegue distinguir o final da instrução e o começo de outra.
+	\item Na linha 9, o operador de divisão /, não consegue montar uma expressão de divisão por faltar o operador da esquerda. 
+	\item Na linha 13, o tipo da função int int, confunde o analisador por espera o nome do método após declara o seu tipo inteiro(int).
+	\item Na linha 15, a função soma, não fecha o .
+\end{lista}
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Código de exemplo para Análise Sintática}
+    \fig{scale=0.8}{imagens/figura7}
+    \fonte{O próprio autor}
+\end{figure}
+
+Após passar pela analise sintática, e verificado se o código faz sentido para linguagem que foi escrita, este passo é trato a seguir.
+
+\section{Análise Semântica}
+\label{sec:analise-semantica}
+
+Até o momento vimos as etapas de análise léxica, que quebra o programa fonte em tokens e a analise sintática, que valida as regras a sintaxe da linguagem de programação. Não é possível representar com expressões regulares ou com uma gramática livre de contexto regras como: todo identificador deve ser declarado antes de ser usado. Muitas verificações devem ser realizadas com meta-informações e com elementos que estão presentes em vários pontos do código fonte, distantes uns dos outros. O analisador semântico utiliza a árvore sintática e a tabela de símbolos para fazer as analise semântica. 
+
+A análise semântica é responsável por verificar aspectos relacionados ao significado das instruções, essa é a terceira etapa do processo de compilação e nesse momento ocorre a validação de uma série de regras que não podem ser verificadas nas etapas anteriores \cite{maragon2015}.
+
+Na figura 8, é ilustrado um código na linguagem C++ com alguns erros detectados na análise semântica.
+
+Lista dos erros:
+
+\begin{lista}
+	\item Linha 8, variável j sendo atribuída igual ao valor da variável y, porem a variável j não foi declarada.
+	\item Linha 5 e 11, duas funções main declaradas.
+	\item Linha 19, uma classe não pode herdar dela mesma.
+\end{lista}
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Código de exemplo para Análise Semântica}
+    \fig{scale=0.8}{imagens/figura8}
+    \fonte{O próprio autor}
+\end{figure}
+
+\section{Tabela de Símbolos}
+\label{sec:tabela-semantica}
+
+A tabela de símbolos é uma estrutura auxiliar que tem como função apoiar a analise semânticas nas atividades do código \cite{ricarte2008}. Este recurso é responsável por armazenar informações de identificadores, como variáveis, tipos de dados, funções e constantes. A estrutura da tabela de símbolos pode ser de uma árvore ou tabela hash.
+
+A seguir temos um código como exemplo para a explicação da tabela de símbolos.
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Código de exemplo para Tabela de Símbolos}
+    \fig{scale=0.8}{imagens/figura9}
+    \fonte{O próprio autor}
+\end{figure}
+
+\section{Geração de codigo}
+\label{sec:geracao-de-codigo}
+
+\section{Linguagem D+}
+\label{sec:linguagem-d+}
+
+A linguagem a ser utilizada neste trabalho é a D++, criada pelo professor Diógenes Furlan, para que os alunos que integram a disciplina de compiladores, por ele ministrada, utilizem como base para a criação de um compilador. Algumas regras presentes nesta linguagem são apresentadas na figura 10.
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Regras de gramáticas D+}
+    \fig{scale=0.6}{imagens/figura10}
+    \fonte{\cite{diogenes2018}}
+\end{figure}
+
+\chapter{Interação Humano-Computador(IHC)}
+\label{cap:interacao-humano-computador}
+
+Este capitulo tem como objetivo apresentar os conceitos primordiais da interface, os objetivos dela, história e os ganhos ofertados ao elaborá-la. 
+
+O surgimento do conceito da interface no princípio, era compreendido como o hardware e o software com que o homem poderia se comunicar \cite{rocha2003}.  Toda a comunicação que teria entre um ser humano e uma máquina, abrangia este conceito, desde uma atividade mais simples como uma leitura em uma tela, a atividades mais complexas como desenvolvimento de um software. A evolução deste conceito levou a inclusão dos aspectos cognitivos e emocionais do usuário durante a comunicação \cite{rocha2003}.
+
+Na figura 11, é ilustrado a comunicação entre uma pessoa e a máquina. O humano é representado pelo usuário, e a ação de comunicação são representadas pelas setas de interpretação e ação, a interface recebe as comunicações dos usuários e se comunica com a parte logica do software, aplicação.
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Interação Humano Computador.}
+    \fig{scale=0.8}{imagens/figura11}
+    \fonte{\cite{ana2012}}
+\end{figure}
+
+A interface pode ser visualizada como um lugar onde ocorre o contato entre duas entidades, homem e máquina, um exemplo, a tela de um computador \cite{rocha2003}. Com este exemplo, pode-se estender a varias situações, como, maçanetas de porta, botões de elevadores.
+
+Uma definição que englobaria estes casos, seria, que a interface é uma superfície de contato que possui propriedade que alteram o que é visto, ou sentido, e alterando o controle da interação (Laurel, 1993).
+
+IHC não possui uma definição estabelecida, mas a que mais a representa é, uma disciplina preocupada com o design, avaliação e implementação de sistemas computacionais interativos para uso humano e com o estudo dos principais fenômenos ao redor deles \cite{rocha2003}. Na figura 12, é ilustrado esta definição.
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Interação Humano-computador Adaptada da Descrição do comitê SIGCHI 1992}
+    \fig{scale=1.0}{imagens/figura12}
+    \fonte{\cite{rocha2003}}
+\end{figure}
+
+
+
+% -----------------------------------------------------------------------
+% -----------------------------------------------------------------------
+\chapter{Trabalhos Relacionados}
+\label{cap:trabalhos-relacionados}
+
+\section{Ambiente de programação visual baseado em componentes}
+\label{sec:ambiente-de-programacao-visual-baseado-em-componentes}
+ 
+\cite{juliana2015} apresenta um trabalho sobre a criação de um ambiente de desenvolvimento utilizando componentes vindos de fluxogramas, e transformando-os em código da linguagem C, para que auxilie pessoas que estão iniciando na área de programação, e também pessoas que já tem familiaridade na área, mas que não possuem conhecimento da linguagem ao qual o fluxo é convertido.
+
+Neste trabalho foi utilizada a linguagem C\#, fluxogramas e o banco de dados SQL Server. A linguagem C\#, foi escolhida devido a sua facilidade em criar um ambiente gráfico e de sua administração com imagens como fluxograma.
+
+A utilização de componentes baseados em fluxogramas auxilia no desenvolvimento de um ambiente de programação visual, possibilitando o usuário criar código através destes componentes.
+
+A figura 13 ilustra a interface criada pelo trabalho, tendo o menu esquerdo as funções possíveis de utilização, e a aba da direita sendo o resultado dos conjuntos escolhidos. 
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Exemplo de fluxo com o código gerado}
+    \fig{scale=0.4}{imagens/figura13}
+    \fonte{\cite{juliana2015}}
+\end{figure}
+
+SQL Server é um gerenciador de dados. Nele foram armazenados os fluxogramas para facilitar o processo de alocação, controle e manipulação, armazenando no final o código de saída do fluxograma montado. \cite{juliana2015}.
+
+Foram realizados experimentos com 50 alunos, porém apenas 20\% responderam o questionário proposto, e suas respostas informavam que o software chama a atenção para seu uso, porém não era mais simples o seu entendimento, obrigando o usuário a ter um conhecimento de lógica de programação maior do que o desejado, assim não atingindo seu objetivo. 
+
+\section{SCC: Um Compilador C como Ferramenta de Ensino de Compiladores}
+\label{sec:scc}
+ 
+\cite{juliano2009} apresenta um trabalho do desenvolvimento de um compilador que permite criar programas na linguagem C e serem executados com supervisão em tempo real. Estas supervisões funcionam com uma execução detalhada, passo a passo. Com este recurso tem se um auxílio no aprendizado de compiladores, e suas etapas da geração do código.
+
+Foram utilizadas a linguagem C e Assembly juntamente com a ferramenta SASM, que é um software que gera códigos objetos compatíveis com a arquitetura IA-32.
+
+A maior parte do trabalho foi desenvolvido na linguagem C, porém algumas das rotinas básicas foram desenvolvidas em Assembly para melhorar o desempenho. Utilizando também o SASM, para testar a compatibilidade do compilador com esta ferramenta.
+
+A figura 14 ilustra uma árvore de símbolos como saída de um código escrito para este compilador. 
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Exemplo de gráfico}
+    \fig{scale=1.0}{imagens/figura14}
+    \fonte{\cite{juliano2009}}
+\end{figure}
+
+\section{Compiler Basic Design and Construction}
+\label{sec:compiler-basic}
+
+\cite{mahak2009} apresenta um trabalho com sistema de compilação adaptativa, com o objetivo de fornecer uma documentação sobre o projeto e desenvolvimento do compilador, para auxiliar na compreensão do tema e criar técnicas eficazes para desenvolver.
+
+Neste trabalho foi utilizada a linguagem Scheme para a implementação do compilador, e código de montagem (Assembly) como linguagem alvo. As técnicas implementadas foram análise léxica e análise sintática. A análise léxica tem como objetivo verificar a parte gramática de acordo com as regras da linguagem criada ou utilizada, validando o que está correto ou não. A análise sintática, é responsável por verificar a ordem dos símbolos e sentido.
+
+\section{ Interpretador/Compilador Python}
+\label{sec:interpretador-compilador}
+
+\cite{eduardo2010} apresenta um trabalho sobre o funcionamento da arquitetura do Python, analisando os processos de análise léxica, sintática e a geração de código. Este artigo realiza uma abordagem sobre a estrutura da arquitetura, do interpretador, a gramática da linguagem e as características.
+
+Neste artigo foi utilizada a linguagem Python, uma linguagem de programação interpretada interativa e orientada a objetos, junto com o seu interpretador.
+
+Após os estudos foi verificado que o interpretador obteve uma implementação diferenciada dos demais nos processos de análise léxica e análise sintática. Foi observado também que o Python utiliza máquina virtual para executar os códigos intermediários(bytecodes).
+
+A figura 15 ilustra a arquitetura Python, tendo no centro ó interpretador, e nele os passos seguidos para a compilação do código.
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Exemplo de gráfico}
+    \fig{scale=0.5}{imagens/figura15}
+    \fonte{\cite{eduardo2010}}
+\end{figure}
+
+\section{ Compiler Construction}
+\label{sec:compiler-construction}
+
+\cite{aastha2013} apresenta um artigo informando técnicas e exemplos, que facilite a implementação de um compilador. 
+
+Neste artigo é apresentado exemplos das técnicas de analise léxica e analise semântica, também mostrando trechos de códigos para melhor compreensão.
+
+Foi utilizado a linguagem Scheme para a construção do compilador, e a linguagem de montagem, código de máquina (Uma linguagem composta apenas de números na base binaria), como linguagem alvo. Schema é uma linguagem que suporta programação funcional e procedural, facilitando assim a elaboração do compilador. O compilador criado utilizou de um gerenciamento de armazenamento do tipo pilha, essa estrutura tem a característica o maneja mento como, o último elemento a entrar nela, é o primeiro a sair.
+
+\begin{quadro}[htb]
+    \centering
+    \vspace{0.5cm}
+    \legenda[quadro:trabalhosRelacionados]{Comparação dos trabalhos relacionados.}
+    \begin{tabular}{|p{3.0cm}||p{3.0cm}|p{3.0cm}|p{3.0cm}|p{3.0cm}|}
+        \hline
+        \textbf{Trabalho} & \textbf{Mètodo} & \textbf{Gera uma saída} & \textbf{Ferramentas utilizaas} & \textbf{Linguagens utilizadas} \\ 
+        \hline\hline
+        Trabalho 1 & Componentes de fluxogramas; Administração de Imagens. & Código na linguagem C.   &  SQL Server; Fluxogramas. & C\#; SQL    \\ \hline 
+        Trabalho 2 & Análise sintática recursiva descendente    & Árvore sintática; Árvore de Símbolos.   & SASM.  & C; Assembly  \\ \hline
+        Trabalho 3 & Análise Léxica; Análise Sintática.   & Código de Montagem (Assembly).  &  -  & Scheme; Assembly.  \\ \hline
+        Trabalho 4 & Análise Léxica; Análise Sintática.   & -   &  Interpretador Python.  & Python.   \\ \hline
+        Trabalho 5 & Análise Léxica; Análise Sintática.   &  Código de Máquina.   & -   & Scheme.   \\ \hline
+    \end{tabular}
+
+    
+    \fonte{propçrio autor}
+\end{quadro}
+
+
+
+% -----------------------------------------------------------------------
+% -----------------------------------------------------------------------
+\chapter{Metodologia}
+\label{cap:metodologia}
+
+Neste capítulo iremos informar quais os métodos e ferramentas foram utilizados para desenvolver o interpretador e a interface, a forma de abordagem para a coleta de dados, o cenário e os individuos participantes.
+
+As tecnologias utilizados para o desenvolvimento do interpretador, são : linugagem de programação C++, QT creator, Jflap e Análise Léxica.
+
+\section{ Linguagem C++}
+\label{sec:linugagemc++}
+
+A linguagem utilizada para o desenvolvimento deste software, é C++, está linugagem foi escolhida por conta de ser a linguagem base no ensino da faculdade, e por ser a linguagem utilizada na ferramenta QT creator. 
+
+\section{ Qt creator}
+\label{sec:qtcreator}
+
+QT Creator um ambiente de desenvolvimento integrado (IDE), permitindo que desenvolva sistemas para plataformas multiplas, possibilitando tambem criar o design. Por ter essa versatilidade com o compilador integrado, dando a a opção de desenvolver a logica do interpretador e criar a interface, esta ferramenta foi utilizada no desenvolvimento.
+
+\section{Jflap}
+\label{sec:jflap}
+
+JFLAP é um software gratuiuto que possibilidata a criação de automatos finitos não deterministicos, maquinas de turing e varios tipos de gramatica. Este software foi utilizado para criar todos os automatos da linugagem D+, utilizados para ilustrar na interface do interpretador por onde o código passou.
+
+Na figura 16 é ilustrado um automato criado no JFLAP, ele é apresentado na interface desenvolvida quando aquele caminho de automato é acessado pela analise lexica.
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Automato do estado 0 ao 1 ativado}
+    \fig{scale=0.5}{imagens/figura16}
+    \fonte{O próprio autor}
+\end{figure} 
+
+Na figura 17 é ilustrado um automato que não foi acessado na análise léxica.
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Automato do estao 0 ao 1 desativado}
+    \fig{scale=0.5}{imagens/figura17}
+    \fonte{O próprio autor}
+\end{figure}
+
+\section{Estruturas adotadas no desenvolvimento}
+\label{sec:estruturasadotadas}
+
+Nesta sesão, serão tratados as estruturas utilizadas para o desenvolvimento da logica da compilação, Analise léxica, Analise Sintatica, fila.
+
+\subsection{Analise lexica}
+\label{subsec:analiselexica}
+
+A analise lexica foi completamente desenvolvida manualmente, utilizando os automatos criados no JFLAG, e as regras da linugagem D+. Os estados dos automatos foram representados por uma variavel declarada como state, e manipulada atravez de switch cases.
+Na figura 18 é ilustrado um trecho do codigo, usando esta variavel para comparar e atribuir um novo estado.
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Código switch case dos estados}
+    \fig{scale=1.0}{imagens/figura18}
+    \fonte{O próprio autor}
+\end{figure} 
+
+Na figura 19 é apresentada a interface operando em conjunto com a análise lexica, com o editor de texto a esquerda, a saída da análise léxica, com a geração de tokens e lexemas no centro e os automatos ativos por onde o processo passou, e desativados por onde não passou no lado direito.
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Interface integrada com a Análise Léxica}
+    \fig{scale=0.6}{imagens/figura19}
+    \fonte{O próprio autor}
+\end{figure} 
+
+% -----------------------------------------------------------------------
+% -----------------------------------------------------------------------
+\begin{comment}
+\chapter{Conclusão}
+
+É a parte final do trabalho, na qual se apresentam as conclusões 
+correspondentes aos objetivos e às hipóteses: informa se os objetivos foram 
+alcançados ou não – seguidos de justificativas e explicações caso os mesmos não 
+tenham sido alcançados – bem como se as hipóteses foram negadas ou 
+corroboradas. É possível que se apresentem também:
+
+\begin{lista}
+    \item comentários relativos aos resultados obtidos, fechando o raciocínio 
+    por meio de um processo dedutivo,
+    
+    \item a importância dos resultados obtidos,
+    
+    \item a projeção da pesquisa, com estimativas para o uso dos resultados,
+    
+    \item a repercussão, informando quem será beneficiado e em quê,
+    
+    \item as limitações do trabalho, mostrando suas fragilidades ou
+insuficiências,
+    \item as dificuldades encontradas no decorrer da pesquisa, e
+    \item indicações para trabalhos futuros, para a continuidade da
+pesquisa pelo próprio autor e por outros.
+\end{lista}
+
+Veja \autoref{apendice:teste}.
+\end{comment}
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+%\postextual
+% ----------------------------------------------------------
+
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\bibliography{referencias}
+
+% ----------------------------------------------------------
+% Apêndices
+% ----------------------------------------------------------
+% Material complementar preparado pelo autor
+%\apendice[apendice:teste]{TESTE}
+
+% ----------------------------------------------------------
+% Anexos
+% ----------------------------------------------------------
+% Material complementar nao preparado pelo autor
+%\anexo[apendice:teste1]{TESTE}
+
+
+\end{document}
