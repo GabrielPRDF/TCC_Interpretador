@@ -1303,19 +1303,19 @@ void DC(){
                     treeSintatico();
                     logAnaliseSintatica += "\n Sucesso na const :" + tokensLexemasTable[tamanho-1][0];
                 }else{
-                    logAnaliseSintatica += "\nErro: Erro na declaração de CONST!";
+                    logAnaliseSintatica += "\nErro: Erro na declaração de CONST, faltando ( ; )!";
                     keySintatico = 1;
                 }
             }else{
-                logAnaliseSintatica += "\nErro: Erro na declaração de CONST!";
+                logAnaliseSintatica += "\nErro: Erro na declaração de CONST, não encontrado o VALOR!";
                 keySintatico = 1;
             }
         }else{
-            logAnaliseSintatica += "\nErro: Erro na declaração de CONST!";
+            logAnaliseSintatica += "\nErro: Erro na declaração de CONST, não encontrado o caracter de atribuição ( = )!";
             keySintatico = 1;
         }
     }else{
-        logAnaliseSintatica += "\nErro: Erro na declaração de CONST!";
+        logAnaliseSintatica += "\nErro: Erro na declaração de CONST, não encontrado o identificador!";
         keySintatico = 1;
     }
 }
@@ -1329,7 +1329,7 @@ void DV(){
         treeSintatico();
         logAnaliseSintatica += "\n Sucesso no VAR(S) :" + tokensLexemasTable[tamanho-1][0];
     }else{
-        logAnaliseSintatica += "\nErro: Erro na declaração de VAR!";
+        logAnaliseSintatica += "\nErro: Erro na declaração de VAR, faltando ( ; )!";
         keySintatico = 1;
     }
 }
@@ -1354,19 +1354,19 @@ void DP(){
                     if(keySintatico == 1) return;
                     logAnaliseSintatica += "\n Sucesso na Procedure";
                 }else{
-                    logAnaliseSintatica += "\nErro: Erro na declaração de PROCEDURE!";
+                    logAnaliseSintatica += "\nErro: Erro na declaração de PROCEDURE, não encontrado o END-SUB!";
                     keySintatico = 1;
                 }
             }else{
-                logAnaliseSintatica += "\nErro: Erro na declaração de PROCEDURE!";
+                logAnaliseSintatica += "\nErro: Erro na declaração de PROCEDURE, fechamento de parênteses não encontrado!";
                 keySintatico = 1;
             }
         }else{
-            logAnaliseSintatica += "\nErro: Erro na declaração de PROCEDURE!";
+            logAnaliseSintatica += "\nErro: Erro na declaração de PROCEDURE, abertura de parênteses não encontrado!";
             keySintatico = 1;
         }
     }else{
-        logAnaliseSintatica += "\nErro: Erro na declaração de PROCEDURE!";
+        logAnaliseSintatica += "\nErro: Erro na declaração de PROCEDURE, identificador não encontrado!";
         keySintatico = 1;
     }
 }
@@ -1391,19 +1391,19 @@ void DF(){
                     if(keySintatico == 1) return;
                     logAnaliseSintatica += "\n Sucesso na Função";
                 }else{
-                    logAnaliseSintatica += "\nErro: Erro na declaração de FUNÇÃO!";
+                    logAnaliseSintatica += "\nErro: Erro na declaração de FUNÇÃO, não encontrado o END-FUNCTION!";
                     keySintatico = 1;
                 }
             }else{
-                logAnaliseSintatica += "\nErro: Erro na declaração de FUNÇÃO!";
+                logAnaliseSintatica += "\nErro: Erro na declaração de FUNÇÃO, fechamento de parênteses não encontrado!";
                 keySintatico = 1;
             }
         }else{
-            logAnaliseSintatica += "\nErro: Erro na declaração de FUNÇÃO!";
+            logAnaliseSintatica += "\nErro: Erro na declaração de FUNÇÃO, abertura de parênteses não encontrado!";
             keySintatico = 1;
         }
     }else{
-        logAnaliseSintatica += "\nErro: Erro na declaração de FUNÇÃO!";
+        logAnaliseSintatica += "\nErro: Erro na declaração de FUNÇÃO, identificador não encontrado!";
         keySintatico = 1;
     }
 }
@@ -1423,15 +1423,15 @@ void DM(){
                 tamanho++;
                 logAnaliseSintatica += "\n Função MAIN";
             }else{
-                logAnaliseSintatica += "\nErro: Erro na declaração de MAIN!";
+                logAnaliseSintatica += "\nErro: Erro na declaração de MAIN, não encontrado o END!";
                 keySintatico = 1;
             }
         }else{
-            logAnaliseSintatica += "\nErro: Erro na declaração de MAIN!";
+            logAnaliseSintatica += "\nErro: Erro na declaração de MAIN, fechamento de parênteses não encontrado!";
             keySintatico = 1;
         }
     }else{
-        logAnaliseSintatica += "\nErro: Erro na declaração de MAIN!";
+        logAnaliseSintatica += "\nErro: Erro na declaração de MAIN, abertura de parênteses não encontrado!";
         keySintatico = 1;
     }
 }
@@ -1465,7 +1465,7 @@ void ET(){
                         if(testValue("ID_REAL")){
                             somaTree();
                         }else{
-                            logAnaliseSintatica += "\nErro: Erro na declaração de TIPO!";
+                            logAnaliseSintatica += "\nErro: Erro na declaração de TIPO, não reconhecido!";
                             keySintatico = 1;
                             return;
                         }
@@ -1538,12 +1538,12 @@ void PM(){
             tamanho++;
             M();
         }else{
-            logAnaliseSintatica += "\nErro: Erro na pasagem de parametros!";
+            logAnaliseSintatica += "\nErro: Aguardando um BY!";
             keySintatico = 1;
         }
         nivel--;
     }else{
-        logAnaliseSintatica += "\nErro: Erro na pasagem de parametros!";
+        logAnaliseSintatica += "\nErro: Aguardando um VAR!";
         keySintatico = 1;
     }
     nivel--;
@@ -1707,11 +1707,11 @@ void CA(){
             treeSintatico();
             logAnaliseSintatica += "\n Sucesso no comando de Atribuição";
         }else{
-            logAnaliseSintatica += "\nErro: Erro no comando de Atribuição!";
+            logAnaliseSintatica += "\nErro: Erro no comando de Atribuição, faltando ( ; )!";
             keySintatico = 1;
         }
     }else{
-        logAnaliseSintatica += "\nErro: Erro no comando de Atribuição!";
+        logAnaliseSintatica += "\nErro: Erro no comando de Atribuição, não encontrado o caracter de atribuição ( = )!";
         keySintatico = 1;
     }
 }
@@ -1735,16 +1735,16 @@ void CS(){
                     treeSintatico();
                     logAnaliseSintatica += "\n Sucesso no comando de Seleção";
                 }else{
-                    logAnaliseSintatica += "\nErro: Erro comando de Seleção IF ELSE END-IF";
+                    logAnaliseSintatica += "\nErro: Erro comando de Seleção, não encontrado o END-IF!";
                     keySintatico = 1;
                 }
             }else{
-                logAnaliseSintatica += "\nErro: Erro comando de Seleção IF END-IF";
+                logAnaliseSintatica += "\nErro: Erro comando de Seleção, não encontrado o END-IF!";
                 keySintatico = 1;
             }
         }
     }else{
-        logAnaliseSintatica += "\nErro: Erro comando de Seleção IF";
+        logAnaliseSintatica += "\nErro: Erro comando de Seleção, não encontrado o THEN!";
         keySintatico = 1;
     }
 }
@@ -1767,11 +1767,11 @@ void CR(){
                 treeSintatico();
                 logAnaliseSintatica += "\n Sucesso no comando de repetição WHILE DO";
             }else{
-                logAnaliseSintatica += "\nErro: Erro no comando de repedição WHILE DO";
+                logAnaliseSintatica += "\nErro: Erro no comando de repedição, não encontrado o LOOP!";
                 keySintatico = 1;
             }
         }else{
-            logAnaliseSintatica += "\nErro: Erro no comando de repedição WHILE DO";
+            logAnaliseSintatica += "\nErro: Erro no comando de repedição, não encontrado o DO!";
             keySintatico = 1;
         }
         nivel--;
@@ -1789,11 +1789,11 @@ void CR(){
                     treeSintatico();
                     logAnaliseSintatica += "\n Sucesso no comando de repetição DO AS";
                 }else{
-                    logAnaliseSintatica += "\nErro: Erro no comando de repedição DO AS";
+                    logAnaliseSintatica += "\nErro: Erro no comando de repedição, faltando ( ; )!";
                     keySintatico = 1;
                 }
             }else{
-                logAnaliseSintatica += "\nErro: Erro no comando de repedição DO AS";
+                logAnaliseSintatica += "\nErro: Erro no comando de repedição, não encontrado o AS";
                 keySintatico = 1;
             }
             nivel--;
@@ -1811,11 +1811,11 @@ void CR(){
                         treeSintatico();
                         logAnaliseSintatica += "\n Sucesso no comando de repetição REPEAT UNTIL";
                     }else{
-                        logAnaliseSintatica += "\nErro: Erro no comando de repedição REPEAT";
+                        logAnaliseSintatica += "\nErro: Erro no comando de repedição, faltando ( ; )!";
                         keySintatico = 1;
                     }
                 }else{
-                    logAnaliseSintatica += "\nErro: Erro no comando de repedição REPEAT";
+                    logAnaliseSintatica += "\nErro: Erro no comando de repedição, não encontrado o UNTIL!";
                     keySintatico = 1;
                 }
                 nivel--;
@@ -1843,20 +1843,20 @@ void CR(){
                                         treeSintatico();
                                         logAnaliseSintatica += "\n Sucesso no comando de repetição FOR";
                                     }else{
-                                        logAnaliseSintatica += "\nErro: Erro no comando de repedição FOR";
+                                        logAnaliseSintatica += "\nErro: Erro no comando de repedição, não encontrado o NEXT!";
                                         keySintatico = 1;
                                     }
                                 }else{
-                                    logAnaliseSintatica += "\nErro: Erro no comando de repedição FOR";
+                                    logAnaliseSintatica += "\nErro: Erro no comando de repedição, não ecnontrado o DO!";
                                     keySintatico = 1;
                                 }
                             }else{
-                                logAnaliseSintatica += "\nErro: Erro no comando de repedição FOR";
+                                logAnaliseSintatica += "\nErro: Erro no comando de repedição, não encontrado o TO!";
                                 keySintatico = 1;
                             }
                         }
                     }else{
-                        logAnaliseSintatica += "\nErro: Erro no comando de repedição FOR";
+                        logAnaliseSintatica += "\nErro: Erro no comando de repedição, não encontrado o identificador!";
                         keySintatico = 1;
                     }
                     nivel--;
@@ -1881,17 +1881,17 @@ void CP(){
             tamanho++;
             if(testValue("SIGNAL_SEMICOLON")){
                 treeSintatico();
-                logAnaliseSintatica += "\n Sucesso no chamada de procedure";
+                logAnaliseSintatica += "\n Sucesso na chamada de procedure";
             }else{
-                logAnaliseSintatica += "\nErro: Erro no chamada de PROCEDURE";
+                logAnaliseSintatica += "\nErro: Erro na chamada de PROCEDURE, faltando ( ; )!";
                 keySintatico = 1;
             }
         }else{
-            logAnaliseSintatica += "\nErro: Erro no chamada de PROCEDURE";
+            logAnaliseSintatica += "\nErro: Erro na chamada de PROCEDURE, fechamento de parênteses não encontrado!";
             keySintatico = 1;
         }
     }else{
-        logAnaliseSintatica += "\nErro: Erro no chamada de PROCEDURE";
+        logAnaliseSintatica += "\nErro: Erro na chamada de PROCEDURE, abertura de parênteses não encontrado!";
         keySintatico = 1;
     }
 }
@@ -1910,7 +1910,7 @@ void CD(){
             treeSintatico();
             logAnaliseSintatica += "\n Sucesso no comando de desvio";
         }else{
-            logAnaliseSintatica += "\nErro: Erro comando de desvio RETURN";
+            logAnaliseSintatica += "\nErro: Erro comando de desvio, faltando ( ; )!";
             keySintatico = 1;
         }
         nivel--;
@@ -1923,7 +1923,7 @@ void CD(){
                 treeSintatico();
                 logAnaliseSintatica += "\n Sucesso no comando de desvio";
             }else{
-                logAnaliseSintatica += "\nErro: Erro comando de desvio BREAK";
+                logAnaliseSintatica += "\nErro: Erro comando de desvio, faltando ( ; )!";
                 keySintatico = 1;
             }
             nivel--;
@@ -1936,7 +1936,7 @@ void CD(){
                     treeSintatico();
                     logAnaliseSintatica += "\n Sucesso no comando de desvio";
                 }else{
-                    logAnaliseSintatica += "\nErro: Erro comando de desvio CONTINUE";
+                    logAnaliseSintatica += "\nErro: Erro comando de desvio, faltando ( ; )!";
                     keySintatico = 1;
                 }
                 nivel--;
@@ -1970,15 +1970,15 @@ void CL(){
                     treeSintatico();
                     logAnaliseSintatica += "\n Sucesso no comando de leitura";
                 }else{
-                    logAnaliseSintatica += "\nErro: Erro comando de leitura";
+                    logAnaliseSintatica += "\nErro: Erro comando de leitura, faltando ( ; )!";
                     keySintatico = 1;
                 }
             }else{
-                logAnaliseSintatica += "\nErro: Erro comando de leitura";
+                logAnaliseSintatica += "\nErro: Erro comando de leitura, fechamento de parênteses não encontrado!";
                 keySintatico = 1;
             }
         }else{
-            logAnaliseSintatica += "\nErro: Erro comando de leitura";
+            logAnaliseSintatica += "\nErro: Erro comando de leitura, abertura de parênteses não encontrado!";
             keySintatico = 1;
         }
         nivel--;
@@ -2007,17 +2007,17 @@ void CE(){
                 tamanho++;
                 if(testValue("SIGNAL_SEMICOLON")){
                     treeSintatico();
-                    logAnaliseSintatica += "\n Sucesso no comando de leitura";
+                    logAnaliseSintatica += "\n Sucesso no comando de escrita";
                 }else{
-                    logAnaliseSintatica += "\nErro: Erro comando de escrita";
+                    logAnaliseSintatica += "\nErro: Erro comando de escrita, faltando ( ; )!";
                     keySintatico = 1;
                 }
             }else{
-                logAnaliseSintatica += "\nErro: Erro comando de escrita";
+                logAnaliseSintatica += "\nErro: Erro comando de escrita, fechamento de parênteses não encontrado!";
                 keySintatico = 1;
             }
         }else{
-            logAnaliseSintatica += "\nErro: Erro comando de escrita";
+            logAnaliseSintatica += "\nErro: Erro comando de escrita, abertura de parênteses não encontrado!";
             keySintatico = 1;
         }
         nivel--;
@@ -2044,13 +2044,13 @@ void VAR(){
                 treeSintatico();
                 tamanho++;
             }else{
-                logAnaliseSintatica += "\nErro: declaração de VAR IDENTIFICADOR";
+                logAnaliseSintatica += "\nErro: Esperado o fechamento de colchetes!";
                 keySintatico = 1;
             }
         }
         nivel--;
     }else{
-        logAnaliseSintatica += "\nErro: declaração de VAR IDENTIFICADOR";
+        logAnaliseSintatica += "\nErro: Esperado um identificador!";
         keySintatico = 1;
     }
 }
@@ -2170,7 +2170,7 @@ void EXPSP(){
             tamanho++;
             logAnaliseSintatica += "\n Sucesso na expreção (EXP)";
         }else{
-            logAnaliseSintatica += "\nErro: Erro comando de EXPREÇÃO";
+            logAnaliseSintatica += "\nErro: Erro comando de EXPREÇÃO, fechamento de parênteses não encontrado!";
             keySintatico = 1;
         }
         nivel--;
@@ -2225,11 +2225,11 @@ void CF(){
             treeSintatico();
             tamanho++;
         }else{
-            logAnaliseSintatica += "\nErro: Erro na chamada de FUNÇÃO";
+            logAnaliseSintatica += "\nErro: Erro na chamada de FUNÇÃO, fechamento de parênteses não encontrado!";
             keySintatico = 1;
         }
     }else{
-        logAnaliseSintatica += "\nErro: Erro na chamada de FUNÇÃO";
+        logAnaliseSintatica += "\nErro: Erro na chamada de FUNÇÃO, abertura de parênteses não encontrado!";
         keySintatico = 1;
     }
 }
