@@ -432,63 +432,143 @@ Foi utilizado a linguagem Scheme para a construção do compilador, e a linguage
 \chapter{Metodologia}
 \label{cap:metodologia}
 
-Neste capítulo iremos informar quais os métodos e ferramentas foram utilizados para desenvolver o interpretador e a interface, a forma de abordagem para a coleta de dados, o cenário e os individuos participantes.
+Neste capitula é informado quais os métodos e ferramentas foram utilizados para desenvolver o interpretador e a interface, a forma de abordagem para a coleta de dados, o cenário e os indivíduos participantes.
 
-As tecnologias utilizados para o desenvolvimento do interpretador, são : linugagem de programação C++, QT creator, Jflap e Análise Léxica.
+A metodologia seguida para se obter dados sobre a utilização e a funcionalidades para os alunos e para o professor da matéria de compiladores, é a utilização de um questionário elaborado para ser respondido após o uso do software, este questionário está no apêndice.
+As tecnologias utilizadas para o desenvolvimento do interpretador, são: linguagem de programação C++, QT Creator, JFLAP, e as metodologias de criação de um compilador, Análise Léxica, Análise Sintática e Analise Semântica.  
 
 \section{ Linguagem C++}
 \label{sec:linugagemc++}
 
-A linguagem utilizada para o desenvolvimento deste software, é C++, está linugagem foi escolhida por conta de ser a linguagem base no ensino da faculdade, e por ser a linguagem utilizada na ferramenta QT creator. 
+A linguagem utilizada para o desenvolvimento deste software é C++, que é a predominante no programa QT Creator, e por se diferenciar pouco da linguagem C, a base no ensino no curso de ciências da computação. Esta linguagem também possui bibliotecas que auxiliam no desenvolvimento, como o regex, que é utilizado neste trabalho para tratar expressões regulares e assim tornar o código melhor escrito sem necessidade de repetição de regra.
+
+Na figura 16 é ilustrado a função descrita acima, nela é chamada a função regex\_match, está função verifica se a letra passada, a variável line[aux], faz parte da gramatica enviada junto, regex("[a-zA-Z\_]").
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Função do codigo de validação de caractere}
+    \fig{scale=1.0}{imagens/regex}
+    \fonte{O próprio autor}
+\end{figure} 
 
 \section{ Qt creator}
 \label{sec:qtcreator}
 
-QT Creator um ambiente de desenvolvimento integrado (IDE), permitindo que desenvolva sistemas para plataformas multiplas, possibilitando tambem criar o design. Por ter essa versatilidade com o compilador integrado, dando a a opção de desenvolver a logica do interpretador e criar a interface, esta ferramenta foi utilizada no desenvolvimento.
+QT Creator é um ambiente de desenvolvimento integrado (IDE), criado por uma empresa norueguesa Trolltech, que visa facilitar e ajudar no desenvolvimento de softwares, permitindo criar sistemas para plataformas múltiplas. A versão utilizada é a 5.13.1, com o compilador MinGW 7.3.0 32 bits. 
+
+A principal razão da escolha desta IDE foi a facilidade de desenvolvimento, devido a possuir um compilador integrado, uma depuração excelente que possibilita que o desenvolvedor encontre o erro no código produzido, e o corrija rapidamente, além de ter familiaridade com está framework por já utilizá-la em trabalhos da universidade. 
+
+Na figura 17 é ilustrado a interface do Qt Creator, e as opções de funcionalidades no lado esquerdo, sendo o ícone de triangulo deitado verde a função de compilação e o ícone de triangulo verde junto a um inseto o de depuração.
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Interface de código do Qt Creator}
+    \fig{scale=0.8}{imagens/qtCreator}
+    \fonte{O próprio autor}
+\end{figure} 
+
+Este software da a possibilidade de elaborar a interface, com componentes básicos prontos necessitando apenas configura-los, assim centralizando tanto a Back-End (parte logica do software) como o Front-End (interface). 
+
+Na figura 18 é ilustrado a interface de do Qt Creator para a criação de interfaces, no lado esquerdo se encontra componentes já criados, sendo necessários apenas selecionalos e configura-los.
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Interface de design do Qt Creator}
+    \fig{scale=0.8}{imagens/qt}
+    \fonte{O próprio autor}
+\end{figure} 
 
 \section{Jflap}
 \label{sec:jflap}
 
-JFLAP é um software gratuiuto que possibilidata a criação de automatos finitos não deterministicos, maquinas de turing e varios tipos de gramatica. Este software foi utilizado para criar todos os automatos da linugagem D+, utilizados para ilustrar na interface do interpretador por onde o código passou.
+JFLAP é um software gratuito educacional desenvolvido na linguagem JAVA por Susan H. Rodger, o principal uso deste framework é na criação de autômatos finitos não determinísticos, maquinas de Turing e vários tipos de gramatica \cite{susan2005}.
 
-Na figura 16 é ilustrado um automato criado no JFLAP, ele é apresentado na interface desenvolvida quando aquele caminho de automato é acessado pela analise lexica.
+Este software foi utilizado para criar todos os autômatos da linguagem D+, utilizados para ilustrar na interface do interpretador por onde o código passou. Na figura 16 é ilustrado um autômato criado no JFLAP, ele é apresentado na interface desenvolvida quando aquele caminho de autômato é acessado pela analise léxica. Na figura 17 é ilustrado um autômato que não foi acessado na análise léxica).
+
+Na figura 19 é ilustrado as opções que o software oferta para o usuário, desde autômato finito, gramáticas, máquina de Turing entre outros. Neste trabalho foi utilizado apenas a funcionalidade de autômato finito.
 
 \begin{figure}[htb]
-    \legenda[fig:figura]{Automato do estado 0 ao 1 ativado}
-    \fig{scale=0.5}{imagens/figura16}
+    \legenda[fig:figura]{Menu JFLAP}
+    \fig{scale=0.8}{imagens/jflap}
     \fonte{O próprio autor}
 \end{figure} 
 
-Na figura 17 é ilustrado um automato que não foi acessado na análise léxica.
+Na figura 20 é ilustrado o quadro que a framework abre para a criação dos autômatos.
 
 \begin{figure}[htb]
-    \legenda[fig:figura]{Automato do estao 0 ao 1 desativado}
-    \fig{scale=0.5}{imagens/figura17}
+    \legenda[fig:figura]{Janela de criação de autômatos}
+    \fig{scale=1.0}{imagens/jflapAutomato}
+    \fonte{O próprio autor}
+\end{figure}
+
+\section{Autômatos}
+\label{sec:automatosmet}
+
+A criação dos autômatos da linguagem d+ foram criados para facilitar no desenvolvimento da análise léxica e posteriormente para a ilustração do percurso do código escrito. Foi desenvolvido uma função para cada estado do autômato.
+
+Foram criado um total de 20 autômatos, exportados como png para utilizá-los na interface, e assim ilustrar para quem estiver utilizando o interpretador.
+
+Na figura 21 é ilustrado um autômato criado na ferramenta JFLAP. Ele demonstra o caminho de validação de um identificador ou palavra reservada, onde sua gramática permite letras de A à Z tanto minúsculas ou maiúscula.
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômotos na interface}
+    \fig{scale=1.0}{imagens/automato}
     \fonte{O próprio autor}
 \end{figure}
 
 \section{Estruturas adotadas no desenvolvimento}
 \label{sec:estruturasadotadas}
 
-Nesta sesão, serão tratados as estruturas utilizadas para o desenvolvimento da logica da compilação, Analise léxica, Analise Sintatica, fila.
+Neste capitulo são tratadas as estruturas utilizadas para o desenvolvimento da lógica da compilação, programação estruturada, Análise léxica, Análise Sintática, e Análise semântica.
 
-\subsection{Analise lexica}
-\label{subsec:analiselexica}
+\subsection{Programação Estruturada}
+\label{subsec:programacaoestruturada}
 
-A analise lexica foi completamente desenvolvida manualmente, utilizando os automatos criados no JFLAG, e as regras da linugagem D+. Os estados dos automatos foram representados por uma variavel declarada como state, e manipulada atravez de switch cases.
-Na figura 18 é ilustrado um trecho do codigo, usando esta variavel para comparar e atribuir um novo estado.
+A estrutura de programação estruturada foi a escolhida no desenvolvimento do software, por conta de ser a base ensinada no curso de ciências da computação, e com isso ter maior familiaridade com esta estrutura.
+
+A programação estruturada tem como base três mecanismos em que os blocos de códigos se interligam, os mecanismos são: sequência, seleção e iteração\cite{ivan2003}.
+
+A sequência é o fluxo que o código toma de acordo com a ação\cite{ivan2003}, um exemplo é o fluxo que o interpretador desenvolvido toma quando é clicado no botão de Run, ele carrega o código inserido, efetua a análise léxica em seguida a análise sintática e por fim a analise semântica. Na figura 22 é ilustrado um exemplo de sequência.
 
 \begin{figure}[htb]
-    \legenda[fig:figura]{Código switch case dos estados}
-    \fig{scale=1.0}{imagens/figura18}
+    \legenda[fig:figura]{Fluxo de sequência}
+    \fig{scale=0.6}{imagens/fluxo}
+    \fonte{O próprio autor}
+\end{figure}
+
+A seleção é a verificação do caminho que será tomado com uma verificação do comando IF\cite{ivan2003}, um exemplo encontrado no código, é uma verificação que se faz andes de iniciar a análise sintática, caso haja um erro na analise léxica, ele não prossegue para a análise sintática. Na figura 23 é ilustrado o exemplo de seleção.
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Exemplo de iteração usando o comando while}
+    \fig{scale=0.8}{imagens/if}
+    \fonte{O próprio autor}
+\end{figure}
+
+A iteração é o mecanismo de repetição, enquanto uma condição for atendida ela é executa\cite{ivan2003}, um exemplo encontrado no código é na função state01, nesta função existe uma estrutura de repetição, while, em que e verificado se a letra de uma variável satisfaz a uma regra, caso sim, refaz os passos contidos dentro desta estrutura, ao contrário segue o código abaixo dela. Na figura 24 é ilustrado um exemplo de iteração.
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Exemplo de seleção}
+    \fig{scale=1.0}{imagens/iteracao}
+    \fonte{O próprio autor}
+\end{figure}
+
+\subsection{Análise léxica}
+\label{subsec:analiselexica}
+
+Para o desenvolvimento da analise léxica, foram utilizados os autômatos criados, em apêndice, como guias, o autômato do estado 0 é o que seleciona o caminho que aquele caractere ira percorrer, o mesmo é feito na função state00, ao encontrar o caminho é atribuído um valor para a variável state sendo o valor o número do próximo estado, e assim prossegue para o estado subsequente.
+
+Na figura 25 é ilustrado um trexo da função state00, nela é verificado a letra que o programa está analisando, caso faça parte da gramatica, é direcionada para o caminho correto, do contrário é retornado erro.
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Função state00}
+    \fig{scale=1.0}{imagens/state00}
     \fonte{O próprio autor}
 \end{figure} 
 
-Na figura 19 é apresentada a interface operando em conjunto com a análise lexica, com o editor de texto a esquerda, a saída da análise léxica, com a geração de tokens e lexemas no centro e os automatos ativos por onde o processo passou, e desativados por onde não passou no lado direito.
+A função reservWorks contém a lógica para verificar se aquele lexema formado é uma palavra reservada, a função possui um laço de repetição, for, em que percorre uma matriz criada que contém todas as palavras reservadas da linguagem D+, casso seja igual a alguma delas, é atribuído o token da palavra reservada, do contrário o token é atribuído como identificador.
+
+Na figura 26 é ilustrado a função reservWorks.
 
 \begin{figure}[htb]
-    \legenda[fig:figura]{Interface integrada com a Análise Léxica}
-    \fig{scale=0.6}{imagens/figura19}
+    \legenda[fig:figura]{Função reservWorks}
+    \fig{scale=1.0}{imagens/reserv}
     \fonte{O próprio autor}
 \end{figure} 
 
@@ -543,7 +623,7 @@ Veja \autoref{apendice:teste}.
 % Anexos
 % ----------------------------------------------------------
 % Material complementar nao preparado pelo autor
-%\anexo[apendice:teste1]{TESTE}
+\anexo[apendice:teste1]{QUESTIONARIO}
 
 
 \end{document}
