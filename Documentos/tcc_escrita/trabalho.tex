@@ -8,10 +8,12 @@
 % Data:   01/07/2017
 % -----------------------------------------------------------------------
 \documentclass[12pt,oneside,a4paper,chapter=TITLE,section=TITLE,sumario=tradicional]{abntex2}
+%\usepackage{pdfpages}
 
 % Regras da abnt
 \usepackage{packages/abnt-UTP}
 \usepackage{lipsum}
+
 
 % =======================================================================
 % =                                                                     =
@@ -562,15 +564,37 @@ Na figura 25 é ilustrado um trexo da função state00, nela é verificado a let
     \fonte{O próprio autor}
 \end{figure} 
 
-A função reservWorks contém a lógica para verificar se aquele lexema formado é uma palavra reservada, a função possui um laço de repetição, for, em que percorre uma matriz criada que contém todas as palavras reservadas da linguagem D+, casso seja igual a alguma delas, é atribuído o token da palavra reservada, do contrário o token é atribuído como identificador.
-
-Na figura 26 é ilustrado a função reservWorks.
+A função reservWorks contém a lógica para verificar se aquele lexema formado é uma palavra reservada, a função possui um laço de repetição, for, em que percorre uma matriz criada que contém todas as palavras reservadas da linguagem D+, casso seja igual a alguma delas, é atribuído o token da palavra reservada, do contrário o token é atribuído como identificador. Na figura 26 é ilustrado a função reservWorks.
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Função reservWorks}
     \fig{scale=1.0}{imagens/reserv}
     \fonte{O próprio autor}
 \end{figure} 
+
+Após a análise obter os valores de lexema e token, é chamada a função queueValue, que atribui os valores do lexema e token em uma estrutura de fila, está fila é utilizada para passar estes valores para uma string que é utilizada para ilustrar em um campo text na interface do software, na figura 27 é ilustrada a saída deste string na aba Análise léxica.
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Saída da análise léxica}
+    \fig{scale=1.0}{imagens/lexemaToken}
+    \fonte{O próprio autor}
+\end{figure} 
+
+\subsection{Análise sintática}
+\label{subsec:analisesintatica}
+
+\begin{quadro}[htb]
+    \centering
+    \vspace{0.5cm}
+    \legenda[quadro:funcoesGramatica]{Funções criadas de acordo com as regras da gramática}
+    \begin{tabular}{|p{3.0cm}|p{3.0cm}|}
+        \hline
+        \textbf{Regra} & \textbf{Função} \\ 
+        \hline\hline
+        programa -> lista-decl  & P()   \\ \hline 
+    \end{tabular}
+    \fonte{próprio autor}
+\end{quadro}
 
 % -----------------------------------------------------------------------
 % -----------------------------------------------------------------------
@@ -623,7 +647,8 @@ Veja \autoref{apendice:teste}.
 % Anexos
 % ----------------------------------------------------------
 % Material complementar nao preparado pelo autor
-\anexo[apendice:teste1]{QUESTIONARIO}
+\anexo[apendice:teste1]{QUESTIONÁRIO DE UTILIZAÇÃO DO INTERPRETADOR INTEGRADO A UMA INTERFACE DA LINGUAGEM D+ }
 
+%\includepdf{./arquivos/QUESTIONARIO.pdf}
 
 \end{document}
