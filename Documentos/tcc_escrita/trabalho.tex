@@ -8,8 +8,6 @@
 % Data:   01/07/2017
 % -----------------------------------------------------------------------
 \documentclass[12pt,oneside,a4paper,chapter=TITLE,section=TITLE,sumario=tradicional]{abntex2}
-%\usepackage{pdfpages}
-
 % Regras da abnt
 \usepackage{packages/abnt-UTP}
 \usepackage{lipsum}
@@ -641,14 +639,22 @@ Veja \autoref{apendice:teste}.
 % Apêndices
 % ----------------------------------------------------------
 % Material complementar preparado pelo autor
-%\apendice[apendice:teste]{TESTE}
+\apendice[apendice:questionario]{QUESTIONÁRIO DE UTILIZAÇÃO DO INTERPRETADOR INTEGRADO A UMA INTERFACE DA LINGUAGEM D+}
+\includegraphics[scale=0.8, clip,trim=10mm 10mm 0mm 20mm, angle=-90, page=1]{QUESTIONARIO.pdf}
+
+\includegraphics[scale=0.8, clip,trim=10mm 10mm 0mm 20mm, angle=-90, page=2]{QUESTIONARIO.pdf}
+
+\includegraphics[scale=0.8, clip,trim=10mm 10mm 0mm 20mm, angle=-90, page=3]{QUESTIONARIO.pdf}
+
+\apendice[apendice:automatos]{Autômatos}
+
 
 % ----------------------------------------------------------
 % Anexos
 % ----------------------------------------------------------
 % Material complementar nao preparado pelo autor
-\anexo[apendice:teste1]{QUESTIONÁRIO DE UTILIZAÇÃO DO INTERPRETADOR INTEGRADO A UMA INTERFACE DA LINGUAGEM D+ }
+%\anexo[apendice:QUESTIONARIO.pdf]{QUESTIONÁRIO DE UTILIZAÇÃO DO INTERPRETADOR INTEGRADO A UMA INTERFACE DA LINGUAGEM D+ }
 
-%\includepdf{./arquivos/QUESTIONARIO.pdf}
+
 
 \end{document}
