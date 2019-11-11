@@ -13,6 +13,7 @@
 \usepackage{lipsum}
 
 
+
 % =======================================================================
 % =                                                                     =
 % = DADOS DO TRABALHO                                                   =
@@ -437,7 +438,7 @@ Neste capitula é informado quais os métodos e ferramentas foram utilizados par
 A metodologia seguida para se obter dados sobre a utilização e a funcionalidades para os alunos e para o professor da matéria de compiladores, é a utilização de um questionário elaborado para ser respondido após o uso do software, este questionário está no apêndice.
 As tecnologias utilizadas para o desenvolvimento do interpretador, são: linguagem de programação C++, QT Creator, JFLAP, e as metodologias de criação de um compilador, Análise Léxica, Análise Sintática e Analise Semântica.  
 
-\section{ Linguagem C++}
+\section{Linguagem C++}
 \label{sec:linugagemc++}
 
 A linguagem utilizada para o desenvolvimento deste software é C++, que é a predominante no programa QT Creator, e por se diferenciar pouco da linguagem C, a base no ensino no curso de ciências da computação. Esta linguagem também possui bibliotecas que auxiliam no desenvolvimento, como o regex, que é utilizado neste trabalho para tratar expressões regulares e assim tornar o código melhor escrito sem necessidade de repetição de regra.
@@ -450,7 +451,7 @@ Na figura 16 é ilustrado a função descrita acima, nela é chamada a função 
     \fonte{O próprio autor}
 \end{figure} 
 
-\section{ Qt creator}
+\section{Qt creator}
 \label{sec:qtcreator}
 
 QT Creator é um ambiente de desenvolvimento integrado (IDE), criado por uma empresa norueguesa Trolltech, que visa facilitar e ajudar no desenvolvimento de softwares, permitindo criar sistemas para plataformas múltiplas. A versão utilizada é a 5.13.1, com o compilador MinGW 7.3.0 32 bits. 
@@ -529,7 +530,7 @@ A sequência é o fluxo que o código toma de acordo com a ação\cite{ivan2003}
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Fluxo de sequência}
-    \fig{scale=0.6}{imagens/fluxo}
+    \fig{scale=0.8}{imagens/fluxo}
     \fonte{O próprio autor}
 \end{figure}
 
@@ -548,6 +549,16 @@ A iteração é o mecanismo de repetição, enquanto uma condição for atendida
     \fig{scale=1.0}{imagens/iteracao}
     \fonte{O próprio autor}
 \end{figure}
+
+O projeto esta organizado de acordo com 4 pastas, headers, sources, forms e resources.
+
+A pasta headers contem todas os arquivos .h produzidos no desenvolvimento, neles está as declarações de variáveis, contantes e declarações de funções, estes arquivos estão organizados de acordo com sua respectivas analises, o arquivo analex.h contem as funções da analise léxica, o aquivo anasin.h contem as funções da analise sintática, anasem.h contem as funções de analise semântica e o arquivo interface.h contem as funções da interface.
+
+A pasta sources contem os arquivos .cpp, nela são encontrado toda a implementação da logica da framework, o aquivo main.cpp é o que inicializa o software e o arquivo interface.cpp é onde está a implementação das analises.
+
+A pasta forms contem o arquivo interface.ui, este arquivo abrange todo o código da interface criada para o interpretador.
+
+A pasta resources guarda todas as imagens utilizadas no softwa're, sendo elas os ícones e os automatos.
 
 \subsection{Análise léxica}
 \label{subsec:analiselexica}
@@ -578,21 +589,111 @@ Após a análise obter os valores de lexema e token, é chamada a função queue
     \fonte{O próprio autor}
 \end{figure} 
 
+Para identificar por qual autômato o código passou é utilizando de variáveis globais booleanas, em que ao acessar um estado essas funções criadas como state01, state02, são atribuídos true para a variável correspondente aquele estado, como a variável automato1. No fim de toda compilação é selecionada a imagem de todos os autômatos para as labels da interface, caso aquela variável do autômato for true ele troca a imagem preto e branco para a colorida.  
+
+Na figura 28 é ilustrado o trecho do código que valida se o que sera carregado é o automato colorido ou o preto e branco. 
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Verificação do automato a ser carregado}
+    \fig{scale=0.8}{imagens/ifautomatos}
+    \fonte{O próprio autor}
+\end{figure} 
+
+Após validar quais variáveis dos autômatos são true, e atribuir a imagem correta, a interface é carregada. 
+
+Na figura 29 é ilustrado os dois casos, um autômato em preto e branco, quando não é acessado e outro colorido, quando é acessado. 
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Interface com os autômatos}
+    \fig{scale=1.0}{imagens/automato}
+    \fonte{O próprio autor}
+\end{figure} 
+
 \subsection{Análise sintática}
 \label{subsec:analisesintatica}
+
+Para o desenvolvimento da análise sintática, foi utilizado a criação de uma matriz que armazena todos os tokens e lexemas encontrados após a análise léxica, esta matriz é utilizada para verificar a sequencia de tokens, e validá-los se estão na ordem correta.  
+
+Após finalizar a análise léxica o software chama em sequência a rotina para a analise sintática, está inicia a verificação na posição 0 da matriz tokensLexemasTable, e percorre-a validando junto das regras da gramatica.  
+
+Nos quadros 2, 3 e 4 são ilustrados as funções criadas referentes a cada regra, seguindo uma logica para verificar se o próximo elemento da matriz corresponde com o elemento esperado. 
 
 \begin{quadro}[htb]
     \centering
     \vspace{0.5cm}
-    \legenda[quadro:funcoesGramatica]{Funções criadas de acordo com as regras da gramática}
-    \begin{tabular}{|p{3.0cm}|p{3.0cm}|}
+    \legenda[quadro:funcoesGramatica]{Declaraçoes}
+    \begin{tabular}[h]{|p{13.0cm}|p{2.0cm}|}
         \hline
         \textbf{Regra} & \textbf{Função} \\ 
         \hline\hline
-        programa -> lista-decl  & P()   \\ \hline 
+	programa -> lista-decl  & P()   \\ \hline 
+	lista-decl -> lista-decl decl | decll  & P()   \\ \hline 
+	decl -> decl-const | decl-var | decl-proc | decl-func | decl-main  & P() \\ \hline
+	decl-const -> CONST ID = literal ;  & P()   \\ \hline 
+	decl-var -> VAR espec-tipo lista-var ;  & P()   \\ \hline 
+	espec-tipo -> INT | FLOAT | CHAR | BOOL | STRING  & P()   \\ \hline 
+	decl-proc -> SUB espec-tipo ID ( params ) bloco END-SUB  & P()   \\ \hline 
+	decl-func -> FUNCTION espec-tipo ID ( params ) bloco END-FUNCTION  & P()   \\ \hline 
+	decl-main -> MAIN ( ) bloco END  & P()   \\ \hline 
+	params -> lista-param | \u03B5  & P()   \\ \hline 
+	lista-param -> lista-param , param | param  & P()   \\ \hline 
+	param -> VAR espec-tipo lista-var BY mode  & P()   \\ \hline 
+	mode -> VALUE | REF  & P()   \\ \hline 
     \end{tabular}
     \fonte{próprio autor}
 \end{quadro}
+
+\begin{quadro}[htb]
+    \centering
+    \vspace{0.5cm}
+    \legenda[quadro:funcoesGramatica]{Comandos}
+    \begin{tabular}[h]{|p{13.0cm}|p{2.0cm}|}
+        \hline
+        \textbf{Regra} & \textbf{Função} \\ 
+        \hline\hline
+	bloco -> lista-com  & P()   \\ \hline 
+	lista-com -> comando lista-com | \u03B5  & P()   \\ \hline 
+	comando -> cham-proc | com-atrib | com-selecao | com-repeticao | com-desvio | com-leitura | com-escrita | decl-var | decl-const  & P()   \\ \hline 
+	com-atrib -> var = exp ;  & P()   \\ \hline 
+	com-selecao -> IF exp THEN bloco END-IF | IF exp THEN bloco ELSE bloco END-IF  & P()   \\ \hline 
+	com-repeticao -> WHILE  exp DO bloco LOOP | DO bloco AS  exp  ; |  REPEAT bloco UNTIL exp ; | FOR ID = exp-soma TO exp-soma DO bloco NEXT  & P()   \\ \hline 
+	com-desvio -> RETURN exp ; | BREAK ; | CONTINUE ;  & P()   \\ \hline 
+	com-leitura -> SCAN ( lista-var ) ; | SCANLN ( lista-var ) ;  & P()   \\ \hline 
+	com-escrita -> PRINT ( lista-exp ) ; | PRINTLN ( lista-exp ) ;  & P()   \\ \hline 
+	cham-proc -> ID ( args ) ;  & P()   \\ \hline 
+    \end{tabular}    
+    \fonte{próprio autor}
+\end{quadro}
+
+\begin{quadro}[htb]
+    \centering
+    \vspace{0.5cm}
+    \legenda[quadro:funcoesGramatica]{Expressões}
+    \begin{tabular}[h]{|p{13.0cm}|p{2.0cm}|}
+        \hline
+        \textbf{Regra} & \textbf{Função} \\ 
+        \hline\hline
+	lista-exp  -> exp , lista-exp | exp  & P() \\ \hline 
+	exp -> exp-soma op-relac exp-soma | exp-soma  & P() \\ \hline 
+	op-relac -> <= | < | > | >= | == | <>  & P()   \\ \hline 
+	exp-soma -> exp-mult op-soma exp-soma | exp-mult  & P()   \\ \hline 
+	op-soma -> + | - | OR  & P()   \\ \hline 
+	exp-mult -> exp-mult op-mult exp-simples | exp-simples  & P()   \\ \hline 
+	op-mult -> * | / | DIV | MOD | AND  & P()   \\ \hline 
+	exp-simples -> ( exp ) | var | cham-func | literal | op-unario exp  & P()   \\ \hline 
+	literal -> NUMINT | NUMREAL | CARACTERE | STRING | valor-verdade  & P()   \\ \hline 
+	valor-verdade -> TRUE | FALSE  & P()   \\ \hline 
+	cham-func -> ID ( args )  & P()   \\ \hline 
+	args -> lista-exp | \u03B5  & P()   \\ \hline 
+	var -> ID | ID [ exp-soma ]  & P()   \\ \hline 
+	lista-var  -> var , lista-var | var  & P()   \\ \hline 
+	op-unario -> + | - | NOT  & P()   \\ \hline 
+    \end{tabular}
+    \fonte{próprio autor}
+\end{quadro}
+
+
+
 
 % -----------------------------------------------------------------------
 % -----------------------------------------------------------------------
