@@ -436,7 +436,7 @@ Foi utilizado a linguagem Scheme para a construção do compilador, e a linguage
 Neste capitula é informado quais os métodos e ferramentas foram utilizados para desenvolver o interpretador e a interface, a forma de abordagem para a coleta de dados, o cenário e os indivíduos participantes.
 
 A metodologia seguida para se obter dados sobre a utilização e a funcionalidades para os alunos e para o professor da matéria de compiladores, é a utilização de um questionário elaborado para ser respondido após o uso do software, este questionário está no apêndice.
-As tecnologias utilizadas para o desenvolvimento do interpretador, são: linguagem de programação C++, QT Creator, JFLAP, e as metodologias de criação de um compilador, Análise Léxica, Análise Sintática e Analise Semântica.  
+As tecnologias utilizadas para o desenvolvimento do interpretador, são: linguagem de programação C++, QT Creator, JFLAP, e as metodologias de criação de um compilador, Análise Léxica, Análise Sintática e tabela de símbolos.  
 
 \section{Linguagem C++}
 \label{sec:linugagemc++}
@@ -517,7 +517,7 @@ Na figura 21 é ilustrado um autômato criado na ferramenta JFLAP. Ele demonstra
 \section{Estruturas adotadas no desenvolvimento}
 \label{sec:estruturasadotadas}
 
-Neste capitulo são tratadas as estruturas utilizadas para o desenvolvimento da lógica da compilação, programação estruturada, Análise léxica, Análise Sintática, e Análise semântica.
+Neste capitulo são tratadas as estruturas utilizadas para o desenvolvimento da lógica da compilação, programação estruturada, Análise léxica, Análise Sintática, e tabela de símbolos.
 
 \subsection{Programação Estruturada}
 \label{subsec:programacaoestruturada}
@@ -627,18 +627,18 @@ Nos quadros 2, 3 e 4 são ilustrados as funções criadas referentes a cada regr
         \textbf{Regra} & \textbf{Função} \\ 
         \hline\hline
 	programa -> lista-decl  & P()   \\ \hline 
-	lista-decl -> lista-decl decl | decll  & P()   \\ \hline 
-	decl -> decl-const | decl-var | decl-proc | decl-func | decl-main  & P() \\ \hline
-	decl-const -> CONST ID = literal ;  & P()   \\ \hline 
-	decl-var -> VAR espec-tipo lista-var ;  & P()   \\ \hline 
-	espec-tipo -> INT | FLOAT | CHAR | BOOL | STRING  & P()   \\ \hline 
-	decl-proc -> SUB espec-tipo ID ( params ) bloco END-SUB  & P()   \\ \hline 
-	decl-func -> FUNCTION espec-tipo ID ( params ) bloco END-FUNCTION  & P()   \\ \hline 
-	decl-main -> MAIN ( ) bloco END  & P()   \\ \hline 
-	params -> lista-param | \u03B5  & P()   \\ \hline 
-	lista-param -> lista-param , param | param  & P()   \\ \hline 
-	param -> VAR espec-tipo lista-var BY mode  & P()   \\ \hline 
-	mode -> VALUE | REF  & P()   \\ \hline 
+	lista-decl -> lista-decl decl | decll  & LD()   \\ \hline 
+	decl -> decl-const | decl-var | decl-proc | decl-func | decl-main  & D() \\ \hline
+	decl-const -> CONST ID = literal ;  & DC()   \\ \hline 
+	decl-var -> VAR espec-tipo lista-var ;  & DV()   \\ \hline 
+	espec-tipo -> INT | FLOAT | CHAR | BOOL | STRING  & ET()   \\ \hline 
+	decl-proc -> SUB espec-tipo ID ( params ) bloco END-SUB  & DP()   \\ \hline 
+	decl-func -> FUNCTION espec-tipo ID ( params ) bloco END-FUNCTION  & DF()   \\ \hline 
+	decl-main -> MAIN ( ) bloco END  & DM()   \\ \hline 
+	params -> lista-param | Épsilon  & PR()   \\ \hline 
+	lista-param -> lista-param , param | param  & LP()   \\ \hline 
+	param -> VAR espec-tipo lista-var BY mode  & PM()   \\ \hline 
+	mode -> VALUE | REF  & M()   \\ \hline 
     \end{tabular}
     \fonte{próprio autor}
 \end{quadro}
@@ -651,16 +651,16 @@ Nos quadros 2, 3 e 4 são ilustrados as funções criadas referentes a cada regr
         \hline
         \textbf{Regra} & \textbf{Função} \\ 
         \hline\hline
-	bloco -> lista-com  & P()   \\ \hline 
-	lista-com -> comando lista-com | \u03B5  & P()   \\ \hline 
-	comando -> cham-proc | com-atrib | com-selecao | com-repeticao | com-desvio | com-leitura | com-escrita | decl-var | decl-const  & P()   \\ \hline 
-	com-atrib -> var = exp ;  & P()   \\ \hline 
-	com-selecao -> IF exp THEN bloco END-IF | IF exp THEN bloco ELSE bloco END-IF  & P()   \\ \hline 
-	com-repeticao -> WHILE  exp DO bloco LOOP | DO bloco AS  exp  ; |  REPEAT bloco UNTIL exp ; | FOR ID = exp-soma TO exp-soma DO bloco NEXT  & P()   \\ \hline 
-	com-desvio -> RETURN exp ; | BREAK ; | CONTINUE ;  & P()   \\ \hline 
-	com-leitura -> SCAN ( lista-var ) ; | SCANLN ( lista-var ) ;  & P()   \\ \hline 
-	com-escrita -> PRINT ( lista-exp ) ; | PRINTLN ( lista-exp ) ;  & P()   \\ \hline 
-	cham-proc -> ID ( args ) ;  & P()   \\ \hline 
+	bloco -> lista-com  & B()   \\ \hline 
+	lista-com -> comando lista-com | Épsilon  & LC()   \\ \hline 
+	comando -> cham-proc | com-atrib | com-selecao | com-repeticao | com-desvio | com-leitura | com-escrita | decl-var | decl-const  & C()   \\ \hline 
+	com-atrib -> var = exp ;  & CA()   \\ \hline 
+	com-selecao -> IF exp THEN bloco END-IF | IF exp THEN bloco ELSE bloco END-IF  & CS()   \\ \hline 
+	com-repeticao -> WHILE  exp DO bloco LOOP | DO bloco AS  exp  ; |  REPEAT bloco UNTIL exp ; | FOR ID = exp-soma TO exp-soma DO bloco NEXT  & CR()   \\ \hline 
+	com-desvio -> RETURN exp ; | BREAK ; | CONTINUE ;  & CD()   \\ \hline 
+	com-leitura -> SCAN ( lista-var ) ; | SCANLN ( lista-var ) ;  & CL()   \\ \hline 
+	com-escrita -> PRINT ( lista-exp ) ; | PRINTLN ( lista-exp ) ;  & CE()   \\ \hline 
+	cham-proc -> ID ( args ) ;  & CP()   \\ \hline 
     \end{tabular}    
     \fonte{próprio autor}
 \end{quadro}
@@ -673,27 +673,134 @@ Nos quadros 2, 3 e 4 são ilustrados as funções criadas referentes a cada regr
         \hline
         \textbf{Regra} & \textbf{Função} \\ 
         \hline\hline
-	lista-exp  -> exp , lista-exp | exp  & P() \\ \hline 
-	exp -> exp-soma op-relac exp-soma | exp-soma  & P() \\ \hline 
-	op-relac -> <= | < | > | >= | == | <>  & P()   \\ \hline 
-	exp-soma -> exp-mult op-soma exp-soma | exp-mult  & P()   \\ \hline 
-	op-soma -> + | - | OR  & P()   \\ \hline 
-	exp-mult -> exp-mult op-mult exp-simples | exp-simples  & P()   \\ \hline 
-	op-mult -> * | / | DIV | MOD | AND  & P()   \\ \hline 
-	exp-simples -> ( exp ) | var | cham-func | literal | op-unario exp  & P()   \\ \hline 
-	literal -> NUMINT | NUMREAL | CARACTERE | STRING | valor-verdade  & P()   \\ \hline 
-	valor-verdade -> TRUE | FALSE  & P()   \\ \hline 
-	cham-func -> ID ( args )  & P()   \\ \hline 
-	args -> lista-exp | \u03B5  & P()   \\ \hline 
-	var -> ID | ID [ exp-soma ]  & P()   \\ \hline 
-	lista-var  -> var , lista-var | var  & P()   \\ \hline 
-	op-unario -> + | - | NOT  & P()   \\ \hline 
+	lista-exp  -> exp , lista-exp | exp  & LE() \\ \hline 
+	exp -> exp-soma op-relac exp-soma | exp-soma  & EXP() \\ \hline 
+	op-relac -> <= | < | > | >= | == | <>  & OR()   \\ \hline 
+	exp-soma -> exp-mult op-soma exp-soma | exp-mult  & EXPS()   \\ \hline 
+	op-soma -> + | - | OR  & OS()   \\ \hline 
+	exp-mult -> exp-mult op-mult exp-simples | exp-simples  & EXPM()   \\ \hline 
+	op-mult -> * | / | DIV | MOD | AND  & OM()   \\ \hline 
+	exp-simples -> ( exp ) | var | cham-func | literal | op-unario exp  & EXPSP()   \\ \hline 
+	literal -> NUMINT | NUMREAL | CARACTERE | STRING | valor-verdade  & L()   \\ \hline 
+	valor-verdade -> TRUE | FALSE  & VV()   \\ \hline 
+	cham-func -> ID ( args )  & CF()   \\ \hline 
+	args -> lista-exp | Épsilon  & AR()   \\ \hline 
+	var -> ID | ID [ exp-soma ]  & VAR()   \\ \hline 
+	lista-var  -> var , lista-var | var  & LV()   \\ \hline 
+	op-unario -> + | - | NOT  & OU()   \\ \hline 
     \end{tabular}
     \fonte{próprio autor}
 \end{quadro}
 
+Todas as função criada para satisfazer as regras da gramática possuem uma operação de incremento na variável chamada tamanho, esta variável global tem como função ser o index da matriz que contem todos os lexemas e tokens, tokensLexemasTable, com isto obtém a localização que se encontra o percurso tomado dentro da matriz, o valor daquela posição é comparado com o token esperado na regra que a análise se encontra, caso seja igual é seguido o caminho até finalizar a regra, do contrário é retornado erro.
 
+Na figura 30 ilustra a função DV que corresponde a regra decl-var, nela é efetuada uma chamada para função ET e em seguida a função LV, após estas chamadas ocorrerem e não retornarem erro, ele valida se possui o lexema de ( ; ), casso possua, e retornado uma mensagem de sucesso ao log, ao contrário retorna a mensagem de erro, a variável keySintatico funciona como uma chave, sempre que é encontrado um erro no código, é atribuído o valor 1, assim o software para de efetuar a analise sintática, por já ter encontrado erro. 
 
+\begin{figure}[htb]
+    \legenda[fig:figura]{Função DV}
+    \fig{scale=0.8}{imagens/funcaoDV}
+    \fonte{O próprio autor}
+\end{figure} 
+
+No processo de desenvolvimento desta análise, foi identificado um problema na gramática, o comando “ DO B WHILE exp ; ”, da forma que foi desenvolvido a lógica impossibilitava este comando, a implementação seguia o conceito de recursividade, onde uma função é chamada por ela mesma, seguindo este conceito caso existisse no código um comando de bloco, o software chamava novamente a função LV e assim abria opções para chamar novamente comandos de repetição, porem todos as regras que possui o bloco também possuem um token de saída do bloco, como “WHILE exp B LOOP”, o token loop informa que o bloco acabou, mas no comando “ DO B WHILE exp ; ” era confundido como um novo comando de repetição do WHILE, por conta de não conseguir sair do bloco, e não distinguir se o token atual era um token de saída, a palavra desta regra foi alterada para AS, resolvendo a questão.
+
+Após finalizar a análise sintática é exibido na interface um log do percurso tomado, apresentando uma mensagem de sucesso ou erro, e em seguida mensagens de quais regras foram validadas e em qual regra o interpretador encontrou o erro.  Na mensagem de erro é apresentado qual foi o erro encontrado, como a falta de um ( ; ) ou de uma palavra reservada como END, e o numero da linha que ocorreu o erro.
+
+Na figura 31 é ilustrado a saída da interpretação de um código, é apresentado uma mensagem de sucesso na regra de VAR na linha 1, porém em seguida informado um erro na linha dois e a causa do erro.
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Log análise sintática}
+    \fig{scale=0.8}{imagens/logSintaticoEro}
+    \fonte{O próprio autor}
+\end{figure} 
+
+\subsubsection{Árvore Sintática}
+\label{subsec:arvore}
+
+Para a criação da arvore sintática é utilizado o caractere “$\backslash$t” que implementa um espaçamento fixo, este espaçamento é utilizado para alinhar os terminais que fazem parte daquele nível da árvore,  sabendo a quantidade de espaçamento que deve possuir cara impressão na árvore para se obter o efeito de ramo é utilizado uma variável global chamada NIVEL.
+
+Todas as funções implementadas na análise sintática incrementam a variável NIVEL, e adicionam uma string da regra que a função corresponde na variável global treeTerminal, após estes processos é chamada uma função treeSintatica, este método forma árvore.
+
+Na figura 32 é ilustrada a função treeSintatica, esta função possui uma estrutura de repetição while, que incrementa o caractere “$\backslash$t” o número de vezes que a variável NIVEL possui como valor, esta parte da função implementa a estrutura da arvore, após este passo, é atribuído o caractere “|” para servir como referência a qual a palavra pertence ao ramo pai, por fim é atribuído o token a arvore, caso a variável treeTerminal for diferente de vazia, é adicionado aquilo que esta variável possui, do contrário é adicionado o lexema daquela posição. 
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Função treeSintatico}
+    \fig{scale=0.8}{imagens/tree}
+    \fonte{O próprio autor}
+\end{figure} 
+
+Na figura 33 é ilustrado a saída da árvore de um código que efetua uma declaração de var, nela é possível ver por quais regras foram utilizadas na montagem. 
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Árvore Sintática montada}
+    \fig{scale=0.8}{imagens/arvore}
+    \fonte{O próprio autor}
+\end{figure} 
+
+\subsubsection{Gramática}
+\label{subsec:gramatica}
+
+A gramática completa é apresentada na interface para que facilite no entendimento da linguagem, assim pode ser usado como consulta ou para retirar duvidas de uma regra especifica. 
+
+Após compilar o código inserido na interface é adicionado na aba da gramática as regras que abrange o código escrito, para desenvolver este comportamento é utilizado de uma variável global, similar ao dos autômatos, descrita no capítulo de análise léxica. Quando na análise sintática aquela regra específica é acessada, a variável global correspondente a regra, atribuída como false, é modificada para true. Após finalizar o processo da análise sintática, é verificado quais variáveis de cada regra possuem o valor true, os que possuem, é adicionado a regra na string que é passada para a interface da aba da gramática. 
+
+Na figura 34 é ilustrada a saída da aba gramática, as de cor verde são as regras utilizadas no código inserido no interpretador. 
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Gramática utilizada}
+    \fig{scale=1.0}{imagens/gramaticaUtili}
+    \fonte{O próprio autor}
+\end{figure} 
+
+\subsection{Tabela de Símbolos}
+\label{subsec:tabeladesimbolos}
+
+O desenvolvimento da análise semântica se dá na criação da tabela de símbolos, está tabela tem como objetivo mostrar para o usuário do programa, os identificadores localizados pelo interpretador e trazer informações que auxiliem na compreensão de declaração de variáveis, constantes, procedures e funções.
+
+O da criação da tabela de símbolos é feita na análise léxica, nela a função de atribuição queueValue, possui uma validação em que, se o token obtido for um IDENTIFICADOR e antes dele ter um token de CONST, VAR, SUB ou FUNCTION, este token e lexema é incrementado em uma matriz chamada simbolTable. Após finalizar o processo de análise léxica e análise sintática, é retirada os valores nela obtidos para ilustrar a tabela de símbolos.
+
+Na figura 35 e ilustrado a tabela de símbolos presente na interface após efetuar todo o processo. 
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Tabela de Símbolos}
+    \fig{scale=1.0}{imagens/tabelaSimbolos}
+    \fonte{O próprio autor}
+\end{figure} 
+
+\section{Interface}
+\label{sec:interface}
+
+Na criação da interface gráfica foi utilizando como base o editor de texto básico Notepad, e editores de desenvolvimentos simples como Code Blocks e VIsual Studio Code. 
+
+Na barra superior do programa foi incrementando funcionalidades simples mas práticas como, novo, que cria um arquivo novo, abrir, que abre uma janela para que possa procurar algum arquivo do formato d+ e seja carregado no software, salvar, run, que efetua os passos das análises no código escrito na framework, desfazer e refazer. 
+
+Na figura 36 é ilustrado a barra onde se encontra as funcionalidades descritas acima. Todos os ícones utilizados nesta interface são encontrados no site (https://www.flaticon.com).
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Barra de funcionalidade}
+    \fig{scale=1.0}{imagens/barra}
+    \fonte{O próprio autor}
+\end{figure} 
+
+A interface do software abrange todos os passos e resultados das análises implementadas, para melhor aproveitamento de espaço de tela e organizar de forma funcional, é utilizando de abas, similar ao dos navegadores como Google Chrome e Firefox. O usuário do programa tem a liberdade de selecionar por estas abas a informação que deseja que seja apresentada. 
+
+Na aba “editor” é o local em que insere o código d+, foi deixado um fundo acinzentado para auxiliar e destacar o local de escrita do código, na aba “Código Numerado”, é uma cópia do código inserido, porém numerado, para que assim seja mais fácil encontrar o erro acusado pelo log da análise sintática, esta funcionalidade foi implementada pois no decorrer do desenvolvimento, foi reparado que havia dificuldade para verificar qual linha havia um problema, mesmo passando o número desta. 
+
+Na figura 37 é ilustrada as duas abas descritas acima, no canto esquerdo a aba do “Editor” e no canto direito a aba do “Código Numerado”. 
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Interface do editor}
+    \fig{scale=1.0}{imagens/editor}
+    \fonte{O próprio autor}
+\end{figure}
+
+Na figura 38 é ilustrado uma visão geral da interface implementada. 
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Interface do interpretador}
+    \fig{scale=0.5}{imagens/interface}
+    \fonte{O próprio autor}
+\end{figure}
 
 % -----------------------------------------------------------------------
 % -----------------------------------------------------------------------
