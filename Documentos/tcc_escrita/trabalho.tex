@@ -714,7 +714,7 @@ Na figura 31 é ilustrado a saída da interpretação de um código, é apresent
     \fonte{O próprio autor}
 \end{figure} 
 
-\subsubsection{Árvore Sintática}
+\subsection{Árvore Sintática}
 \label{subsec:arvore}
 
 Para a criação da arvore sintática é utilizado o caractere “$\backslash$t” que implementa um espaçamento fixo, este espaçamento é utilizado para alinhar os terminais que fazem parte daquele nível da árvore,  sabendo a quantidade de espaçamento que deve possuir cara impressão na árvore para se obter o efeito de ramo é utilizado uma variável global chamada NIVEL.
@@ -737,7 +737,7 @@ Na figura 33 é ilustrado a saída da árvore de um código que efetua uma decla
     \fonte{O próprio autor}
 \end{figure} 
 
-\subsubsection{Gramática}
+\subsection{Gramática}
 \label{subsec:gramatica}
 
 A gramática completa é apresentada na interface para que facilite no entendimento da linguagem, assim pode ser usado como consulta ou para retirar duvidas de uma regra especifica. 
@@ -802,10 +802,25 @@ Na figura 38 é ilustrado uma visão geral da interface implementada.
     \fonte{O próprio autor}
 \end{figure}
 
+
+% -----------------------------------------------------------------------
+% -----------------------------------------------------------------------
+\chapter{Análise dos resultados}
+\label{cap:analiseresultados}
+
+Para distribuir o interpretador foi criado um arquivo executável simples em que necessitaria apenas autorizar o processo de instalação, este método foi efetuado com o objetivo de facilitar na distribuição.
+
+A forma escolhida para a obtenção de dados relativas ao framework, foi a da elaboração de um questionário, em apêndice, com 26 perguntas, em que verificava a praticidade do software, se a informação exposta nele é objetiva e clara, se é possível compreender melhor a matéria de compiladores utilizando o software, se indicaria para algum colega que possui dificuldade de entendimento do conteúdo e por fim qual dado apresentado no interpretador mais chamou a atenção.
+
+\section{Resultados obtidos}
+\label{sec:resultados}
+
+Os alunos selecionados para testar o interpretador são os que cursam a matéria de compiladores do professor Diógenes Cogo Furlan, nesta disciplina oito estudantes a frequentam, ao quais foi solicitado que utilizassem o software e respondessem o questionário elaborado.
+
 % -----------------------------------------------------------------------
 % -----------------------------------------------------------------------
 \begin{comment}
-\chapter{Conclusão}
+\chapter{Análise dos Resultados}
 
 É a parte final do trabalho, na qual se apresentam as conclusões 
 correspondentes aos objetivos e às hipóteses: informa se os objetivos foram 
@@ -843,6 +858,7 @@ Veja \autoref{apendice:teste}.
 % ----------------------------------------------------------
 \bibliography{referencias}
 
+%ortografia https://www.spellboy.com/verificar-ortografia/
 % ----------------------------------------------------------
 % Apêndices
 % ----------------------------------------------------------
@@ -872,7 +888,9 @@ Veja \autoref{apendice:teste}.
 
 \includegraphics[scale=1.0, clip,trim=30mm 50mm 30mm 30mm, page=4]{automatosNaoAtivos.pdf}
 
+\apendice[apendice:automatos]{Guia de instalação do Interpretador D+}
 
+\apendice[apendice:automatos]{Exemplos de códigos D+}
 % ----------------------------------------------------------
 % Anexos
 % ----------------------------------------------------------
