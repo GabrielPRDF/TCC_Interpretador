@@ -99,20 +99,13 @@ Universidade Tuiuti do Paraná, como requisito à obtenção ao grau de Bacharel
 \label{cap:introducao}
 
 
-Dentro do curso de bacharelado em ciências da computação. A disciplina de compiladores é responsável por apresentar ao aluno a forma e o significado contidos na construção de um compilador. Um compilador, de forma convencional, apresenta fases de código fonte, e fases de síntese, oras quais o código fonte de alto nível e transformado em código máquina. A disciplina de compiladores apresenta uma considerável dificuldade no seu aprendizado, uma vez que é uma disciplina muito abrangente e muito profunda. Ele faz uma síntese de todo curso de bacharelado em ciências da computação, uma vez que exige conhecimentos em algoritmos, programação estruturado e orientado a objetos, estrutura de dados, métodos de autômatos, gramáticas e ainda conhecimento de assemble. 
+Dentro do curso de bacharelado em ciências da computação, a disciplina de compiladores é responsável por apresentar ao aluno a forma e os significados contidos na construção de um compilador. Um compilador da forma convencional apresenta fases, analises, em que efetua os processos necessários para transformar o código da linguagem de alto nível para código de máquina. A disciplina de compiladores apresenta uma considerável dificuldade no seu aprendizado, uma vez que é uma disciplina muito abrangente e muito profunda. Ele faz uma síntese de todo curso de bacharelado em ciências da computação, uma vez que exige conhecimentos em algoritmos, programação estruturada e orientado a objetos, estrutura de dados, métodos de autômatos, gramáticas e ainda conhecimento de assembly. 
 
-O presente projeto tem como objetivo o desenvolvimento de um interpretador da linguagem D+, para auxiliar os alunos na absorção do conteúdo, ajudando-os a fixar melhor os conceitos. O interpretador compila linha por linha e mostra visualmente em um terminal o programa já compilado. Neste software vai aplicar conteúdos visto em sala de aula na prática, proporcionando ao aluno entender como eles são elaborados dentro dos processos de analise léxica e sintática.
+O presente projeto tem como objetivo o desenvolvimento de um interpretador da linguagem D+, para auxiliar os alunos na absorção do conteúdo, ajudando-os a fixar melhor os conceitos. O interpretador compila linha por linha e mostra visualmente em uma interface o programa já compilado. Neste software vai aplicar conteúdos visto em sala de aula, na prática, proporcionando ao aluno entender como eles são elaborados dentro dos processos de análise léxica e sintática.
 
-Para desenvolver este software, é utilizado um compilador D+, linguagem elaborada pelo mestre Diógenes Cogo Furlan. Este compilador terá modificações para se tornar um interpretador. Para o desenvolvimento da interfase, é utilizado o editor QT Creator com a linguagem C++, pelo fato de este editor junto desta linguagem, disponibilizam ferramentas que facilitariam sua criação.
+Para desenvolver este software, é desenvolvido um compilador D+, linguagem elaborada pelo mestre Diógenes Cogo Furlan. Este compilador terá modificações para se tornar um interpretador. Para o desenvolvimento deste software, é utilizado o editor QT Creator com a linguagem C++, pelo fato de que este editor juntamente com a linguagem, disponibilizar ferramentas que facilitam a sua criação.
 
-Com este projeto, os alunos da disciplina de compiladores, terão ao seu alcance uma ferramenta (software) que o auxiliaram no aprendizado da matéria. Podendo criar códigos, e ver a transformação que passa pelo compilador, passando pela análise léxica, análise sintática e análise semântica. Os alunos que utilizarem este software, terão exemplos de árvores ascendentes e árvores descendentes no código escrito na interface em tempo real. Com toda esta possibilidade, o aprendizado dos alunos da disciplina compiladores terão um aprendizado melhor.
-\begin{comment}
-O aprendizado na área de compiladores é difícil, por conta da disciplina ter grande volume de conteúdo teórico, pouca pratica e apenas 6 meses de ensino, para o aluno compreender seus conceitos e analisar o passo a passo do compilador. Um interpretador desenvolvido da linguagem D+, auxilia os alunos na absorção do conteúdo, ajudando-os a fixar melhor a matéria da disciplina de compiladores, pois seria a implementação, no desenvolvimento de um compilador. Após inserir um código na interface, o interpretador compilará linha por linha ilustrando o código objeto. Caso exista um erro semântico ou alguma palavra especial esteja incorreta, de forma léxica ou de forma sintática, terá uma destaque com uma cor. O objetivo deste trabalho é desenvolver uma ferramenta que vai aplicar conteúdos visto em sala de aula na prática, proporcionando ao aluno entender como eles são elaborados 
-dentro dos processos de analise léxica e sintática, ilustrando a saída do código em cada etapa das análises. Outra justificativa se dá na área de documentação, os materiais disponíveis sobre o funcionamento, desenvolvimento e aplicação de interpretadores são escassos. Desta forma, o estudo proposto documentará o desenvolvimento de um interpretador com a gramática da linguagem D+, relatando as dificuldades encontradas e soluções obtidas, para ajudar no entendimento do tema.
-6.2. Problema Proposto: Com o desenvolvimento do interpretador da linguagem D+, pode-se questionar: • Como é possível criar um interpretador? • É possível tem uma melhor compreensão do processo de compilação, mostrando a entrada do código e saída de cada análise? • Como é possível mostrar de forma clara os erros de compilação do programa, de forma a auxiliar o programador a solucionar seus erros? • É possível criar uma interface funcional para um interpretador? • É possível que a criação de um interpretador para a linguagem D+ auxilie o aluno a entendê-la melhor? 
- 
-6.3. Objetivos: O objetivo principal deste projeto é a criação de um interpretador da linguagem D+, que executará junto a uma interface desenvolvida para facilitar o aprendizado do estudante. Objetivos específicos: • Compilar um código desenvolvido em tempo real; • Ilustrar a saída dos estágios de análise léxica e análise sintática. • Caso o código tenha algum erro de análise léxica ou análise sintática, mostrar em tempo real ao desenvolvedor o erro; • Facilitar o entendimento para alunos que estejam estudando compiladores; • Criar a documentação do funcionamento do interpretador
-\end{comment}
+Com este projeto, os alunos da disciplina de compiladores, terão ao seu alcance uma ferramenta (software) que os auxiliará no aprendizado da disciplina. Podendo criar códigos, e ver a transformação que passa pelo compilador, passando pela análise léxica, análise sintática e análise semântica. Os alunos que utilizarem este software, terão exemplos de árvores sintáticas no código escrito na interface. Com toda a informação apresentada para os estudantes da disciplina, é facilitado a compreensão da lógica de compiladores.
 
 %\begin{lista}
  %   \item a problematização, a motivação e a justificativa da escolha do tema;
@@ -852,28 +845,26 @@ Os alunos selecionados para testar o interpretador são os que cursam a matéria
 \chapter{Conclusão}
 \label{cap:conclusao}
 
-É a parte final do trabalho, na qual se apresentam as conclusões 
-correspondentes aos objetivos e às hipóteses: informa se os objetivos foram 
-alcançados ou não – seguidos de justificativas e explicações caso os mesmos não 
-tenham sido alcançados – bem como se as hipóteses foram negadas ou 
-corroboradas. É possível que se apresentem também:
+Com forme abordado neste projeto a disciplina de compilador possui uma dificuldade considerável no seu aprendizado, com isso, pôde-se perceber a necessidade de ferramentas que auxiliem na compreensão do conteúdo da disciplina.
 
-\begin{lista}
-    \item comentários relativos aos resultados obtidos, fechando o raciocínio 
-    por meio de um processo dedutivo,
-    
-    \item a importância dos resultados obtidos,
-    
-    \item a projeção da pesquisa, com estimativas para o uso dos resultados,
-    
-    \item a repercussão, informando quem será beneficiado e em quê,
-    
-    \item as limitações do trabalho, mostrando suas fragilidades ou
-insuficiências,
-    \item as dificuldades encontradas no decorrer da pesquisa, e
-    \item indicações para trabalhos futuros, para a continuidade da
-pesquisa pelo próprio autor e por outros.
-\end{lista}
+O desenvolvimento do interpretador D+ possibilitou abordar o ensino da matéria de compiladores de forma mais ilustrativa, auxiliando os alunos no aprendizado utilizando de figuras e mostrando os passos das análises, como os lexemas e tokens criados do código, e a árvore sintática criada deste. Além disso, também permitiu uma pesquisa de campo para obter dados mais concretos da compreensão dos estudantes após utilizarem a ferramenta.
+
+Para a criação desta ferramenta foi necessário o desenvolvimento de um compilador da linguagem D+, e modificá-lo para se tornar um interpretador. Para todo o desenvolvimento foi utilizado o software QT Creator com a linguagem C++, ambos foram escolhidos por possuírem ferramentas que facilitaram a implementação.
+
+Após distribuir o interpretado D+ para os alunos, foi solicitado que respondessem a um questionário, ao qual se obteve dados promissores, onde todos informaram que está framework ajuda a compreender os passos do compilador, todos os estudantes se impressionaram com as ilustrações destes passos, principalmente com a geração da árvore sintática.
+
+A criação do interpretador mostrou-se uma tarefa com grandes desafios, ao longo do desenvolvimento foi possível perceber inúmeros problemas que tiveram de ser solucionados, como a necessidade de mudança na gramática da linguagem D+ por conta de uma limitação da lógica, explicada no capítulo 5.5.3, e o baixo número de estudantes da disciplina de compiladores, ocasionando assim em uma coleta de dados pequena.
+
+Apesar de o interpretador cumprir o seu objetivo, é possível implementar funcionalidades que melhorariam a experiência do aluno e as informações apresentadas na interface do interpretador, sendo elas:
+
+•	Implementação completa da análise semântica.
+
+•	Implementação da geração de código máquina.
+
+•	Tornar o editor mais dinâmico, reconhecendo as palavras reservadas digitadas e deixá-las de cor diferentes.
+
+•	Implementação de log da análise semântica.
+
 
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS
