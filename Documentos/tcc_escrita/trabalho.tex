@@ -21,7 +21,7 @@
 % =======================================================================
 
 % Informações de dados para CAPA e FOLHA DE ROSTO
-\titulo{Interpretador da linguagem D+ integrado a uma interface}
+\titulo{Interpretador da linguagem D+}
 
 \autor{Gabriel Pinto Ribeiro da Fonseca}
 
@@ -62,6 +62,7 @@ Universidade Tuiuti do Paraná, como requisito à obtenção ao grau de Bacharel
 \end{comment}
 % Listas
 \listadefiguras
+
 \listadegraficos
 %\listadetabelas
 \listadequadros
@@ -133,24 +134,24 @@ Na figura 1 é ilustrado uma situação em que se utiliza uma instrução de som
 
 \begin{figure}[htb]
     \legenda[fig:figura]{A programação antes dos compiladores}
-    \fig{scale=1.3}{imagens/figura1}
+    \fig{scale=1.0}{imagens/figura1}
     \fonte{\cite{ricarte2008}}
 \end{figure}
 
 Para solucionar este problema, em busca de uma solução automática, procurando traduzir as especificações genéricas  \cite{ricarte2008}. Com este objetivo desenvolveu os compiladores.
 
-A figura 2, ilustra o processo já incluindo os compiladores. Com essa automação na tradução do código, se obteve economia pelo fato de não ser necessário a contratação de um especialista para esta tarefa, e aumento de produtividade por ter retirado a intervenção humana em uma parte do processo. 
+Na figura 2 ilustra o processo já incluindo os compiladores. Com essa automação na tradução do código, se obteve economia pelo fato de não ser necessário a contratação de um especialista para esta tarefa, e aumento de produtividade por ter retirado a intervenção humana em uma parte do processo. 
 
 \begin{figure}[htb]
     \legenda[fig:figura]{A programação com compiladores}
-    \fig{scale=1.3}{imagens/figura2}
+    \fig{scale=1.0}{imagens/figura2}
     \fonte{\cite{ricarte2008}}
 \end{figure}
 
 \section{Compiladores}
 \label{sec:compiladores}
 
-Para se conceituar um compilador de forma simples, o compilador é um programa responsável por traduzir outro programa de uma linguagem fonte para outra linguagem alvo \cite{alfred1995}. Na figura 3 se demostrando a forma do funcionamento dos compiladores como descrito acima. 
+Para se conceituar um compilador de forma simples, o compilador é um programa responsável por traduzir outro programa de uma linguagem fonte para outra linguagem alvo \cite{alfred1995}. Na figura 3 se demostrando a forma do funcionamento dos compiladores como descrito acima, ilustrando os passos internos de um compilador, e o que é gerado em cada passo, como os tokens na análise léxica, árvore sintática na análise sintática e a tabela de símbolos.
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Exemplo do Funcionamento de um Compilador}
@@ -158,19 +159,26 @@ Para se conceituar um compilador de forma simples, o compilador é um programa r
     \fonte{O próprio autor}
 \end{figure}
 
-O compilador segue passos para a tradução correta do código fonte para o código de saída. Os passos de análises são: análise léxica (AL), análise sintática (AS) e análise semântica (ASE). Os passos de tradução, são a Geração de código intermediário, a otimização de código, a geração de código final e a otimização de código final. Na figura 4 é ilustrado os passos seguidos dentro de um compilador, quando um código entra em seu processo, e é finalizado como o código de máquina alvo. 
+O compilador segue passos para a tradução correta do código fonte para o código de saída. Os passos de análises são: análise léxica (AL), análise sintática (AS) e análise semântica (ASE). Os passos de tradução, são a Geração de código intermediário, a otimização de código, a geração de código final e a otimização de código final. Na figura 4 é ilustrado os passos seguidos dentro de um compilador, quando um código entra em seu processo, e é finalizado como o código de máquina alvo.
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Exemplo dos passos presentes em um compilador}
+    \fig{scale=0.8}{imagens/figura5}
+    \fonte{\cite{maragon2015}}
+\end{figure}
+
 
 \section{Interpretadores}
 \label{sec:interpretadores}
 
 O interpretador é programa que converte a linguagem atual para uma especifica, mas ao contrário do compilador, ele não converte o código todo para linguagem de máquina de uma vez. Ele executa diretamente cada instrução, passo a passo. MATLAB, LISP, Perl e PHP são apontadas como interpretadas \cite{penelope2019}.  O interpretador efetua a tradução em operações especificadas, dependendo de como foi construído, podendo percorrer o código e ao decorrer desta análise, efetuar as operações necessárias. 
 
-Na figura 4 é ilustrado um fluxo geral de como é convertido o código, comparando o compilador ao interpretador. O que difere entre ambos é em qual momento ocorre a inserção de dados, tempo de execução e a diferença na saída de arquivos após os processos, o compilador gera um arquivo com a linguagem alvo (neste caso linguagem de máquina), e o interpretador executa diretamente a instrução, sem criar um arquivo fonte.
+Na figura 5 é ilustrado um fluxo geral de como é convertido o código, comparando o compilador ao interpretador. O que difere entre ambos é em qual momento ocorre a inserção de dados, tempo de execução e a diferença na saída de arquivos após os processos, o compilador gera um arquivo com a linguagem alvo (neste caso linguagem de máquina), e o interpretador executa diretamente a instrução, sem criar um arquivo fonte.
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Comparação Compilador x Interpretador}
     \fig{scale=0.8}{imagens/figura4}
-    \fonte{O próprio autor.}
+    \fonte{O próprio autor}
 \end{figure}
 
 Caso o código seja executado uma segunda vez, ocorrerá uma nova tradução, pois a tradução ocorrida anteriormente não fica armazenada para futuras execuções. Compiladores e interpretadores utilizam nas análises léxica, análise sintática e análise semântica.
@@ -180,19 +188,17 @@ Caso o código seja executado uma segunda vez, ocorrerá uma nova tradução, po
 
 A análise Léxica, também chamada de análise scanning, é responsável por analisar os caracteres no programa da esquerda para a direita, e agrupa-los para a formação de tokens. Tokens são sequencias de caracteres que possuem um significado coletivo \cite{alfred1995}.
 
-Um exemplo que pode ser dado, é analisando um programa na linguagem C como ilustrado na figura 5.
+Um exemplo que pode ser dado, é analisando um programa na linguagem C como ilustrado na figura 6.
 
 \begin{figure}[htb]
-    \legenda[fig:figura]{Exemplo dos passos presentes em um compilador}
-    \fig{scale=0.8}{imagens/figura5}
-    \fonte{\cite{maragon2015}}
+    \legenda[fig:figura]{Código de exemplo para Análise Léxica}
+    \fig{scale=1.0}{imagens/figura6}
+    \fonte{O próprio autor}
 \end{figure}
 
-A figura 5 expõe os passos internos de um compilador, e o que é gerado em cada passo, como os tokens na análise léxica, árvore sintática na análise sintática e a tabela de símbolos.
+Efetuando uma análise léxica no código na linguagem C++ ilustrado na figura 6, é possível apontar os tokens criados e os erros encontrados neste passo. 
 
-Efetuando uma análise léxica no código na linguagem C++ presente na figura 5, é possível apontar os tokens criados e os erros encontrados neste passo. 
-
-Começamos descrevendo as linhas corretas e os tokens retirados dela.
+Descrevendo as linhas corretas e os tokens retirados dela.
 
 \begin{lista}
 	\item Identificador    X 
@@ -201,22 +207,15 @@ Começamos descrevendo as linhas corretas e os tokens retirados dela.
 	\item Identificador    Y
 \end{lista}
 
-Estes tokens citados acima, são os gerados na análise léxica, atribuídos e guardados para a próxima análise. Porém o código da figura 5 contém erros, impedindo de avançar para o próximo etapa.
+Estes tokens citados acima, são os gerados na análise léxica, atribuídos e guardados para a próxima análise. Porém o código da figura 6 contém erros, impedindo de avançar para o próximo etapa.
 
 Os erros encontrados na análise léxica são:
 
 \begin{lista}
-	\item Linha 8, o analisador léxico não conhece o caractere () como algo valido.
-	\item Linha 8, o analisador léxico não conhece o caractere ) como algo valido.
-	\item Linha 10, a variável é declarada do tipo string (texto), mas na atribuição não é fechada as (“) para delimitar o fim do texto.
+	\item Linha 8, o analisador léxico não conhece o caractere (\#) como algo valido.
+	\item Linha 8, 15x não é reconhecido como numero e nem como um identificador.
 	\item Linha 11, é iniciado um comando de bloco de comentário (/*), mas não é fechado com (*/).
 \end{lista}
-
-\begin{figure}[htb]
-    \legenda[fig:figura]{Código de exemplo para Análise Léxica}
-    \fig{scale=1.0}{imagens/figura6}
-    \fonte{O próprio autor}
-\end{figure}
 
 Na figura 5 ocorrem erros de análise sintática, que é o passo que abordaremos em seguida.
 
@@ -227,15 +226,7 @@ A análise Sintática é chamada também de análise hierárquica ou análise gr
 
 O analisador sintático, é responsável por avaliar se os tokens obtidos pelo passo anterior são válidos para a linguagem de programação em que ele e empregado, validando expressões, funções e métodos. A análise sintática geralmente utiliza de gramatica livre de contexto para especificar a sintaxe de uma linguagem de programação \cite{maragon2015}.
 
-Na figura 7, é apresentado um código na linguagem C++ com alguns erros encontrados na análise sintática, estes erros estão descritos abaixo da figura.
-
-\begin{lista}
-	\item Na linha 7, função main não fecha o “(“.
-	\item Na linha 8, não foi acrescentado o ; no final da linha, com isso o analisador não consegue distinguir o final da instrução e o começo de outra.
-	\item Na linha 9, o operador de divisão /, não consegue montar uma expressão de divisão por faltar o operador da esquerda. 
-	\item Na linha 13, o tipo da função int int, confunde o analisador por espera o nome do método após declara o seu tipo inteiro(int).
-	\item Na linha 15, a função soma, não fecha o .
-\end{lista}
+Na figura 7, é ilustrado um código em linguagem C++ com alguns erros encontrados na análise sintática, estes erros estão descritos abaixo da figura.
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Código de exemplo para Análise Sintática}
@@ -243,16 +234,30 @@ Na figura 7, é apresentado um código na linguagem C++ com alguns erros encontr
     \fonte{O próprio autor}
 \end{figure}
 
+\begin{lista}
+	\item Na linha 7, função main não fecha o “(“.
+	\item Na linha 8, não foi acrescentado o ; no final da linha, com isso o analisador não consegue distinguir o final da instrução e o começo de outra.
+	\item Na linha 9, o operador de divisão /, não consegue montar uma expressão de divisão por faltar o operador da esquerda. 
+	\item Na linha 13, o tipo da função int int, confunde o analisador por espera o nome do método após declara o seu tipo inteiro(int).
+	\item Na linha 15, a função soma, não fecha o \}.
+\end{lista}
+
 Após passar pela analise sintática, e verificado se o código faz sentido para linguagem que foi escrita, este passo é trato a seguir.
 
 \section{Análise Semântica}
 \label{sec:analise-semantica}
 
-Até o momento vimos as etapas de análise léxica, que quebra o programa fonte em tokens e a analise sintática, que valida as regras a sintaxe da linguagem de programação. Não é possível representar com expressões regulares ou com uma gramática livre de contexto regras como: todo identificador deve ser declarado antes de ser usado. Muitas verificações devem ser realizadas com meta-informações e com elementos que estão presentes em vários pontos do código fonte, distantes uns dos outros. O analisador semântico utiliza a árvore sintática e a tabela de símbolos para fazer as analise semântica. 
+Até o momento vimos as etapas de análise léxica, que quebra o programa fonte em tokens e a analise sintática, que valida as regras e sintaxe da linguagem de programação. Não é possível representar com expressões regulares ou com uma gramática livre de contexto regras como: todo identificador deve ser declarado antes de ser usado. Muitas verificações devem ser realizadas com meta-informações e com elementos que estão presentes em vários pontos do código fonte, distantes uns dos outros. O analisador semântico utiliza a árvore sintática e a tabela de símbolos para fazer as analise semântica. 
 
 A análise semântica é responsável por verificar aspectos relacionados ao significado das instruções, essa é a terceira etapa do processo de compilação e nesse momento ocorre a validação de uma série de regras que não podem ser verificadas nas etapas anteriores \cite{maragon2015}.
 
 Na figura 8, é ilustrado um código na linguagem C++ com alguns erros detectados na análise semântica.
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Código de exemplo para Análise Semântica}
+    \fig{scale=0.8}{imagens/figura8}
+    \fonte{O próprio autor}
+\end{figure}
 
 Lista dos erros:
 
@@ -262,16 +267,10 @@ Lista dos erros:
 	\item Linha 19, uma classe não pode herdar dela mesma.
 \end{lista}
 
-\begin{figure}[htb]
-    \legenda[fig:figura]{Código de exemplo para Análise Semântica}
-    \fig{scale=0.8}{imagens/figura8}
-    \fonte{O próprio autor}
-\end{figure}
-
 \section{Tabela de Símbolos}
 \label{sec:tabela-semantica}
 
-A tabela de símbolos é uma estrutura auxiliar que tem como função apoiar a analise semânticas nas atividades do código \cite{ricarte2008}. Este recurso é responsável por armazenar informações de identificadores, como variáveis, tipos de dados, funções e constantes. A estrutura da tabela de símbolos pode ser de uma árvore ou tabela hash.
+A tabela de símbolos é uma estrutura auxiliar que tem como função apoiar a análise semântica nas atividades do código \cite{ricarte2008}. Este recurso é responsável por armazenar informações de identificadores, como variáveis, tipos de dados, funções e constantes. A estrutura da tabela de símbolos pode ser de uma árvore ou tabela hash.
 
 A seguir temos um código como exemplo para a explicação da tabela de símbolos.
 
@@ -338,7 +337,7 @@ Neste trabalho foi utilizada a linguagem C\#, fluxogramas e o banco de dados SQL
 
 A utilização de componentes baseados em fluxogramas auxilia no desenvolvimento de um ambiente de programação visual, possibilitando o usuário criar código através destes componentes.
 
-A figura 13 ilustra a interface criada pelo trabalho, tendo o menu esquerdo as funções possíveis de utilização, e a aba da direita sendo o resultado dos conjuntos escolhidos. 
+A figura 13 ilustra a interface criada pelo trabalho, tendo no menu esquerdo as funções possíveis de utilização, e na aba da direita o resultado dos conjuntos escolhidos. 
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Exemplo de fluxo com o código gerado}
@@ -383,7 +382,7 @@ Neste artigo foi utilizada a linguagem Python, uma linguagem de programação in
 
 Após os estudos foi verificado que o interpretador obteve uma implementação diferenciada dos demais nos processos de análise léxica e análise sintática. Foi observado também que o Python utiliza máquina virtual para executar os códigos intermediários(bytecodes).
 
-A figura 15 ilustra a arquitetura Python, tendo no centro ó interpretador, e nele os passos seguidos para a compilação do código.
+A figura 15 ilustra a arquitetura Python, tendo no centro o interpretador, e nele os passos seguidos para a compilação do código.
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Interpretação da Arquitetura Python}
@@ -398,7 +397,7 @@ A figura 15 ilustra a arquitetura Python, tendo no centro ó interpretador, e ne
 
 Neste artigo é apresentado exemplos das técnicas de analise léxica e analise semântica, também mostrando trechos de códigos para melhor compreensão.
 
-Foi utilizado a linguagem Scheme para a construção do compilador, e a linguagem de montagem, código de máquina (Uma linguagem composta apenas de números na base binaria), como linguagem alvo. Schema é uma linguagem que suporta programação funcional e procedural, facilitando assim a elaboração do compilador. O compilador criado utilizou de um gerenciamento de armazenamento do tipo pilha, essa estrutura tem a característica o maneja mento como, o último elemento a entrar nela, é o primeiro a sair.
+Foi utilizado a linguagem Scheme para a construção do compilador, e a linguagem de montagem, código de máquina (Uma linguagem composta apenas de números na base binaria), como linguagem alvo. Schema é uma linguagem que suporta programação funcional e procedural, facilitando assim a elaboração do compilador. O compilador criado utiliza de um gerenciamento de armazenamento do tipo pilha, essa estrutura tem a característica o maneja mento como, o último elemento a entrar nela, é o primeiro a sair.
 
 \begin{quadro}[htb]
     \centering
@@ -553,7 +552,7 @@ A pasta forms contem o arquivo interface.ui, este arquivo abrange todo o código
 
 A pasta resources guarda todas as imagens utilizadas no softwa're, sendo elas os ícones e os automatos.
 
-\subsection{Análise léxica}
+\subsection{Análise Léxica}
 \label{subsec:analiselexica}
 
 Para o desenvolvimento da analise léxica, foram utilizados os autômatos criados, em apêndice, como guias, o autômato do estado 0 é o que seleciona o caminho que aquele caractere ira percorrer, o mesmo é feito na função state00, ao encontrar o caminho é atribuído um valor para a variável state sendo o valor o número do próximo estado, e assim prossegue para o estado subsequente.
@@ -602,7 +601,7 @@ Na figura 29 é ilustrado os dois casos, um autômato em preto e branco, quando 
     \fonte{O próprio autor}
 \end{figure} 
 
-\subsection{Análise sintática}
+\subsection{Análise Sintática}
 \label{subsec:analisesintatica}
 
 Para o desenvolvimento da análise sintática, foi utilizado a criação de uma matriz que armazena todos os tokens e lexemas encontrados após a análise léxica, esta matriz é utilizada para verificar a sequencia de tokens, e validá-los se estão na ordem correta.  
@@ -890,26 +889,189 @@ Apesar de o interpretador cumprir o seu objetivo, é possível implementar funci
 \includegraphics[scale=0.8, clip,trim=10mm 10mm 0mm 20mm, angle=-90, page=3]{QUESTIONARIO.pdf}
 
 \apendice[apendice:automatos]{Autômatos Ativos}
-\includegraphics[scale=1.0, clip,trim=30mm 50mm 30mm 30mm, page=1]{automatosAtivos.pdf}
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômato ativo estado 1}
+    \fig{scale=1.0}{imagens/automatos/state1}
+    \fonte{O próprio autor}
+\end{figure}
 
-\includegraphics[scale=1.0, clip,trim=30mm 50mm 30mm 30mm, page=2]{automatosAtivos.pdf}
 
-\includegraphics[scale=1.0, clip,trim=30mm 50mm 30mm 30mm, page=3]{automatosAtivos.pdf}
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômato ativo estado 2}
+    \fig{scale=0.8}{imagens/automatos/state2}
+    \fonte{O próprio autor}
+\end{figure}
 
-\includegraphics[scale=1.0, clip,trim=30mm 50mm 30mm 30mm, page=4]{automatosAtivos.pdf}
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômato ativo estado 3}
+    \fig{scale=0.8}{imagens/automatos/state3}
+    \fonte{O próprio autor}
+\end{figure}
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômato ativo estado 4}
+    \fig{scale=0.8}{imagens/automatos/state4}
+    \fonte{O próprio autor}
+\end{figure}
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômato ativo estado 5}
+    \fig{scale=0.6}{imagens/automatos/state5}
+    \fonte{O próprio autor}
+\end{figure}
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômato ativo estado 6}
+    \fig{scale=0.6}{imagens/automatos/state6}
+    \fonte{O próprio autor}
+\end{figure}
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômato ativo estado 7}
+    \fig{scale=1.0}{imagens/automatos/state7}
+    \fonte{O próprio autor}
+\end{figure}
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômato ativo estado 8}
+    \fig{scale=1.0}{imagens/automatos/state8}
+    \fonte{O próprio autor}
+\end{figure}
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômato ativo estado 9}
+    \fig{scale=0.8}{imagens/automatos/state9}
+    \fonte{O próprio autor}
+\end{figure}
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômato ativo estado 10}
+    \fig{scale=0.8}{imagens/automatos/state10}
+    \fonte{O próprio autor}
+\end{figure}
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômato ativo estado 11}
+    \fig{scale=0.8}{imagens/automatos/state11}
+    \fonte{O próprio autor}
+\end{figure}
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômato ativo estado 12}
+    \fig{scale=0.8}{imagens/automatos/state12}
+    \fonte{O próprio autor}
+\end{figure}
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômato ativo estado 13}
+    \fig{scale=0.8}{imagens/automatos/state13}
+    \fonte{O próprio autor}
+\end{figure}
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômato ativo estado 14}
+    \fig{scale=0.8}{imagens/automatos/state14}
+    \fonte{O próprio autor}
+\end{figure}
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômato ativo estado 15}
+    \fig{scale=0.8}{imagens/automatos/state15}
+    \fonte{O próprio autor}
+\end{figure}
+
 
 \apendice[apendice:automatos]{Autômatos Desabilitados}
-\includegraphics[scale=1.0, clip,trim=30mm 50mm 30mm 30mm, page=1]{automatosNaoAtivos.pdf}
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômato desabilitado estado 1}
+    \fig{scale=1.0}{imagens/automatos/stateDisabled1}
+    \fonte{O próprio autor}
+\end{figure}
 
-\includegraphics[scale=1.0, clip,trim=30mm 50mm 30mm 30mm, page=2]{automatosNaoAtivos.pdf}
 
-\includegraphics[scale=1.0, clip,trim=30mm 50mm 30mm 30mm, page=3]{automatosNaoAtivos.pdf}
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômato desabilitado estado 2}
+    \fig{scale=0.8}{imagens/automatos/stateDisabled2}
+    \fonte{O próprio autor}
+\end{figure}
 
-\includegraphics[scale=1.0, clip,trim=30mm 50mm 30mm 30mm, page=4]{automatosNaoAtivos.pdf}
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômato desabilitado estado 3}
+    \fig{scale=0.8}{imagens/automatos/stateDisabled3}
+    \fonte{O próprio autor}
+\end{figure}
 
-\apendice[apendice:automatos]{Guia de instalação do Interpretador D+}
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômato desabilitado estado 4}
+    \fig{scale=0.8}{imagens/automatos/stateDisabled4}
+    \fonte{O próprio autor}
+\end{figure}
 
-\apendice[apendice:automatos]{Exemplos de códigos D+}
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômato desabilitado estado 5}
+    \fig{scale=0.6}{imagens/automatos/stateDisabled5}
+    \fonte{O próprio autor}
+\end{figure}
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômato desabilitado estado 6}
+    \fig{scale=0.6}{imagens/automatos/stateDisabled6}
+    \fonte{O próprio autor}
+\end{figure}
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômato desabilitado estado 7}
+    \fig{scale=0.6}{imagens/automatos/stateDisabled7}
+    \fonte{O próprio autor}
+\end{figure}
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômato desabilitado estado 8}
+    \fig{scale=0.8}{imagens/automatos/stateDisabled8}
+    \fonte{O próprio autor}
+\end{figure}
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômato desabilitado estado 9}
+    \fig{scale=0.8}{imagens/automatos/stateDisabled9}
+    \fonte{O próprio autor}
+\end{figure}
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômato desabilitado estado 10}
+    \fig{scale=0.8}{imagens/automatos/stateDisabled10}
+    \fonte{O próprio autor}
+\end{figure}
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômato desabilitado estado 11}
+    \fig{scale=0.8}{imagens/automatos/stateDisabled11}
+    \fonte{O próprio autor}
+\end{figure}
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômato desabilitado estado 12}
+    \fig{scale=0.8}{imagens/automatos/stateDisabled12}
+    \fonte{O próprio autor}
+\end{figure}
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômato desabilitado estado 13}
+    \fig{scale=0.8}{imagens/automatos/stateDisabled13}
+    \fonte{O próprio autor}
+\end{figure}
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômato desabilitado estado 14}
+    \fig{scale=0.8}{imagens/automatos/stateDisabled14}
+    \fonte{O próprio autor}
+\end{figure}
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômato desabilitado estado 15}
+    \fig{scale=0.8}{imagens/automatos/stateDisabled15}
+    \fonte{O próprio autor}
+\end{figure}
 
 \apendice[apendice:automatos]{Dados obtidos}
 \includegraphics[scale=1.0, clip,trim=30mm 40mm 40mm 40mm, page=1]{resultado.pdf}
