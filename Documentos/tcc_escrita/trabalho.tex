@@ -215,7 +215,33 @@ Na figura 5 ocorrem erros de análise sintática, que é o passo que abordaremos
 \subsection{Autômatos}
 \label{sec:automatos}
 
-Os autômatos finitos são conjuntos de estados e por transições diridas e rotuladas entre esses estados \cite{pedro2018}. A função que é desempenhada por eles, é de seuqencia de passos
+Os autômatos finitos são conjuntos de estados e por transições diridas e rotuladas entre esses estados \cite{pedro2018}. Estes autômatos ilustram a expressão regular da gramática, através de seus passos são verificados se uma cadeia de caracteres X faz parte da linguagem analisada ou não \cite{alfred1995}.
+
+Na figura abaixo é ilustrado um automato finito, cada estado é apresentado como uma esfera, as ligações entre elas são as validações, este autômato valida uma sequência de palavra "ABA", caso não seja essa a entrada e retornado erro. A primeira esfera possui um triangulo virado 90º para indicar que este é o início do autômato, e a última com uma esfera dentro para informar seu fim.
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômato Finito}
+    \fig{scale=0.8}{imagens/automatoexplicação}
+    \fonte{O próprio autor}
+\end{figure}
+
+Os autômatos finitos são classificados em dois, determinísticos e não determinísticos. Os autômatos finitos não determinísticos possuem mais de um caminho que pode ser tomados em um estado, um exemplo de fácil compreensão é de um estado poder ir para outro estado com um carácter X e para outro estado com o caractere Y, já os autômatos finitos determinísticos seguem apenas um caminho, não dando a opção para mais de um estado \cite{alfred1995}.
+
+Na figura abaixo é ilustrado um automato finito determinístico.
+
+\begin{figure}[H]
+    \legenda[fig:figura]{Autômato Finito determinístico}
+    \fig{scale=1.0}{imagens/automatodeterministico}
+    \fonte{\cite{alfred1995}}
+\end{figure}
+
+Na figura abaixo é ilustrado um automato finito não determinístico.
+
+\begin{figure}[H]
+    \legenda[fig:figura]{Autômato Finito não determinístico}
+    \fig{scale=1.0}{imagens/automatonãodeterministico}
+    \fonte{\cite{alfred1995}}
+\end{figure}
 
 \section{Análise Síntatica}
 \label{sec:analise-sintatica}
@@ -278,7 +304,7 @@ A seguir temos um código como exemplo para a explicação da tabela de símbolo
     \fonte{O próprio autor}
 \end{figure}
 
-\section{Geração de codigo}
+\section{Geração de código}
 \label{sec:geracao-de-codigo}
 
 \section{Linguagem D+}
