@@ -4,8 +4,11 @@
 % =                                                                     =
 % =======================================================================
 % -----------------------------------------------------------------------
-% Author: Chaua Queirolo
+% Author de configuração das normas : Chaua Queirolo
 % Data:   01/07/2017
+% -----------------------------------------------------------------------
+% Author: Gabriel Pinto Ribeiro da Fonseca
+% Data: 10/08/2019
 % -----------------------------------------------------------------------
 \documentclass[12pt,oneside,a4paper,chapter=TITLE,section=TITLE,sumario=tradicional]{abntex2}
 % Regras da abnt
@@ -107,16 +110,6 @@ O presente projeto tem como objetivo o desenvolvimento de um interpretador da li
 Para desenvolver este software, é desenvolvido um compilador D+, linguagem elaborada pelo mestre Diógenes Cogo Furlan. Este compilador terá modificações para se tornar um interpretador. Para o desenvolvimento deste software, é utilizado o editor QT Creator com a linguagem C++, pelo fato de que este editor juntamente com a linguagem, disponibilizar ferramentas que facilitam a sua criação.
 
 Com este projeto, os alunos da disciplina de compiladores, terão ao seu alcance uma ferramenta (software) que os auxiliará no aprendizado da disciplina. Podendo criar códigos, e ver a transformação que passa pelo compilador, passando pela análise léxica, análise sintática e análise semântica. Os alunos que utilizarem este software, terão exemplos de árvores sintáticas no código escrito na interface. Com toda a informação apresentada para os estudantes da disciplina, é facilitado a compreensão da lógica de compiladores.
-
-%\begin{lista}
- %   \item a problematização, a motivação e a justificativa da escolha do tema;
-%    \item o problema de pesquisa e suas hipóteses, se houver,
- %   \item a metodologia da pesquisa;
- %   \item o referencial teórico e, ainda,
-  %  \item os tópicos principais do desenvolvimento, dando o roteiro ou
-%    ordem de exposição no decorrer da parte textual.
-%\end{lista}
-
 
 % -----------------------------------------------------------------------
 % -----------------------------------------------------------------------
@@ -295,7 +288,7 @@ A linguagem a ser utilizada neste trabalho é a D++, criada pelo professor Dióg
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Regras de gramáticas D+}
-    \fig{scale=0.6}{imagens/figura10}
+    \fig{scale=1.0}{imagens/figura10}
     \fonte{\cite{diogenes2018}}
 \end{figure}
 
@@ -314,7 +307,7 @@ Na figura 11, é ilustrado a comunicação entre uma pessoa e a máquina. O huma
     \fonte{\cite{ana2012}}
 \end{figure}
 
-A interface pode ser visualizada como um lugar onde ocorre o contato entre duas entidades, homem e máquina, um exemplo é a tela de um computador \cite{rocha2003}. Com este exemplo, pode-se estender a várias situações, como, maçanetas de porta, botões de elevadores, c ontrole de uma televisão, um joystick de um jogo, etc.
+A interface pode ser visualizada como um lugar onde ocorre o contato entre duas entidades, homem e máquina, um exemplo é a tela de um computador \cite{rocha2003}. Com este exemplo, pode-se estender a várias situações, como, maçanetas de porta, botões de elevadores, controle de uma televisão, um joystick de um jogo, etc.
 
 Uma definição que englobaria estes casos, seria, que a interface é uma superfície de contato que possui propriedade que alteram o que é visto, ou sentido, e alterando o controle da interação \cite{laurel1993}. Uma interface é responsável por passar em tempo real o estado que se encontra o software, respondendo a cada interação do usuário, um exemplo para melhor compreenção é de um jogo de videogame, se o jogador aperta um botão, o personagem dele pode pular, abaixar ou movimentar-se.
 
@@ -362,7 +355,7 @@ O mapeamento é o relacionamento entre duas coisas, como os controles e seus mov
 \subsection{Consistência}
 \label{sec:consciencia}
 
-A consistência tem como objetivo ter como apropria palavra significa, um padrão(coerência), este principio é responsável por ter operações similares com elementos parecidos para realizar as tarefas semelhantes \cite{angi2015}. Uma interface que segue esta regra, possui um padrão para todas as suas ações, botões com proporções iguais e cores da interface similares.
+A consistência tem como objetivo ter como apropria palavra significa, um padrão(coerência), este principio é responsável por ter operações similares com elementos parecidos para realizar as tarefas semelhantes \cite{agni2015}. Uma interface que segue esta regra, possui um padrão para todas as suas ações, botões com proporções iguais e cores da interface similares.
 
 \subsection{Affordance}
 \label{sec:affordance}
@@ -853,33 +846,43 @@ A forma escolhida para a obtenção de dados relativas ao framework, foi a da el
 \section{Resultados obtidos}
 \label{sec:resultados}
 
-Os alunos selecionados para testar o interpretador são os que cursam a matéria de compiladores do professor Diógenes Cogo Furlan, nesta disciplina oito estudantes a frequentam, ao quais foi solicitado que utilizassem o software e respondessem o questionário elaborado.
+Os alunos selecionados para testar o interpretador são os que cursam a matéria de compiladores do professor Diógenes Cogo Furlan, nesta disciplina sete estudantes a frequentam, ao quais foi solicitado que utilizassem o software e respondessem o questionário elaborado.
 
-\begin{grafico}[htb]
+No gráfico 1 é ilustrado o nível de experiência profissional que os alunos possuem.
+
+\begin{grafico}[H]
     \legenda[fig:grafico]{Gráfico de desenvolvimento}
     \fig{scale=1.0}{imagens/grafico1}
     \fonte{O próprio autor}
 \end{grafico}
 
-\begin{grafico}[htb]
+O gráfico 2 ilustra o nível de dificuldade que os estudantes atribuem a disciplina de compiladores, podendo optar por baixo, regular ou alto.
+
+\begin{grafico}[H]
     \legenda[fig:grafico]{Gráfico de dificuldade}
     \fig{scale=1.0}{imagens/grafico2}
     \fonte{O próprio autor}
 \end{grafico}
 
-\begin{grafico}[htb]
+No gráfico 3 é ilustrado se o interpretador auxiliou no entendimento da matéria de compiladores.
+
+\begin{grafico}[H]
     \legenda[fig:grafico]{Gráfico de auxilio do interpretador}
     \fig{scale=0.6}{imagens/grafico3}
     \fonte{O próprio autor}
 \end{grafico}
 
-\begin{grafico}[htb]
-    \legenda[fig:grafico]{Gráfico para de parte mais relevante do software}
+O gráfico 4 ilustra o que mais prendeu a atenção dos usuários do interpretador.
+
+\begin{grafico}[H]
+    \legenda[fig:grafico]{Gráfico da parte mais relevante do software}
     \fig{scale=1.0}{imagens/grafico4}
     \fonte{O próprio autor}
 \end{grafico}
 
-\begin{grafico}[htb]
+No gráfico 5 é ilustrado a opinião dos estudantes se o interpretador auxiliaria alunos futuros da disciplina.
+
+\begin{grafico}[H]
     \legenda[fig:grafico]{Gráfico de indicação}
     \fig{scale=0.6}{imagens/grafico5}
     \fonte{O próprio autor}
