@@ -11,8 +11,8 @@
 % Regras da abnt
 \usepackage{packages/abnt-UTP}
 \usepackage{lipsum}
-
-
+\usepackage{float}
+\usepackage{longtable}
 
 % =======================================================================
 % =                                                                     =
@@ -217,7 +217,12 @@ Os erros encontrados na análise léxica são:
 	\item Linha 11, é iniciado um comando de bloco de comentário (/*), mas não é fechado com (*/).
 \end{lista}
 
-Na figura 5 ocorrem erros de análise sintática, que é o passo que abordaremos em seguida.
+Na figura 5 ocorrem erros de análise sintática, que é o passo que abordaremos no capítulo 2.4.
+
+\subsection{Autômatos}
+\label{sec:automatos}
+
+Os autômatos finitos são conjuntos de estados e por transições diridas e rotuladas entre esses estados \cite{pedro2018}. A função que é desempenhada por eles, é de seuqencia de passos
 
 \section{Análise Síntatica}
 \label{sec:analise-sintatica}
@@ -309,9 +314,9 @@ Na figura 11, é ilustrado a comunicação entre uma pessoa e a máquina. O huma
     \fonte{\cite{ana2012}}
 \end{figure}
 
-A interface pode ser visualizada como um lugar onde ocorre o contato entre duas entidades, homem e máquina, um exemplo, a tela de um computador \cite{rocha2003}. Com este exemplo, pode-se estender a varias situações, como, maçanetas de porta, botões de elevadores.
+A interface pode ser visualizada como um lugar onde ocorre o contato entre duas entidades, homem e máquina, um exemplo é a tela de um computador \cite{rocha2003}. Com este exemplo, pode-se estender a várias situações, como, maçanetas de porta, botões de elevadores, c ontrole de uma televisão, um joystick de um jogo, etc.
 
-Uma definição que englobaria estes casos, seria, que a interface é uma superfície de contato que possui propriedade que alteram o que é visto, ou sentido, e alterando o controle da interação (Laurel, 1993).
+Uma definição que englobaria estes casos, seria, que a interface é uma superfície de contato que possui propriedade que alteram o que é visto, ou sentido, e alterando o controle da interação \cite{laurel1993}. Uma interface é responsável por passar em tempo real o estado que se encontra o software, respondendo a cada interação do usuário, um exemplo para melhor compreenção é de um jogo de videogame, se o jogador aperta um botão, o personagem dele pode pular, abaixar ou movimentar-se.
 
 IHC não possui uma definição estabelecida, mas a que mais a representa é, uma disciplina preocupada com o design, avaliação e implementação de sistemas computacionais interativos para uso humano e com o estudo dos principais fenômenos ao redor deles \cite{rocha2003}. Na figura 12, é ilustrado esta definição.
 
@@ -321,7 +326,48 @@ IHC não possui uma definição estabelecida, mas a que mais a representa é, um
     \fonte{\cite{rocha2003}}
 \end{figure}
 
+\section{Os seis princípios de Design}
+\label{sec:seisprincipios}
 
+Para a construção e verificação de uma interface que satisfaça o usuário, pode-se seguir seis princípios, sendo eles: visibilidade, feedback, restrições, mapeamento, consistência e affordance \cite{norman2002}.
+
+\subsection{Visibilidade}
+\label{sec:visibilidade}
+
+A visibilidade age como um bom lembrete, tornando fácil a compreensão das funcionalidades da interface \cite{norman2002}. Estas funções devem estar visíveis, tornando a experiência do usuário mais fácil, do contrário tornam-se mais difíceis de achá-las e consequentemente entender como utilizá-las \cite{agni2015}. Um exemplo que pode ser ilustrado e a interface de um editor de texto, caso possua ícones na barra de tarefa para funcionalidades simples, como copiar e colar melhoraria a usabilidade do software, porém casso não possua, haveria usuários que não utilizariam estas funções por não ter conhecimento delas.
+
+Na figura 13 é ilustrado o notepad a esquerda e o notepad++ a direita.
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Comparação do notepad e notepad++}
+    \fig{scale=0.7}{imagens/notepadvs++}
+    \fonte{O próprio autor}
+\end{figure}
+
+\subsection{Feedback}
+\label{sec:feedback}
+
+O feedback é dar ao usuário um retorno de informação sobre a ação ao qual ele efetuou, apresentando o resultado obtido \cite{norman2002}. Existem várias categorias de feedback presentes nas interfaces, como áudio, tátil, visual ou a combinação destes \cite{agni2015}. Um exemplo que pode ser dado, é o desenho em um papel, o desenhista não conseguiria elaborar sua arte sem obter o feedback dos traços que ele fez.
+
+\subsection{Restrições}
+\label{sec:restricoes}
+
+A restrição tem como objetivo facilitar o uso do objeto da maneira mais simples e compreensível para quem esta usando, tentando minimizar os erro e impossibilitando sua utilização de outra forma \cite{norman2002}. Um exemplo que pode ser dado é o conector de USB, não é possível conectá-lo de maneira errada, se a pessoa não conseguiu encaixá-lo, basta verificar a posição correta junto ao conector.
+
+\subsection{Mapeamento}
+\label{sec:mapeamento}
+
+O mapeamento é o relacionamento entre duas coisas, como os controles e seus movimentos, e os resultados dessa relação \cite{norman2002}. Esta ligação entre os objetos pode ser explicando utilizando do exemplo da direção do carro, quando o volante do automóvel é girado para a direita, as rodas e o carro seguem mesma direção \cite{norman2002}. Todas as interfaces possuem este comportamento, como um botão de play em um aplicativo que reproduz musica, esta ação tem relação com o som reproduzido.
+
+\subsection{Consistência}
+\label{sec:consciencia}
+
+A consistência tem como objetivo ter como apropria palavra significa, um padrão(coerência), este principio é responsável por ter operações similares com elementos parecidos para realizar as tarefas semelhantes \cite{angi2015}. Uma interface que segue esta regra, possui um padrão para todas as suas ações, botões com proporções iguais e cores da interface similares.
+
+\subsection{Affordance}
+\label{sec:affordance}
+
+O affordance refere-se ao significado real dos objetos, principalmente aos seus significados e utilidades fundamentais ao qual aquele objeto pode possuir \cite{norman2002}. Não existe tradução literal desta palavra para o português, seu significado tem como um objeto que as pessoas saibam como usá-los por conta de sua simplicidade, sendo obvio, podendo se utilizar de seu visual \cite{agni2015}. Um exemplo que pode ser apresentado, é do ícone de disquete, todo usuário de computador ao se deparar com este ícone associa ao comando de salvar.
 
 % -----------------------------------------------------------------------
 % -----------------------------------------------------------------------
@@ -409,9 +455,9 @@ Foi utilizado a linguagem Scheme para a construção do compilador, e a linguage
         \hline\hline
         Trabalho 1 & Componentes de fluxogramas; Administração de Imagens. & Código na linguagem C.   &  SQL Server; Fluxogramas. & C\#; SQL    \\ \hline 
         Trabalho 2 & Análise sintática recursiva descendente    & Árvore sintática; Árvore de Símbolos.   & SASM.  & C; Assembly  \\ \hline
-        Trabalho 3 & Análise Léxica; Análise Sintática.   & Código de Montagem (Assembly).  &  -  & Scheme; Assembly.  \\ \hline
-        Trabalho 4 & Análise Léxica; Análise Sintática.   & -   &  Interpretador Python.  & Python.   \\ \hline
-        Trabalho 5 & Análise Léxica; Análise Sintática.   &  Código de Máquina.   & -   & Scheme.   \\ \hline
+        Trabalho 3 & Análise Léxica;  Análise Sintática.   & Código de Montagem (Assembly).  &  -  & Scheme; Assembly.  \\ \hline
+        Trabalho 4 & Análise Léxica;  Análise Sintática.   & -   &  Interpretador Python.  & Python.   \\ \hline
+        Trabalho 5 & Análise Léxica;  Análise Sintática.   &  Código de Máquina.   & -   & Scheme.   \\ \hline
     \end{tabular}
 
     
@@ -898,7 +944,7 @@ Apesar de o interpretador cumprir o seu objetivo, é possível implementar funci
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Autômato ativo estado 2}
-    \fig{scale=0.8}{imagens/automatos/state2}
+    \fig{scale=0.7}{imagens/automatos/state2}
     \fonte{O próprio autor}
 \end{figure}
 
@@ -928,55 +974,55 @@ Apesar de o interpretador cumprir o seu objetivo, é possível implementar funci
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Autômato ativo estado 7}
-    \fig{scale=1.0}{imagens/automatos/state7}
+    \fig{scale=0.6}{imagens/automatos/state7}
     \fonte{O próprio autor}
 \end{figure}
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Autômato ativo estado 8}
-    \fig{scale=1.0}{imagens/automatos/state8}
+    \fig{scale=0.6}{imagens/automatos/state8}
     \fonte{O próprio autor}
 \end{figure}
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Autômato ativo estado 9}
-    \fig{scale=0.8}{imagens/automatos/state9}
+    \fig{scale=0.6}{imagens/automatos/state9}
     \fonte{O próprio autor}
 \end{figure}
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Autômato ativo estado 10}
-    \fig{scale=0.8}{imagens/automatos/state10}
+    \fig{scale=0.6}{imagens/automatos/state10}
     \fonte{O próprio autor}
 \end{figure}
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Autômato ativo estado 11}
-    \fig{scale=0.8}{imagens/automatos/state11}
+    \fig{scale=0.6}{imagens/automatos/state11}
     \fonte{O próprio autor}
 \end{figure}
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Autômato ativo estado 12}
-    \fig{scale=0.8}{imagens/automatos/state12}
+    \fig{scale=0.6}{imagens/automatos/state12}
     \fonte{O próprio autor}
 \end{figure}
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Autômato ativo estado 13}
-    \fig{scale=0.8}{imagens/automatos/state13}
+    \fig{scale=0.6}{imagens/automatos/state13}
     \fonte{O próprio autor}
 \end{figure}
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Autômato ativo estado 14}
-    \fig{scale=0.8}{imagens/automatos/state14}
+    \fig{scale=0.6}{imagens/automatos/state14}
     \fonte{O próprio autor}
 \end{figure}
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Autômato ativo estado 15}
-    \fig{scale=0.8}{imagens/automatos/state15}
+    \fig{scale=0.6}{imagens/automatos/state15}
     \fonte{O próprio autor}
 \end{figure}
 
@@ -991,7 +1037,7 @@ Apesar de o interpretador cumprir o seu objetivo, é possível implementar funci
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Autômato desabilitado estado 2}
-    \fig{scale=0.8}{imagens/automatos/stateDisabled2}
+    \fig{scale=0.7}{imagens/automatos/stateDisabled2}
     \fonte{O próprio autor}
 \end{figure}
 
@@ -1027,63 +1073,140 @@ Apesar de o interpretador cumprir o seu objetivo, é possível implementar funci
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Autômato desabilitado estado 8}
-    \fig{scale=0.8}{imagens/automatos/stateDisabled8}
+    \fig{scale=0.6}{imagens/automatos/stateDisabled8}
     \fonte{O próprio autor}
 \end{figure}
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Autômato desabilitado estado 9}
-    \fig{scale=0.8}{imagens/automatos/stateDisabled9}
+    \fig{scale=0.6}{imagens/automatos/stateDisabled9}
     \fonte{O próprio autor}
 \end{figure}
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Autômato desabilitado estado 10}
-    \fig{scale=0.8}{imagens/automatos/stateDisabled10}
+    \fig{scale=0.6}{imagens/automatos/stateDisabled10}
     \fonte{O próprio autor}
 \end{figure}
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Autômato desabilitado estado 11}
-    \fig{scale=0.8}{imagens/automatos/stateDisabled11}
+    \fig{scale=0.6}{imagens/automatos/stateDisabled11}
     \fonte{O próprio autor}
 \end{figure}
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Autômato desabilitado estado 12}
-    \fig{scale=0.8}{imagens/automatos/stateDisabled12}
+    \fig{scale=0.6}{imagens/automatos/stateDisabled12}
     \fonte{O próprio autor}
 \end{figure}
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Autômato desabilitado estado 13}
-    \fig{scale=0.8}{imagens/automatos/stateDisabled13}
+    \fig{scale=0.6}{imagens/automatos/stateDisabled13}
     \fonte{O próprio autor}
 \end{figure}
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Autômato desabilitado estado 14}
-    \fig{scale=0.8}{imagens/automatos/stateDisabled14}
+    \fig{scale=0.6}{imagens/automatos/stateDisabled14}
     \fonte{O próprio autor}
 \end{figure}
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Autômato desabilitado estado 15}
-    \fig{scale=0.8}{imagens/automatos/stateDisabled15}
+    \fig{scale=0.6}{imagens/automatos/stateDisabled15}
     \fonte{O próprio autor}
 \end{figure}
 
 \apendice[apendice:automatos]{Dados obtidos}
-\includegraphics[scale=1.0, clip,trim=30mm 40mm 40mm 40mm, page=1]{resultado.pdf}
+\includegraphics[scale=1.0, clip,trim=20mm 60mm 50mm 50mm, page=1]{resultado.pdf}
 
-\includegraphics[scale=1.0, clip,trim=10mm 10mm 40mm 30mm, page=3]{resultado.pdf}
+\includegraphics[scale=1.0, clip,trim=20mm 10mm 40mm 30mm, page=2]{resultado.pdf}
 
-\includegraphics[scale=1.0, clip,trim=10mm 10mm 40mm 30mm, page=5]{resultado.pdf}
+\includegraphics[scale=1.0, clip,trim=20mm 10mm 40mm 30mm, page=3]{resultado.pdf}
 
-\includegraphics[scale=1.0, clip,trim=10mm 10mm 40mm 30mm, page=7]{resultado.pdf}
+\includegraphics[scale=1.0, clip,trim=20mm 10mm 40mm 20mm, page=4]{resultado.pdf}
 
-\includegraphics[scale=1.0, clip,trim=30mm 50mm 30mm 30mm, page=2]{resultado.pdf}
+\apendice[apendice:codigoexemplo]{Códigos de Exemplo}
 
+As figuras abaixo são exemplos de códigos da gramática D+.
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Código 1 da gramática D+}
+    \fig{scale=1.5}{imagens/codigoparateste1}
+    \fonte{O próprio autor}
+\end{figure}
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Código 2 da gramática D+}
+    \fig{scale=1.5}{imagens/codigoparateste2}
+    \fonte{O próprio autor}
+\end{figure}
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Código 3 da gramática D+}
+    \fig{scale=1.5}{imagens/codigoparateste3}
+    \fonte{O próprio autor}
+\end{figure}
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Código 4 da gramática D+}
+    \fig{scale=1.5}{imagens/codigoparateste4}
+    \fonte{O próprio autor}
+\end{figure}
+
+\apendice[apendice:instalacao]{Instalação do Interpretador D+}
+
+Para facilitar o acesso a esta framework, foi efetuado um deploy do interpretador D+ e criado um arquivo executável para efetuar a instalação do software, assim não precisando instalar o QtCreator e suas bibliotecas.
+
+Para instalar o Interpretador execute o arquivo "InterpretadorD+", após executa ló, aparecera uma janela igual à figura abaixo, clique em next.
+
+\begin{figure}[!htb]
+    \legenda[fig:figura]{Janela de instalação 1}
+    \fig{scale=1.0}{imagens/instalação1}
+    \fonte{O próprio autor}
+\end{figure}
+
+A janela prosseguira e aparecera o local que você deseja instalar o software, selecione o local e clique em next, conforma e figura abaixo.
+
+\begin{figure}[H]
+    \legenda[fig:figura]{Janela de instalação 2}
+    \fig{scale=1.0}{imagens/instalação2}
+    \fonte{O próprio autor}
+\end{figure}
+
+Após prosseguir carregará uma pagina igual à figura abaixo, selecione o "Interpretador\_D+" e clique em next.
+
+\begin{figure}[H]
+    \legenda[fig:figura]{Janela de instalação 3}
+    \fig{scale=1.0}{imagens/instalação3}
+    \fonte{O próprio autor}
+\end{figure}
+
+A janela prosseguira e carregará uma janela igual à figura abaixo, clique em next.
+
+\begin{figure}[H]
+    \legenda[fig:figura]{Janela de instalação 4}
+    \fig{scale=1.0}{imagens/instalação4}
+    \fonte{O próprio autor}
+\end{figure}
+
+Clique em "Install" conforme a figura abaixo.
+
+\begin{figure}[H]
+    \legenda[fig:figura]{Janela de instalação 5}
+    \fig{scale=1.0}{imagens/instalação5}
+    \fonte{O próprio autor}
+\end{figure}
+
+Após a instalação clique em "Finish", e o interpretador esta disponível no menu iniciar.
+
+\begin{figure}[H]
+    \legenda[fig:figura]{Janela de instalação 6}
+    \fig{scale=1.0}{imagens/instalação6}
+    \fonte{O próprio autor}
+\end{figure}
 % ----------------------------------------------------------
 % Anexos
 % ----------------------------------------------------------

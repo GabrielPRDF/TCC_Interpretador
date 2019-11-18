@@ -636,7 +636,7 @@ bool numberValidation(){
 
 void validaString(){
     nextChar();
-    if(line[aux] != '\u0022' && line[aux+1] != '\u0022'){
+    if(line[aux] != '\u0022'){
         lexema +=line[aux];
         while(line[aux] != '\u0022'){
             nextChar();
