@@ -227,7 +227,7 @@ Na figura 7 é ilustrado um autômato finito, cada estado é apresentado como um
 
 Os autômatos finitos são classificados em dois, determinísticos e não determinísticos. Os autômatos finitos não determinísticos possuem mais de um caminho que pode ser tomados em um estado para o mesmo caractere analisado, um exemplo de fácil compreensão é de um estado poder ir por um caminho analisando o caractere e para outro caminho com o mesmo caractere, já os autômatos finitos determinísticos seguem apenas um caminho, não dando a opção para mais de um estado \cite{alfred1995}.
 
-Na figura 8 é ilustrado um automato finito determinístico.
+Na figura 8 é ilustrado um autômato finito determinístico.
 
 \begin{figure}[H]
     \legenda[fig:figura]{Autômato Finito determinístico}
@@ -235,11 +235,11 @@ Na figura 8 é ilustrado um automato finito determinístico.
     \fonte{\cite{alfred1995}}
 \end{figure}
 
-Na figura 9 é ilustrado um automato finito não determinístico.
+Na figura 9 é ilustrado um autômato finito não determinístico.
 
 \begin{figure}[H]
     \legenda[fig:figura]{Autômato Finito não determinístico}
-    \fig{scale=1.0}{imagens/automatonãodeterministico}
+    \fig{scale=1.4}{imagens/automatonãodeterministico}
     \fonte{\cite{alfred1995}}
 \end{figure}
 
@@ -266,7 +266,7 @@ Na figura 10 é ilustrado um código em linguagem C++ com alguns erros encontrad
 	\item Na linha 15, a função soma, não fecha o \}.
 \end{lista}
 
-Após passar pela analise sintática, e verificado se o código faz sentido para linguagem que foi escrita, este passo é trato no capitulo.
+Após passar pela analise sintática, e verificado se o código faz sentido para linguagem que foi escrita, este passo é trato no capitulo 2.6.
 
 \section{Árvore Sintática}
 \label{sec:arvoresintaticafuncadamentação}
@@ -311,13 +311,43 @@ Lista dos erros:
 
 A tabela de símbolos é uma estrutura auxiliar que tem como função apoiar a análise semântica nas atividades do código \cite{ricarte2008}. Este recurso é responsável por armazenar informações de identificadores, como variáveis, tipos de dados, funções e constantes. A estrutura da tabela de símbolos pode ser de uma árvore ou tabela hash.
 
-Na figura 13 é ilustrado um código como exemplo para a explicação da tabela de símbolos.
+Na figura 13 é ilustrado um código como exemplo para a explicação da tabela de símbolos. No código é encontrado declarações de vários identificadores, sendo eles, soma, x, y, a, b, todos são armazenados em uma tabela com dados daquele identificador.
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Código de exemplo para Tabela de Símbolos}
     \fig{scale=0.8}{imagens/figura9}
     \fonte{O próprio autor}
 \end{figure}
+
+•	Categoria: a estrutura daquele identificador, podendo ser função, procedure, variável ou constante.
+
+•	Tipo: qual o tipo atribuído a ele, podendo ser int, real, char, string ou boolean.
+
+•	Valor: o dado gravado.
+
+•	Escopo: é o nível que possui, podendo ser local, apenas para aquele bloco de código, ou global, que pode ser acessada em qualquer parte do código.
+
+No quadro 1 é apresentado a tabela de símbolos da figura 13.
+
+\begin{quadro}[htb]
+    \centering
+    \vspace{0.5cm}
+    \legenda[quadro:tabeladesimbolos]{Tabela de Símbolos }
+    \begin{tabular}{|p{3.0cm}|p{3.0cm}|p{3.0cm}|p{3.0cm}|p{3.0cm}|}
+        \hline
+        \textbf{Identificador} & \textbf{Categoria} & \textbf{Tipo} & \textbf{Valor} & \textbf{Escopo} \\ 
+        \hline\hline
+        Soma & função & int  &  -  & global   \\ \hline 
+        X & variável  & int  & - & local  \\ \hline
+        Y & variável  & int  &  -  & local  \\ \hline
+        A & variável  & int  &  5  & local   \\ \hline
+        B & variável  & int  & 6  & local   \\ \hline
+    \end{tabular}
+
+    
+    \fonte{próprio autor}
+\end{quadro}
+
 
 \section{Geração de código intermediária}
 \label{sec:geracao-de-codigo-intermediaria}
@@ -625,7 +655,7 @@ Na figura 28 é ilustrado as opções que o software oferta para o usuário, des
     \fonte{O próprio autor}
 \end{figure} 
 
-Na figura 29 é ilustrado o quadro que a framework abre para a criação dos autômatos.
+Na figura 29 é ilustrado a janela que a framework abre para a criação dos autômatos.
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Janela de criação de autômatos}
@@ -692,7 +722,7 @@ A pasta sources contem os arquivos .cpp, nela são encontrado toda a implementa�
 
 A pasta forms contem o arquivo interface.ui, este arquivo abrange todo o código da interface criada para o interpretador.
 
-A pasta resources guarda todas as imagens utilizadas no softwa're, sendo elas os ícones e os automatos.
+A pasta resources guarda todas as imagens utilizadas no softwa're, sendo elas os ícones e os autômatos.
 
 \subsection{Análise Léxica}
 \label{subsec:analiselexica}
@@ -728,7 +758,7 @@ Para identificar por qual autômato o código passou é utilizando de variáveis
 Na figura 37 é ilustrado o trecho do código que valida se o que sera carregado é o autômato colorido ou o preto e branco. 
 
 \begin{figure}[htb]
-    \legenda[fig:figura]{Verificação do automato a ser carregado}
+    \legenda[fig:figura]{Verificação do autômato a ser carregado}
     \fig{scale=0.8}{imagens/ifautomatos}
     \fonte{O próprio autor}
 \end{figure} 
@@ -750,7 +780,7 @@ Para o desenvolvimento da análise sintática, foi utilizado a criação de uma 
 
 Após finalizar a análise léxica o software chama em sequência a rotina para a analise sintática, está inicia a verificação na posição 0 da matriz tokensLexemasTable, e percorre-a validando junto das regras da gramatica.  
 
-Nos quadros 2, 3 e 4 são ilustrados as funções criadas referentes a cada regra, seguindo uma logica para verificar se o próximo elemento da matriz corresponde com o elemento esperado. 
+Nos quadros 3, 4 e 5 são ilustrados as funções criadas referentes a cada regra, seguindo uma logica para verificar se o próximo elemento da matriz corresponde com o elemento esperado. 
 
 \begin{quadro}[htb]
     \centering
