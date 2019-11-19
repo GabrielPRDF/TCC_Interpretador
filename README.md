@@ -1,0 +1,1 @@
+# Interpretador D+ integrado a uma interface.
