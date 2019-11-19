@@ -215,9 +215,9 @@ Na figura 5 ocorrem erros de análise sintática, que é o passo que abordaremos
 \subsection{Autômatos}
 \label{sec:automatos}
 
-Os autômatos finitos são conjuntos de estados e por transições diridas e rotuladas entre esses estados \cite{pedro2018}. Estes autômatos ilustram a expressão regular da gramática, através de seus passos são verificados se uma cadeia de caracteres X faz parte da linguagem analisada ou não \cite{alfred1995}.
+Os autômatos finitos são conjuntos de estados e por transições dirigidas e rotuladas entre esses estados \cite{pedro2018}. Estes autômatos ilustram a expressão regular da gramática, através de seus passos são verificados se uma cadeia de caracteres X faz parte da linguagem analisada ou não \cite{alfred1995}.
 
-Na figura abaixo é ilustrado um automato finito, cada estado é apresentado como uma esfera, as ligações entre elas são as validações, este autômato valida uma sequência de palavra "ABA", caso não seja essa a entrada e retornado erro. A primeira esfera possui um triangulo virado 90º para indicar que este é o início do autômato, e a última com uma esfera dentro para informar seu fim.
+Na figura abaixo é ilustrado um autômato finito, cada estado é apresentado como uma esfera, as ligações entre elas são as validações, este autômato valida uma sequência de palavra "ABA", caso não seja essa a entrada e retornado erro. A primeira esfera possui um triangulo virado 90º para indicar que este é o início do autômato, e a última com uma esfera dentro para informar seu fim.
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Autômato Finito}
@@ -225,7 +225,7 @@ Na figura abaixo é ilustrado um automato finito, cada estado é apresentado com
     \fonte{O próprio autor}
 \end{figure}
 
-Os autômatos finitos são classificados em dois, determinísticos e não determinísticos. Os autômatos finitos não determinísticos possuem mais de um caminho que pode ser tomados em um estado, um exemplo de fácil compreensão é de um estado poder ir para outro estado com um carácter X e para outro estado com o caractere Y, já os autômatos finitos determinísticos seguem apenas um caminho, não dando a opção para mais de um estado \cite{alfred1995}.
+Os autômatos finitos são classificados em dois, determinísticos e não determinísticos. Os autômatos finitos não determinísticos possuem mais de um caminho que pode ser tomados em um estado para o mesmo caractere analisado, um exemplo de fácil compreensão é de um estado poder ir por um caminho analisando o caractere e para outro caminho com o mesmo caractere, já os autômatos finitos determinísticos seguem apenas um caminho, não dando a opção para mais de um estado \cite{alfred1995}.
 
 Na figura abaixo é ilustrado um automato finito determinístico.
 
@@ -266,7 +266,10 @@ Na figura 7, é ilustrado um código em linguagem C++ com alguns erros encontrad
 	\item Na linha 15, a função soma, não fecha o \}.
 \end{lista}
 
-Após passar pela analise sintática, e verificado se o código faz sentido para linguagem que foi escrita, este passo é trato a seguir.
+Após passar pela analise sintática, e verificado se o código faz sentido para linguagem que foi escrita, este passo é trato no capitulo.
+
+\section{Árvore Sintática}
+\label{sec:arvoresintaticafuncadamentação}
 
 \section{Análise Semântica}
 \label{sec:analise-semantica}
@@ -304,19 +307,67 @@ A seguir temos um código como exemplo para a explicação da tabela de símbolo
     \fonte{O próprio autor}
 \end{figure}
 
+\section{Geração de código intermediária}
+\label{sec:geracao-de-codigo-intermediaria}
+
+A geração de código intermediário cria uma sequência linear de comandos, instruções, a partir da análise sintática do programa elaborado \cite{pedro2018}. Na figura abaixo é ilustrada um fluxo para a geração de código intermediário.
+
+\begin{figure}[H]
+    \legenda[fig:figura]{Geração de código intermediário}
+    \fig{scale=0.8}{imagens/geradordecodigointermediaro}
+    \fonte{\cite{alfred1995}}
+\end{figure}
+
+Apesar de o compilador conseguir gerar, sem problemas, um programa alvo do programa fonte sem a necessidade da geração de código intermediário, efetuar este passo é visto com bons olhos por conta de duas vantagens que ele oferece.
+
+•	Redirecionamento facilitado, o código é reaproveitado para outros computadores, necessitando apenas a elaboração a partir da geração de código \cite{alfred1995}.
+
+
+•	Uma otimização pode ser aplicada em qualquer maquina utilizando do código intermediário \cite{alfred1995}.
+
 \section{Geração de código}
 \label{sec:geracao-de-codigo}
+
+A fase final do compilador é o gerador de código, esta etapa é responsável por transformar o código de entrada no código objeto \cite{alfred1995}. É imprescindível que execute de maneira correta suas especificações, casso contrario todo o trabalho efetuado ate o momento é desperdiçado \cite{alfred1995}.
+
+Na figura abaixo é ilustrado um esquema do gerador de código, módulos de vanguarda são os geradores de códigos intermediários.
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Gerador de código}
+    \fig{scale=0.8}{imagens/geradordecodigo}
+    \fonte{\cite{alfred1995}}
+\end{figure}
+
+Os dados utilizados na entrada do gerador de código são, o programa escrito, ou o intermediário criado dele, junto da tabela de símbolos \cite{alfred1995}. Com estas informações, é possível passar para a criação do programa na linguagem alvo, sem se preocupar com erros léxicos, sintáticos ou semânticos, pois as análises anteriores efetuaram a validação destes.
+
+A saída obtida do gerador de código é o programa na linguagem alvo. Este programa pode ter três formas, sendo elas linguagem absoluta de máquina, linguagem realocável de máquina e linguagem de montagem \cite{alfred1995}.
+
+Um programa em linguagem absoluta de maquina consegue ser carregado em um local fixo na memória e executado imediatamente \cite{alfred1995}, tornando imediata sua execução.
+
+Um programa em linguagem realocável de maquina separa o resultado da compilação em módulos, permitindo executá-los separadamente, sua execução depende de um carregador ou editor de ligações \cite{alfred1995}. Com esta característica é possível pegar partes do programa alvo, ganhando grande flexibilidade do código compilado.
+
+Um programa em linguagem de montagem(Assembly) é mais fácil gerar sua saída, pois permite criar instruções simbólicas e utilizar de processamento de macros do montador para obter o programa alvo \cite{alfred1995}.
 
 \section{Linguagem D+}
 \label{sec:linguagem-d+}
 
 A linguagem a ser utilizada neste trabalho é a D++, criada pelo professor Diógenes Furlan, para que os alunos que integram a disciplina de compiladores, por ele ministrada, utilizem como base para a criação de um compilador. Algumas regras presentes nesta linguagem são apresentadas na figura 10.
 
-\begin{figure}[htb]
+\begin{figure}[H]
     \legenda[fig:figura]{Regras de gramáticas D+}
     \fig{scale=1.0}{imagens/figura10}
     \fonte{\cite{diogenes2018}}
 \end{figure}
+
+As regras da linguagem d+ são responsáveis para verificar se as palavras encontradas no código escrito atendem a gramática e a sequência imposta sobre ela, a seguir é dado exemplos destas regras.
+
+•	Regra 4 : decl-const -> CONST ID = literal;
+
+Para satisfazer essa regra o código deve possuir uma palavra "CONST" e em seguida encontrar um identificador(nome dado para declarações), após atender estes passos, é verificado se na sequência existe um símbolo de atribuição "=", caso sim, é chamado a regra literal.
+
+•	Regra 31: literal -> NUMINT | NUMREAL | CARACTERE | STRING | valor-verdade
+
+Caso a regra literal seja atendida, encontrando um número inteiro, real, caractere, string ou um valor verdadeiro, true ou false, é analisado se a aproxima palavra é um ";", se sim, a gramática da linguagem foi aprovada, casso contrario, se qualquer uma das validações não forem atendidas, o código possui palavras ou sequências que não faz parte da gramática D+, isso é feito para todas as regras. 
 
 \chapter{Interação Humano-Computador(IHC)}
 \label{cap:interacao-humano-computador}
