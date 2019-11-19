@@ -217,7 +217,7 @@ Na figura 5 ocorrem erros de análise sintática, que é o passo que abordaremos
 
 Os autômatos finitos são conjuntos de estados e por transições dirigidas e rotuladas entre esses estados \cite{pedro2018}. Estes autômatos ilustram a expressão regular da gramática, através de seus passos são verificados se uma cadeia de caracteres X faz parte da linguagem analisada ou não \cite{alfred1995}.
 
-Na figura abaixo é ilustrado um autômato finito, cada estado é apresentado como uma esfera, as ligações entre elas são as validações, este autômato valida uma sequência de palavra "ABA", caso não seja essa a entrada e retornado erro. A primeira esfera possui um triangulo virado 90º para indicar que este é o início do autômato, e a última com uma esfera dentro para informar seu fim.
+Na figura 7 é ilustrado um autômato finito, cada estado é apresentado como uma esfera, as ligações entre elas são as validações, este autômato valida uma sequência de palavra "ABA", caso não seja essa a entrada e retornado erro. A primeira esfera possui um triangulo virado 90º para indicar que este é o início do autômato, e a última com uma esfera dentro para informar seu fim.
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Autômato Finito}
@@ -227,7 +227,7 @@ Na figura abaixo é ilustrado um autômato finito, cada estado é apresentado co
 
 Os autômatos finitos são classificados em dois, determinísticos e não determinísticos. Os autômatos finitos não determinísticos possuem mais de um caminho que pode ser tomados em um estado para o mesmo caractere analisado, um exemplo de fácil compreensão é de um estado poder ir por um caminho analisando o caractere e para outro caminho com o mesmo caractere, já os autômatos finitos determinísticos seguem apenas um caminho, não dando a opção para mais de um estado \cite{alfred1995}.
 
-Na figura abaixo é ilustrado um automato finito determinístico.
+Na figura 8 é ilustrado um automato finito determinístico.
 
 \begin{figure}[H]
     \legenda[fig:figura]{Autômato Finito determinístico}
@@ -235,7 +235,7 @@ Na figura abaixo é ilustrado um automato finito determinístico.
     \fonte{\cite{alfred1995}}
 \end{figure}
 
-Na figura abaixo é ilustrado um automato finito não determinístico.
+Na figura 9 é ilustrado um automato finito não determinístico.
 
 \begin{figure}[H]
     \legenda[fig:figura]{Autômato Finito não determinístico}
@@ -250,7 +250,7 @@ A análise Sintática é chamada também de análise hierárquica ou análise gr
 
 O analisador sintático, é responsável por avaliar se os tokens obtidos pelo passo anterior são válidos para a linguagem de programação em que ele e empregado, validando expressões, funções e métodos. A análise sintática geralmente utiliza de gramatica livre de contexto para especificar a sintaxe de uma linguagem de programação \cite{maragon2015}.
 
-Na figura 7, é ilustrado um código em linguagem C++ com alguns erros encontrados na análise sintática, estes erros estão descritos abaixo da figura.
+Na figura 10 é ilustrado um código em linguagem C++ com alguns erros encontrados na análise sintática, estes erros estão descritos abaixo da figura.
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Código de exemplo para Análise Sintática}
@@ -271,6 +271,18 @@ Após passar pela analise sintática, e verificado se o código faz sentido para
 \section{Árvore Sintática}
 \label{sec:arvoresintaticafuncadamentação}
 
+Uma árvore sintática tem como principio ilustrar de forma estrutural o código junto as regras da gramática. A árvore de análise é elabora conectando os símbolos derivados da regra ao qual pertence \cite{appel1998}. Um exemplo que pode ser usado para melhorar a compreensão, é do seguinte comando:
+
+•	X > 0
+
+Esta expressão gera uma árvore sintática ilustrada na figura 11, a árvore segue derivando a até chegar a um terminal, neste caso os terminais são X, > e 0.
+
+\begin{figure}[htb]
+    \legenda[fig:figura]{Árvore Sintática}
+    \fig{scale=1.5}{imagens/arvoresintatica}
+    \fonte{\cite{joao2012}}
+\end{figure}
+
 \section{Análise Semântica}
 \label{sec:analise-semantica}
 
@@ -278,9 +290,9 @@ Até o momento vimos as etapas de análise léxica, que quebra o programa fonte 
 
 A análise semântica é responsável por verificar aspectos relacionados ao significado das instruções, essa é a terceira etapa do processo de compilação e nesse momento ocorre a validação de uma série de regras que não podem ser verificadas nas etapas anteriores \cite{maragon2015}.
 
-Na figura 8, é ilustrado um código na linguagem C++ com alguns erros detectados na análise semântica.
+Na figura 12 é ilustrado um código na linguagem C++ com alguns erros detectados na análise semântica.
 
-\begin{figure}[htb]
+\begin{figure}[H]
     \legenda[fig:figura]{Código de exemplo para Análise Semântica}
     \fig{scale=0.8}{imagens/figura8}
     \fonte{O próprio autor}
@@ -299,7 +311,7 @@ Lista dos erros:
 
 A tabela de símbolos é uma estrutura auxiliar que tem como função apoiar a análise semântica nas atividades do código \cite{ricarte2008}. Este recurso é responsável por armazenar informações de identificadores, como variáveis, tipos de dados, funções e constantes. A estrutura da tabela de símbolos pode ser de uma árvore ou tabela hash.
 
-A seguir temos um código como exemplo para a explicação da tabela de símbolos.
+Na figura 13 é ilustrado um código como exemplo para a explicação da tabela de símbolos.
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Código de exemplo para Tabela de Símbolos}
@@ -310,7 +322,7 @@ A seguir temos um código como exemplo para a explicação da tabela de símbolo
 \section{Geração de código intermediária}
 \label{sec:geracao-de-codigo-intermediaria}
 
-A geração de código intermediário cria uma sequência linear de comandos, instruções, a partir da análise sintática do programa elaborado \cite{pedro2018}. Na figura abaixo é ilustrada um fluxo para a geração de código intermediário.
+A geração de código intermediário cria uma sequência linear de comandos, instruções, a partir da análise sintática do programa elaborado \cite{pedro2018}. Na figura 14 é ilustrada um fluxo para a geração de código intermediário.
 
 \begin{figure}[H]
     \legenda[fig:figura]{Geração de código intermediário}
@@ -330,7 +342,7 @@ Apesar de o compilador conseguir gerar, sem problemas, um programa alvo do progr
 
 A fase final do compilador é o gerador de código, esta etapa é responsável por transformar o código de entrada no código objeto \cite{alfred1995}. É imprescindível que execute de maneira correta suas especificações, casso contrario todo o trabalho efetuado ate o momento é desperdiçado \cite{alfred1995}.
 
-Na figura abaixo é ilustrado um esquema do gerador de código, módulos de vanguarda são os geradores de códigos intermediários.
+Na figura 15 é ilustrado um esquema do gerador de código, módulos de vanguarda são os geradores de códigos intermediários.
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Gerador de código}
@@ -351,9 +363,9 @@ Um programa em linguagem de montagem(Assembly) é mais fácil gerar sua saída, 
 \section{Linguagem D+}
 \label{sec:linguagem-d+}
 
-A linguagem a ser utilizada neste trabalho é a D++, criada pelo professor Diógenes Furlan, para que os alunos que integram a disciplina de compiladores, por ele ministrada, utilizem como base para a criação de um compilador. Algumas regras presentes nesta linguagem são apresentadas na figura 10.
+A linguagem a ser utilizada neste trabalho é a D++, criada pelo professor Diógenes Furlan, para que os alunos que integram a disciplina de compiladores, por ele ministrada, utilizem como base para a criação de um compilador. Algumas regras presentes nesta linguagem são apresentadas na figura 16.
 
-\begin{figure}[H]
+\begin{figure}[htb]
     \legenda[fig:figura]{Regras de gramáticas D+}
     \fig{scale=1.0}{imagens/figura10}
     \fonte{\cite{diogenes2018}}
@@ -376,7 +388,7 @@ Este capitulo tem como objetivo apresentar os conceitos primordiais da interface
 
 O surgimento do conceito da interface no princípio, era compreendido como o hardware e o software com que o homem poderia se comunicar \cite{rocha2003}.  Toda a comunicação que teria entre um ser humano e uma máquina, abrangia este conceito, desde uma atividade mais simples como uma leitura em uma tela, a atividades mais complexas como desenvolvimento de um software. A evolução deste conceito levou a inclusão dos aspectos cognitivos e emocionais do usuário durante a comunicação \cite{rocha2003}.
 
-Na figura 11, é ilustrado a comunicação entre uma pessoa e a máquina. O humano é representado pelo usuário, e a ação de comunicação são representadas pelas setas de interpretação e ação, a interface recebe as comunicações dos usuários e se comunica com a parte logica do software, aplicação.
+Na figura 17 é ilustrado a comunicação entre uma pessoa e a máquina. O humano é representado pelo usuário, e a ação de comunicação são representadas pelas setas de interpretação e ação, a interface recebe as comunicações dos usuários e se comunica com a parte logica do software, aplicação.
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Interação Humano Computador.}
@@ -388,7 +400,7 @@ A interface pode ser visualizada como um lugar onde ocorre o contato entre duas 
 
 Uma definição que englobaria estes casos, seria, que a interface é uma superfície de contato que possui propriedade que alteram o que é visto, ou sentido, e alterando o controle da interação \cite{laurel1993}. Uma interface é responsável por passar em tempo real o estado que se encontra o software, respondendo a cada interação do usuário, um exemplo para melhor compreenção é de um jogo de videogame, se o jogador aperta um botão, o personagem dele pode pular, abaixar ou movimentar-se.
 
-IHC não possui uma definição estabelecida, mas a que mais a representa é, uma disciplina preocupada com o design, avaliação e implementação de sistemas computacionais interativos para uso humano e com o estudo dos principais fenômenos ao redor deles \cite{rocha2003}. Na figura 12, é ilustrado esta definição.
+IHC não possui uma definição estabelecida, mas a que mais a representa é, uma disciplina preocupada com o design, avaliação e implementação de sistemas computacionais interativos para uso humano e com o estudo dos principais fenômenos ao redor deles \cite{rocha2003}. Na figura 18 é ilustrado esta definição.
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Interação Humano-computador Adaptada da Descrição do comitê SIGCHI 1992}
@@ -406,7 +418,7 @@ Para a construção e verificação de uma interface que satisfaça o usuário, 
 
 A visibilidade age como um bom lembrete, tornando fácil a compreensão das funcionalidades da interface \cite{norman2002}. Estas funções devem estar visíveis, tornando a experiência do usuário mais fácil, do contrário tornam-se mais difíceis de achá-las e consequentemente entender como utilizá-las \cite{agni2015}. Um exemplo que pode ser ilustrado e a interface de um editor de texto, caso possua ícones na barra de tarefa para funcionalidades simples, como copiar e colar melhoraria a usabilidade do software, porém casso não possua, haveria usuários que não utilizariam estas funções por não ter conhecimento delas.
 
-Na figura 13 é ilustrado o notepad a esquerda e o notepad++ a direita.
+Na figura 19 é ilustrado o notepad a esquerda e o notepad++ a direita.
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Comparação do notepad e notepad++}
@@ -453,7 +465,7 @@ Neste trabalho foi utilizada a linguagem C\#, fluxogramas e o banco de dados SQL
 
 A utilização de componentes baseados em fluxogramas auxilia no desenvolvimento de um ambiente de programação visual, possibilitando o usuário criar código através destes componentes.
 
-A figura 13 ilustra a interface criada pelo trabalho, tendo no menu esquerdo as funções possíveis de utilização, e na aba da direita o resultado dos conjuntos escolhidos. 
+A figura 20 ilustra a interface criada pelo trabalho, tendo no menu esquerdo as funções possíveis de utilização, e na aba da direita o resultado dos conjuntos escolhidos. 
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Exemplo de fluxo com o código gerado}
@@ -474,7 +486,7 @@ Foram utilizadas a linguagem C e Assembly juntamente com a ferramenta SASM, que 
 
 A maior parte do trabalho foi desenvolvido na linguagem C, porém algumas das rotinas básicas foram desenvolvidas em Assembly para melhorar o desempenho. Utilizando também o SASM, para testar a compatibilidade do compilador com esta ferramenta.
 
-A figura 14 ilustra uma árvore de símbolos como saída de um código escrito para este compilador. 
+A figura 21 ilustra uma árvore de símbolos como saída de um código escrito para este compilador. 
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Árvore de símbolos}
@@ -498,7 +510,7 @@ Neste artigo foi utilizada a linguagem Python, uma linguagem de programação in
 
 Após os estudos foi verificado que o interpretador obteve uma implementação diferenciada dos demais nos processos de análise léxica e análise sintática. Foi observado também que o Python utiliza máquina virtual para executar os códigos intermediários(bytecodes).
 
-A figura 15 ilustra a arquitetura Python, tendo no centro o interpretador, e nele os passos seguidos para a compilação do código.
+A figura 22 ilustra a arquitetura Python, tendo no centro o interpretador, e nele os passos seguidos para a compilação do código.
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Interpretação da Arquitetura Python}
@@ -551,7 +563,7 @@ As tecnologias utilizadas para o desenvolvimento do interpretador, são: linguag
 
 A linguagem utilizada para o desenvolvimento deste software é C++, que é a predominante no programa QT Creator, e por se diferenciar pouco da linguagem C, a base no ensino no curso de ciências da computação. Esta linguagem também possui bibliotecas que auxiliam no desenvolvimento, como o regex, que é utilizado neste trabalho para tratar expressões regulares e assim tornar o código melhor escrito sem necessidade de repetição de regra.
 
-Na figura 16 é ilustrado a função descrita acima, nela é chamada a função regex\_match, está função verifica se a letra passada, a variável line[aux], faz parte da gramatica enviada junto, regex("[a-zA-Z\_]").
+Na figura 23 é ilustrado a função descrita acima, nela é chamada a função regex\_match, está função verifica se a letra passada, a variável line[aux], faz parte da gramatica enviada junto, regex("[a-zA-Z\_]").
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Função do codigo de validação de caractere}
@@ -566,7 +578,7 @@ QT Creator é um ambiente de desenvolvimento integrado (IDE), criado por uma emp
 
 A principal razão da escolha desta IDE foi a facilidade de desenvolvimento, devido a possuir um compilador integrado, uma depuração excelente que possibilita que o desenvolvedor encontre o erro no código produzido, e o corrija rapidamente, além de ter familiaridade com está framework por já utilizá-la em trabalhos da universidade. 
 
-Na figura 17 é ilustrado a interface do Qt Creator, e as opções de funcionalidades no lado esquerdo, sendo o ícone de triangulo deitado verde a função de compilação e o ícone de triangulo verde junto a um inseto o de depuração.
+Na figura 24 é ilustrado a interface do Qt Creator, e as opções de funcionalidades no lado esquerdo, sendo o ícone de triangulo deitado verde a função de compilação e o ícone de triangulo verde junto a um inseto o de depuração.
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Interface de código do Qt Creator}
@@ -576,11 +588,11 @@ Na figura 17 é ilustrado a interface do Qt Creator, e as opções de funcionali
 
 Este software da a possibilidade de elaborar a interface, com componentes básicos prontos necessitando apenas configura-los, assim centralizando tanto a Back-End (parte logica do software) como o Front-End (interface). 
 
-Na figura 18 é ilustrado a interface de do Qt Creator para a criação de interfaces, no lado esquerdo se encontra componentes já criados, sendo necessários apenas selecionalos e configura-los.
+Na figura 25 é ilustrado a interface de do Qt Creator para a criação de interfaces, no lado esquerdo se encontra componentes já criados, sendo necessários apenas selecionalos e configura-los.
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Interface de design do Qt Creator}
-    \fig{scale=0.8}{imagens/qt}
+    \fig{scale=1.4}{imagens/qt}
     \fonte{O próprio autor}
 \end{figure} 
 
@@ -589,9 +601,23 @@ Na figura 18 é ilustrado a interface de do Qt Creator para a criação de inter
 
 JFLAP é um software gratuito educacional desenvolvido na linguagem JAVA por Susan H. Rodger, o principal uso deste framework é na criação de autômatos finitos não determinísticos, maquinas de Turing e vários tipos de gramatica \cite{susan2005}.
 
-Este software foi utilizado para criar todos os autômatos da linguagem D+, utilizados para ilustrar na interface do interpretador por onde o código passou. Na figura 16 é ilustrado um autômato criado no JFLAP, ele é apresentado na interface desenvolvida quando aquele caminho de autômato é acessado pela analise léxica. Na figura 17 é ilustrado um autômato que não foi acessado na análise léxica).
+Este software foi utilizado para criar todos os autômatos da linguagem D+, utilizados para ilustrar na interface do interpretador por onde o código passou. Na figura 26 é ilustrado um autômato criado no JFLAP, ele é apresentado na interface desenvolvida quando aquele caminho de autômato é acessado pela analise léxica.
 
-Na figura 19 é ilustrado as opções que o software oferta para o usuário, desde autômato finito, gramáticas, máquina de Turing entre outros. Neste trabalho foi utilizado apenas a funcionalidade de autômato finito.
+\begin{figure}[htb]
+    \legenda[fig:figura]{Autômato do estado 2 ativo}
+    \fig{scale=0.6}{imagens/automatos/state2}
+    \fonte{O próprio autor}
+\end{figure} 
+
+Na figura 27 é ilustrado um autômato que não foi acessado na análise léxica.
+
+\begin{figure}[H]
+    \legenda[fig:figura]{Autômato do estado 2 desativado}
+    \fig{scale=0.6}{imagens/automatos/stateDisabled2}
+    \fonte{O próprio autor}
+\end{figure} 
+
+Na figura 28 é ilustrado as opções que o software oferta para o usuário, desde autômato finito, gramáticas, máquina de Turing entre outros. Neste trabalho foi utilizado apenas a funcionalidade de autômato finito.
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Menu JFLAP}
@@ -599,7 +625,7 @@ Na figura 19 é ilustrado as opções que o software oferta para o usuário, des
     \fonte{O próprio autor}
 \end{figure} 
 
-Na figura 20 é ilustrado o quadro que a framework abre para a criação dos autômatos.
+Na figura 29 é ilustrado o quadro que a framework abre para a criação dos autômatos.
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Janela de criação de autômatos}
@@ -614,11 +640,11 @@ A criação dos autômatos da linguagem d+ foram criados para facilitar no desen
 
 Foram criado um total de 20 autômatos, exportados como png para utilizá-los na interface, e assim ilustrar para quem estiver utilizando o interpretador.
 
-Na figura 21 é ilustrado um autômato criado na ferramenta JFLAP. Ele demonstra o caminho de validação de um identificador ou palavra reservada, onde sua gramática permite letras de A à Z tanto minúsculas ou maiúscula.
+Na figura 30 é ilustrado um autômato criado na ferramenta JFLAP. Ele demonstra o caminho de validação de um identificador ou palavra reservada, onde sua gramática permite letras de A à Z tanto minúsculas ou maiúscula.
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Autômotos na interface}
-    \fig{scale=1.0}{imagens/automato}
+    \fig{scale=1.0}{imagens/automatos/state1}
     \fonte{O próprio autor}
 \end{figure}
 
@@ -634,7 +660,7 @@ A estrutura de programação estruturada foi a escolhida no desenvolvimento do s
 
 A programação estruturada tem como base três mecanismos em que os blocos de códigos se interligam, os mecanismos são: sequência, seleção e iteração\cite{ivan2003}.
 
-A sequência é o fluxo que o código toma de acordo com a ação\cite{ivan2003}, um exemplo é o fluxo que o interpretador desenvolvido toma quando é clicado no botão de Run, ele carrega o código inserido, efetua a análise léxica em seguida a análise sintática e por fim a analise semântica. Na figura 22 é ilustrado um exemplo de sequência.
+A sequência é o fluxo que o código toma de acordo com a ação\cite{ivan2003}, um exemplo é o fluxo que o interpretador desenvolvido toma quando é clicado no botão de Run, ele carrega o código inserido, efetua a análise léxica em seguida a análise sintática e por fim a analise semântica. Na figura 31 é ilustrado um exemplo de sequência.
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Fluxo de sequência}
@@ -642,18 +668,18 @@ A sequência é o fluxo que o código toma de acordo com a ação\cite{ivan2003}
     \fonte{O próprio autor}
 \end{figure}
 
-A seleção é a verificação do caminho que será tomado com uma verificação do comando IF\cite{ivan2003}, um exemplo encontrado no código, é uma verificação que se faz andes de iniciar a análise sintática, caso haja um erro na analise léxica, ele não prossegue para a análise sintática. Na figura 23 é ilustrado o exemplo de seleção.
+A seleção é a verificação do caminho que será tomado com uma verificação do comando IF\cite{ivan2003}, um exemplo encontrado no código, é uma verificação que se faz andes de iniciar a análise sintática, caso haja um erro na analise léxica, ele não prossegue para a análise sintática. Na figura 32 é ilustrado o exemplo de seleção.
 
 \begin{figure}[htb]
-    \legenda[fig:figura]{Exemplo de iteração usando o comando while}
+    \legenda[fig:figura]{Exemplo de seleção}
     \fig{scale=0.8}{imagens/if}
     \fonte{O próprio autor}
 \end{figure}
 
-A iteração é o mecanismo de repetição, enquanto uma condição for atendida ela é executa\cite{ivan2003}, um exemplo encontrado no código é na função state01, nesta função existe uma estrutura de repetição, while, em que e verificado se a letra de uma variável satisfaz a uma regra, caso sim, refaz os passos contidos dentro desta estrutura, ao contrário segue o código abaixo dela. Na figura 24 é ilustrado um exemplo de iteração.
+A iteração é o mecanismo de repetição, enquanto uma condição for atendida ela é executa\cite{ivan2003}, um exemplo encontrado no código é na função state01, nesta função existe uma estrutura de repetição, while, em que e verificado se a letra de uma variável satisfaz a uma regra, caso sim, refaz os passos contidos dentro desta estrutura, ao contrário segue o código abaixo dela. Na figura 33 é ilustrado um exemplo de iteração.
 
 \begin{figure}[htb]
-    \legenda[fig:figura]{Exemplo de seleção}
+    \legenda[fig:figura]{Exemplo de iteração usando o comando while}
     \fig{scale=1.0}{imagens/iteracao}
     \fonte{O próprio autor}
 \end{figure}
@@ -673,7 +699,7 @@ A pasta resources guarda todas as imagens utilizadas no softwa're, sendo elas os
 
 Para o desenvolvimento da analise léxica, foram utilizados os autômatos criados, em apêndice, como guias, o autômato do estado 0 é o que seleciona o caminho que aquele caractere ira percorrer, o mesmo é feito na função state00, ao encontrar o caminho é atribuído um valor para a variável state sendo o valor o número do próximo estado, e assim prossegue para o estado subsequente.
 
-Na figura 25 é ilustrado um trexo da função state00, nela é verificado a letra que o programa está analisando, caso faça parte da gramatica, é direcionada para o caminho correto, do contrário é retornado erro.
+Na figura 34 é ilustrado um trexo da função state00, nela é verificado a letra que o programa está analisando, caso faça parte da gramatica, é direcionada para o caminho correto, do contrário é retornado erro.
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Função state00}
@@ -681,7 +707,7 @@ Na figura 25 é ilustrado um trexo da função state00, nela é verificado a let
     \fonte{O próprio autor}
 \end{figure} 
 
-A função reservWorks contém a lógica para verificar se aquele lexema formado é uma palavra reservada, a função possui um laço de repetição, for, em que percorre uma matriz criada que contém todas as palavras reservadas da linguagem D+, casso seja igual a alguma delas, é atribuído o token da palavra reservada, do contrário o token é atribuído como identificador. Na figura 26 é ilustrado a função reservWorks.
+A função reservWorks contém a lógica para verificar se aquele lexema formado é uma palavra reservada, a função possui um laço de repetição, for, em que percorre uma matriz criada que contém todas as palavras reservadas da linguagem D+, casso seja igual a alguma delas, é atribuído o token da palavra reservada, do contrário o token é atribuído como identificador. Na figura 35 é ilustrado a função reservWorks.
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Função reservWorks}
@@ -689,17 +715,17 @@ A função reservWorks contém a lógica para verificar se aquele lexema formado
     \fonte{O próprio autor}
 \end{figure} 
 
-Após a análise obter os valores de lexema e token, é chamada a função queueValue, que atribui os valores do lexema e token em uma estrutura de fila, está fila é utilizada para passar estes valores para uma string que é utilizada para ilustrar em um campo text na interface do software, na figura 27 é ilustrada a saída deste string na aba Análise léxica.
+Após a análise obter os valores de lexema e token, é chamada a função queueValue, que atribui os valores do lexema e token em uma estrutura de fila, está fila é utilizada para passar estes valores para uma string que é utilizada para ilustrar em um campo text na interface do software, na figura 36	 é ilustrada a saída deste string na aba Análise léxica.
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Saída da análise léxica}
-    \fig{scale=1.0}{imagens/lexemaToken}
+    \fig{scale=0.9}{imagens/lexemaToken}
     \fonte{O próprio autor}
 \end{figure} 
 
 Para identificar por qual autômato o código passou é utilizando de variáveis globais booleanas, em que ao acessar um estado essas funções criadas como state01, state02, são atribuídos true para a variável correspondente aquele estado, como a variável automato1. No fim de toda compilação é selecionada a imagem de todos os autômatos para as labels da interface, caso aquela variável do autômato for true ele troca a imagem preto e branco para a colorida.  
 
-Na figura 28 é ilustrado o trecho do código que valida se o que sera carregado é o automato colorido ou o preto e branco. 
+Na figura 37 é ilustrado o trecho do código que valida se o que sera carregado é o autômato colorido ou o preto e branco. 
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Verificação do automato a ser carregado}
@@ -709,7 +735,7 @@ Na figura 28 é ilustrado o trecho do código que valida se o que sera carregado
 
 Após validar quais variáveis dos autômatos são true, e atribuir a imagem correta, a interface é carregada. 
 
-Na figura 29 é ilustrado os dois casos, um autômato em preto e branco, quando não é acessado e outro colorido, quando é acessado. 
+Na figura 38 é ilustrado os dois casos, um autômato em preto e branco, quando não é acessado e outro colorido, quando é acessado. 
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Interface com os autômatos}
@@ -802,7 +828,7 @@ Nos quadros 2, 3 e 4 são ilustrados as funções criadas referentes a cada regr
 
 Todas as função criada para satisfazer as regras da gramática possuem uma operação de incremento na variável chamada tamanho, esta variável global tem como função ser o index da matriz que contem todos os lexemas e tokens, tokensLexemasTable, com isto obtém a localização que se encontra o percurso tomado dentro da matriz, o valor daquela posição é comparado com o token esperado na regra que a análise se encontra, caso seja igual é seguido o caminho até finalizar a regra, do contrário é retornado erro.
 
-Na figura 30 ilustra a função DV que corresponde a regra decl-var, nela é efetuada uma chamada para função ET e em seguida a função LV, após estas chamadas ocorrerem e não retornarem erro, ele valida se possui o lexema de ( ; ), casso possua, e retornado uma mensagem de sucesso ao log, ao contrário retorna a mensagem de erro, a variável keySintatico funciona como uma chave, sempre que é encontrado um erro no código, é atribuído o valor 1, assim o software para de efetuar a analise sintática, por já ter encontrado erro. 
+Na figura 39 ilustra a função DV que corresponde a regra decl-var, nela é efetuada uma chamada para função ET e em seguida a função LV, após estas chamadas ocorrerem e não retornarem erro, ele valida se possui o lexema de ( ; ), casso possua, e retornado uma mensagem de sucesso ao log, ao contrário retorna a mensagem de erro, a variável keySintatico funciona como uma chave, sempre que é encontrado um erro no código, é atribuído o valor 1, assim o software para de efetuar a analise sintática, por já ter encontrado erro. 
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Função DV}
@@ -814,7 +840,7 @@ No processo de desenvolvimento desta análise, foi identificado um problema na g
 
 Após finalizar a análise sintática é exibido na interface um log do percurso tomado, apresentando uma mensagem de sucesso ou erro, e em seguida mensagens de quais regras foram validadas e em qual regra o interpretador encontrou o erro.  Na mensagem de erro é apresentado qual foi o erro encontrado, como a falta de um ( ; ) ou de uma palavra reservada como END, e o numero da linha que ocorreu o erro.
 
-Na figura 31 é ilustrado a saída da interpretação de um código, é apresentado uma mensagem de sucesso na regra de VAR na linha 1, porém em seguida informado um erro na linha dois e a causa do erro.
+Na figura 40 é ilustrado a saída da interpretação de um código, é apresentado uma mensagem de sucesso na regra de VAR na linha 1, porém em seguida informado um erro na linha dois e a causa do erro.
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Log análise sintática}
@@ -829,19 +855,19 @@ Para a criação da arvore sintática é utilizado o caractere “$\backslash$t�
 
 Todas as funções implementadas na análise sintática incrementam a variável NIVEL, e adicionam uma string da regra que a função corresponde na variável global treeTerminal, após estes processos é chamada uma função treeSintatica, este método forma árvore.
 
-Na figura 32 é ilustrada a função treeSintatica, esta função possui uma estrutura de repetição while, que incrementa o caractere “$\backslash$t” o número de vezes que a variável NIVEL possui como valor, esta parte da função implementa a estrutura da arvore, após este passo, é atribuído o caractere “|” para servir como referência a qual a palavra pertence ao ramo pai, por fim é atribuído o token a arvore, caso a variável treeTerminal for diferente de vazia, é adicionado aquilo que esta variável possui, do contrário é adicionado o lexema daquela posição. 
+Na figura 41 é ilustrada a função treeSintatica, esta função possui uma estrutura de repetição while, que incrementa o caractere “$\backslash$t” o número de vezes que a variável NIVEL possui como valor, esta parte da função implementa a estrutura da arvore, após este passo, é atribuído o caractere “|” para servir como referência a qual a palavra pertence ao ramo pai, por fim é atribuído o token a arvore, caso a variável treeTerminal for diferente de vazia, é adicionado aquilo que esta variável possui, do contrário é adicionado o lexema daquela posição. 
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Função treeSintatico}
-    \fig{scale=0.8}{imagens/tree}
+    \fig{scale=1.0}{imagens/tree}
     \fonte{O próprio autor}
 \end{figure} 
 
-Na figura 33 é ilustrado a saída da árvore de um código que efetua uma declaração de var, nela é possível ver por quais regras foram utilizadas na montagem. 
+Na figura 42 é ilustrado a saída da árvore de um código que efetua uma declaração de var, nela é possível ver por quais regras foram utilizadas na montagem. 
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Árvore Sintática montada}
-    \fig{scale=0.8}{imagens/arvore}
+    \fig{scale=1.2}{imagens/arvore}
     \fonte{O próprio autor}
 \end{figure} 
 
@@ -852,11 +878,11 @@ A gramática completa é apresentada na interface para que facilite no entendime
 
 Após compilar o código inserido na interface é adicionado na aba da gramática as regras que abrange o código escrito, para desenvolver este comportamento é utilizado de uma variável global, similar ao dos autômatos, descrita no capítulo de análise léxica. Quando na análise sintática aquela regra específica é acessada, a variável global correspondente a regra, atribuída como false, é modificada para true. Após finalizar o processo da análise sintática, é verificado quais variáveis de cada regra possuem o valor true, os que possuem, é adicionado a regra na string que é passada para a interface da aba da gramática. 
 
-Na figura 34 é ilustrada a saída da aba gramática, as de cor verde são as regras utilizadas no código inserido no interpretador. 
+Na figura 43 é ilustrada a saída da aba gramática, as de cor verde são as regras utilizadas no código inserido no interpretador. 
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Gramática utilizada}
-    \fig{scale=1.0}{imagens/gramaticaUtili}
+    \fig{scale=1.5}{imagens/gramaticaUtili}
     \fonte{O próprio autor}
 \end{figure} 
 
@@ -867,7 +893,7 @@ O desenvolvimento da análise semântica se dá na criação da tabela de símbo
 
 O da criação da tabela de símbolos é feita na análise léxica, nela a função de atribuição queueValue, possui uma validação em que, se o token obtido for um IDENTIFICADOR e antes dele ter um token de CONST, VAR, SUB ou FUNCTION, este token e lexema é incrementado em uma matriz chamada simbolTable. Após finalizar o processo de análise léxica e análise sintática, é retirada os valores nela obtidos para ilustrar a tabela de símbolos.
 
-Na figura 35 e ilustrado a tabela de símbolos presente na interface após efetuar todo o processo. 
+Na figura 44 e ilustrado a tabela de símbolos presente na interface após efetuar todo o processo. 
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Tabela de Símbolos}
@@ -882,7 +908,7 @@ Na criação da interface gráfica foi utilizando como base o editor de texto b�
 
 Na barra superior do programa foi incrementando funcionalidades simples mas práticas como, novo, que cria um arquivo novo, abrir, que abre uma janela para que possa procurar algum arquivo do formato d+ e seja carregado no software, salvar, run, que efetua os passos das análises no código escrito na framework, desfazer e refazer. 
 
-Na figura 36 é ilustrado a barra onde se encontra as funcionalidades descritas acima. Todos os ícones utilizados nesta interface são encontrados no site (https://www.flaticon.com).
+Na figura 45 é ilustrado a barra onde se encontra as funcionalidades descritas acima. Todos os ícones utilizados nesta interface são encontrados no site (https://www.flaticon.com).
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Barra de funcionalidade}
@@ -894,7 +920,7 @@ A interface do software abrange todos os passos e resultados das análises imple
 
 Na aba “editor” é o local em que insere o código d+, foi deixado um fundo acinzentado para auxiliar e destacar o local de escrita do código, na aba “Código Numerado”, é uma cópia do código inserido, porém numerado, para que assim seja mais fácil encontrar o erro acusado pelo log da análise sintática, esta funcionalidade foi implementada pois no decorrer do desenvolvimento, foi reparado que havia dificuldade para verificar qual linha havia um problema, mesmo passando o número desta. 
 
-Na figura 37 é ilustrada as duas abas descritas acima, no canto esquerdo a aba do “Editor” e no canto direito a aba do “Código Numerado”. 
+Na figura 46 é ilustrada as duas abas descritas acima, no canto esquerdo a aba do “Editor” e no canto direito a aba do “Código Numerado”. 
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Interface do editor}
@@ -902,11 +928,11 @@ Na figura 37 é ilustrada as duas abas descritas acima, no canto esquerdo a aba 
     \fonte{O próprio autor}
 \end{figure}
 
-Na figura 38 é ilustrado uma visão geral da interface implementada. 
+Na figura 47 é ilustrado uma visão geral da interface implementada. 
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Interface do interpretador}
-    \fig{scale=0.5}{imagens/interface}
+    \fig{scale=0.6}{imagens/interface}
     \fonte{O próprio autor}
 \end{figure}
 
@@ -1210,7 +1236,7 @@ Apesar de o interpretador cumprir o seu objetivo, é possível implementar funci
 
 \apendice[apendice:codigoexemplo]{Códigos de Exemplo}
 
-As figuras abaixo são exemplos de códigos da gramática D+.
+As figuras 78, 79, 80, 81 são exemplos de códigos da gramática D+.
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Código 1 da gramática D+}
@@ -1240,7 +1266,7 @@ As figuras abaixo são exemplos de códigos da gramática D+.
 
 Para facilitar o acesso a esta framework, foi efetuado um deploy do interpretador D+ e criado um arquivo executável para efetuar a instalação do software, assim não precisando instalar o QtCreator e suas bibliotecas.
 
-Para instalar o Interpretador execute o arquivo "InterpretadorD+", após executa ló, aparecera uma janela igual à figura abaixo, clique em next.
+Para instalar o Interpretador execute o arquivo "InterpretadorD+", após executa ló, aparecera uma janela igual a figura 82, clique em next.
 
 \begin{figure}[!htb]
     \legenda[fig:figura]{Janela de instalação 1}
@@ -1248,7 +1274,7 @@ Para instalar o Interpretador execute o arquivo "InterpretadorD+", após executa
     \fonte{O próprio autor}
 \end{figure}
 
-A janela prosseguira e aparecera o local que você deseja instalar o software, selecione o local e clique em next, conforma e figura abaixo.
+A janela prosseguira e aparecera o local que você deseja instalar o software, selecione o local e clique em next, conforma e figura 83.
 
 \begin{figure}[H]
     \legenda[fig:figura]{Janela de instalação 2}
@@ -1256,7 +1282,7 @@ A janela prosseguira e aparecera o local que você deseja instalar o software, s
     \fonte{O próprio autor}
 \end{figure}
 
-Após prosseguir carregará uma pagina igual à figura abaixo, selecione o "Interpretador\_D+" e clique em next.
+Após prosseguir carregará uma pagina igual à figura 84, selecione o "Interpretador\_D+" e clique em next.
 
 \begin{figure}[H]
     \legenda[fig:figura]{Janela de instalação 3}
@@ -1264,7 +1290,7 @@ Após prosseguir carregará uma pagina igual à figura abaixo, selecione o "Inte
     \fonte{O próprio autor}
 \end{figure}
 
-A janela prosseguira e carregará uma janela igual à figura abaixo, clique em next.
+A janela prosseguira e carregará uma janela igual à figura 85, clique em next.
 
 \begin{figure}[H]
     \legenda[fig:figura]{Janela de instalação 4}
@@ -1272,7 +1298,7 @@ A janela prosseguira e carregará uma janela igual à figura abaixo, clique em n
     \fonte{O próprio autor}
 \end{figure}
 
-Clique em "Install" conforme a figura abaixo.
+Clique em "Install" conforme a figura 86.
 
 \begin{figure}[H]
     \legenda[fig:figura]{Janela de instalação 5}
@@ -1280,7 +1306,7 @@ Clique em "Install" conforme a figura abaixo.
     \fonte{O próprio autor}
 \end{figure}
 
-Após a instalação clique em "Finish", e o interpretador esta disponível no menu iniciar.
+Após a instalação clique em "Finish" igual a figura 87, e o interpretador esta disponível no menu iniciar.
 
 \begin{figure}[H]
     \legenda[fig:figura]{Janela de instalação 6}
