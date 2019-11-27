@@ -2059,7 +2059,6 @@ void VAR(){
 
 void EXP(){
     nivel++;
-    int i = nivel;
     treeTerminal = "exp";
     treeSintatico();
     gramatica25 = true;
@@ -2075,7 +2074,6 @@ void EXP(){
         tamanho++;
         EXPS();
     }
-    int x = nivel;
     nivel--;
 }
 
