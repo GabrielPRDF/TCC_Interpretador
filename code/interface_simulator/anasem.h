@@ -17,6 +17,7 @@ string setSimbolTableNome();
 string setSimbolTableTipo();
 string setSimbolTableCategoria();
 string setSimbolTableNivel();
+string validSemantic();
 bool validaIdentificado();
 void clearSimbol();
 const string typeID [6] ={
@@ -29,3 +30,5 @@ const string typeID [6] ={
 };
 bool comparType(int x);
 void setType();
+void validaRepeticaoMain();
+void validaRepeticaoIdentificador();

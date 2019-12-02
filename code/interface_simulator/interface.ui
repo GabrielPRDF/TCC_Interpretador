@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1249</width>
-    <height>662</height>
+    <width>1109</width>
+    <height>388</height>
    </rect>
   </property>
   <property name="palette">
@@ -475,8 +475,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>443</width>
-             <height>535</height>
+             <width>373</width>
+             <height>261</height>
             </rect>
            </property>
            <property name="focusPolicy">
@@ -630,8 +630,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>443</width>
-             <height>535</height>
+             <width>373</width>
+             <height>261</height>
             </rect>
            </property>
            <property name="font">
@@ -765,8 +765,8 @@ p, li { white-space: pre-wrap; }
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>444</width>
-             <height>535</height>
+             <width>374</width>
+             <height>261</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_11">
@@ -1021,6 +1021,25 @@ p, li { white-space: pre-wrap; }
         </item>
        </layout>
       </widget>
+      <widget class="QWidget" name="anasemantica">
+       <attribute name="title">
+        <string>Análise Semântica</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_12">
+        <item row="0" column="0">
+         <widget class="QTextBrowser" name="saidaSemantica">
+          <property name="font">
+           <font>
+            <family>Arial</family>
+            <pointsize>10</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
       <widget class="QWidget" name="tabelaIdentificador">
        <attribute name="title">
         <string>Tabela de Símbolos</string>
@@ -1043,8 +1062,8 @@ p, li { white-space: pre-wrap; }
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>444</width>
-             <height>535</height>
+             <width>374</width>
+             <height>261</height>
             </rect>
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout">
@@ -1289,7 +1308,7 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1249</width>
+     <width>1109</width>
      <height>21</height>
     </rect>
    </property>

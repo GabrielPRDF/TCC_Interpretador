@@ -69,13 +69,16 @@ static bool gramatica35 = false;
 static bool gramatica36 = false;
 static bool gramatica37 = false;
 static bool gramatica38 = false;
+static bool keySemantico = false;
 static int aux = 0, auxSintatico = 0, stopBlock = 0, lineNumber = 1, nivel = 0, auxSimbolTable = 0;
+static int contadorMain = 0;
 static std::string erroLexico = "";
 static std::string lexema, token, line, lineTextNumber, codeNumber;
 static QQueue <string> queueTokenLexema;
 static std::string tree = "";
 static std::string treeTerminal = "";
-static std::string logAnaliseSintatica = "Analise Sintatica";
+static std::string logAnaliseSintatica = "Analise Sintática";
+static std::string logAnaliseSemantica = "Analise Semântica";
 static std::string tokensLexemasTable [1000][3];
 static std::string simbolTable [1000][6];
 static std::string gramatica = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">"
@@ -238,9 +241,10 @@ void interface::on_actionPlay_triggered()
     line = ui->textEdit->toPlainText().toStdString();
     lineTextNumber = ui->textEdit->toPlainText().toStdString();
     analiseLexica();
-    std::string textAnaliseLexicaLexema = "Lexema\n";
-    std::string textAnaliseLexicaToken = "Token\n";
+    std::string textAnaliseLexicaLexema = "Token\n";
+    std::string textAnaliseLexicaToken = "Lexema\n";
     std::string textAnaliseSintatica = "Análise Sintática";
+    std::string textAnaliseSemantica = "Análise Semântica";
     std::string textWithLineNumber = "1. ";
     std::string textSimbolNumber = "#\n";
     std::string textSimbolNome = "Nome\n";
@@ -266,12 +270,15 @@ void interface::on_actionPlay_triggered()
         textAnaliseSintatica = analiseSintatica();
         textAnaliseSintatica += "\n Log " + logAnaliseSintatica;
         gramaticaOn();
+        textAnaliseSemantica = validSemantic();
+        textAnaliseSemantica += "\n Log " + logAnaliseSemantica;
         QString gramaticaConvert = QString::fromStdString(gramatica);
         QString lexicoLexema = QString::fromStdString(textAnaliseLexicaLexema);
         QString lexicoToken = QString::fromStdString(textAnaliseLexicaToken);
         QString sintatico = QString::fromStdString(textAnaliseSintatica);
         QString codeNumberText = QString::fromStdString(textWithLineNumber);
-        if(keySintatico == 1) tree = "Erro na Análise Sintática, impossivel gerar arvore";
+        QString semantico = QString::fromStdString(textAnaliseSemantica);
+        if(keySintatico == 1) tree = "Erro na Análise Sintática, impossivel gerar árvore";
         QString treeText = QString::fromStdString(tree);
         setType();
         textSimbolNumber +=  setSimbolTableNumber();
@@ -287,6 +294,7 @@ void interface::on_actionPlay_triggered()
         ui->saidaLexicaLexema->setText(lexicoLexema);
         ui->saidaLexicaToken->setText(lexicoToken);
         ui->saidaSintatica->setText(sintatico);
+        ui->saidaSemantica->setText(semantico);
         ui->codeNumber->setText(codeNumberText);
         ui->textGramatica->setHtml(gramaticaConvert);
         ui->arvoreText->setText(treeText);
@@ -300,10 +308,12 @@ void interface::on_actionPlay_triggered()
         setAutomaton();
         QString lexico = QString::fromStdString(textAnaliseLexicaLexema);
         ui->saidaLexicaLexema->setText(lexico);
+        ui->saidaLexicaToken->setText(lexico);
         erroLexico = "";
     }
 
-    logAnaliseSintatica = "Analise Sintatica";
+    logAnaliseSintatica = "Analise Sintática";
+    logAnaliseSemantica = "Analise Semântica";
 
     if(automato1){
         QPixmap automatoState1("://automatos/state1.png");
@@ -2383,6 +2393,7 @@ void setType(){
         x++;
     }
 }
+
 bool validaIdentificado(){
     if(tokensLexemasTable [auxSintatico-1][0] == "CONST" || tokensLexemasTable[auxSintatico-2][0] == "VAR" || tokensLexemasTable[auxSintatico-2][0] == "SUB" || tokensLexemasTable[auxSintatico-2][0] == "FUNCTION")
         return true;
@@ -2395,3 +2406,30 @@ bool validaIdentificado(){
     }
     return false;
 }
+
+string validSemantic(){
+    tamanho = 0;
+    contadorMain = 0;
+    keySemantico = false;
+    while(auxSintatico > tamanho){
+        if(tokensLexemasTable[tamanho][0] == "MAIN"){
+            contadorMain++;
+        }
+        tamanho++;
+    }
+    validaRepeticaoMain();
+    validaRepeticaoIdentificador();
+    if(keySemantico) return "Compilado, Sucesso na Análise Sêmantica";
+    return "Compilado, Erro na Análise Sêmantica";
+}
+
+void validaRepeticaoMain(){
+    if(contadorMain ==1){
+        return;
+    }
+    if(contadorMain > 1) logAnaliseSemantica += "\n MAIN declarado mais de uma vez";
+    else logAnaliseSemantica += "\n MAIN não declarado";
+    keySemantico = true;
+}
+
+
