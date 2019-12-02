@@ -2468,5 +2468,5 @@ void validaDeclaIdentificador(string identificador, string number){
     }
 
     logAnaliseSemantica += "\n Identificador não declarado ou utilizado antes de declara-lo : " + identificador + " linha :" + number;
-    keySintatico = true;
+    keySemantico = true;
 }
