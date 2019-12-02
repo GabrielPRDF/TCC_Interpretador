@@ -13,6 +13,7 @@
 #include <QFileDialog>
 #include <QTextStream>
 #include <QPixmap>
+#include <sstream>
 using namespace std;
 
 static int state = 0, tamanho = 0, keySintatico = 0;
@@ -586,7 +587,7 @@ void queueValue(){
                     break;
                 }
                 if(tokensLexemasTable[i][1] == "ID_CONST" && tokensLexemasTable [i][2] == simbolTable[auxSimbolTable][5]){
-                    simbolTable[auxSimbolTable][2] = tokensLexemasTable [i][0];
+                    simbolTable[auxSimbolTable][2] = "-";
                     simbolTable[auxSimbolTable][3] = "CONSTANTE";
                     break;
                 }
@@ -2415,12 +2416,15 @@ string validSemantic(){
         if(tokensLexemasTable[tamanho][0] == "MAIN"){
             contadorMain++;
         }
+        if(tokensLexemasTable[tamanho][1] == "IDENTIFICADOR"){
+            validaDeclaIdentificador(tokensLexemasTable[tamanho][0], tokensLexemasTable[tamanho][2]);
+        }
         tamanho++;
     }
     validaRepeticaoMain();
     validaRepeticaoIdentificador();
-    if(keySemantico) return "Compilado, Sucesso na Análise Sêmantica";
-    return "Compilado, Erro na Análise Sêmantica";
+    if(!keySemantico) return "Compilado, Sucesso na Análise Sêmantica";
+    return "Erro Sêmantico";
 }
 
 void validaRepeticaoMain(){
@@ -2432,4 +2436,37 @@ void validaRepeticaoMain(){
     keySemantico = true;
 }
 
+void validaRepeticaoIdentificador(){
+    tamanho = 0;
+    int tamanho2 = 0;
+    string identificador = "";
+    while(auxSimbolTable > tamanho){
+        tamanho2 = tamanho;
+        identificador = simbolTable[tamanho][1];
+        while(tamanho2 < auxSintatico){
+            tamanho2++;
+            if(identificador == simbolTable[tamanho2][1]){
+                keySemantico = true;
+                logAnaliseSemantica += "\n Identificador declarado MAIS DE UMA vez : " + identificador;
+            }
+        }
+        tamanho++;
+    }
+}
 
+void validaDeclaIdentificador(string identificador, string number){
+    int aux = 0, numberSimbol = 0, numberIden = 0;
+    while(auxSimbolTable > aux){
+        stringstream a(simbolTable[aux][5]);
+        a >> numberSimbol;
+        stringstream b(number);
+        b >> numberIden;
+        if(simbolTable[aux][1] == identificador && numberSimbol <= numberIden){
+            return;
+        }
+        aux++;
+    }
+
+    logAnaliseSemantica += "\n Identificador não declarado ou utilizado antes de declara-lo : " + identificador + " linha :" + number;
+    keySintatico = true;
+}

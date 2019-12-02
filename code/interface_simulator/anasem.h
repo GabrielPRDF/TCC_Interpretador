@@ -32,3 +32,4 @@ bool comparType(int x);
 void setType();
 void validaRepeticaoMain();
 void validaRepeticaoIdentificador();
+void validaDeclaIdentificador(string identificador, string number);
