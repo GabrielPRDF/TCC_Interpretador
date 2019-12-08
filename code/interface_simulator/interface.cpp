@@ -78,8 +78,8 @@ static std::string lexema, token, line, lineTextNumber, codeNumber;
 static QQueue <string> queueTokenLexema;
 static std::string tree = "";
 static std::string treeTerminal = "";
-static std::string logAnaliseSintatica = "Analise Sintática";
-static std::string logAnaliseSemantica = "Analise Semântica";
+static std::string logAnaliseSintatica = "Análise Sintática";
+static std::string logAnaliseSemantica = "Análise Semântica";
 static std::string tokensLexemasTable [1000][3];
 static std::string simbolTable [1000][6];
 static std::string gramatica = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">"
@@ -313,8 +313,8 @@ void interface::on_actionPlay_triggered()
         erroLexico = "";
     }
 
-    logAnaliseSintatica = "Analise Sintática";
-    logAnaliseSemantica = "Analise Semântica";
+    logAnaliseSintatica = "Análise Sintática";
+    logAnaliseSemantica = "Análise Semântica";
 
     if(automato1){
         QPixmap automatoState1("://automatos/state1.png");
@@ -2423,7 +2423,7 @@ string validSemantic(){
     }
     validaRepeticaoMain();
     validaRepeticaoIdentificador();
-    if(!keySemantico) return "Compilado, Sucesso na Análise Sêmantica";
+    if(!keySemantico) return "Compilado, Sucesso na Análise Semântica";
     return "Erro Sêmantico";
 }
 
@@ -2467,6 +2467,6 @@ void validaDeclaIdentificador(string identificador, string number){
         aux++;
     }
 
-    logAnaliseSemantica += "\n Identificador não declarado ou utilizado antes de declara-lo : " + identificador + " linha :" + number;
+    logAnaliseSemantica += "\n Identificador não declarado ou utilizado antes de declará-lo : " + identificador + " linha :" + number;
     keySemantico = true;
 }

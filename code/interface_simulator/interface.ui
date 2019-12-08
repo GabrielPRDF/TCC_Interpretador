@@ -458,11 +458,11 @@
        <enum>QTabWidget::Triangular</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="automatos">
        <attribute name="title">
-        <string>Autômato</string>
+        <string>Autômatos</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_3">
         <item row="0" column="0">
@@ -668,7 +668,7 @@
       </widget>
       <widget class="QWidget" name="gramatica">
        <attribute name="title">
-        <string>Gramatica D+</string>
+        <string>Gramática D+</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_5">
         <item row="0" column="0">
@@ -745,7 +745,7 @@ p, li { white-space: pre-wrap; }
        <enum>QTabWidget::Triangular</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="lexica">
        <attribute name="title">
