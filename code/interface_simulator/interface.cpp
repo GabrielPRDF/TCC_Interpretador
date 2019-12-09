@@ -254,15 +254,15 @@ void interface::on_actionPlay_triggered()
     std::string textSimbolNivel = "Linha\n";
     aux = 0;
     int lineNumberCode = 2;
-    if(erroLexico == ""){
-        while (lineTextNumber.size() > aux){
-            textWithLineNumber += lineTextNumber[aux];
-            if(lineTextNumber[aux] == '\n'){
-                textWithLineNumber += to_string(lineNumberCode) + ". ";
-                lineNumberCode++;
-            }
-            aux++;
+    while (lineTextNumber.size() > aux){
+        textWithLineNumber += lineTextNumber[aux];
+        if(lineTextNumber[aux] == '\n'){
+            textWithLineNumber += to_string(lineNumberCode) + ". ";
+            lineNumberCode++;
         }
+        aux++;
+    }
+    if(erroLexico == ""){
         aux = 0;
         while (!queueTokenLexema.empty()){
             textAnaliseLexicaLexema  += queueTokenLexema.dequeue() + "\n";
