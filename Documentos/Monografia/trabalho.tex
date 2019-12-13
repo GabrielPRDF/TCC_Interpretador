@@ -58,12 +58,13 @@ Universidade Tuiuti do Paraná, como requisito à obtenção ao grau de Bacharel
 % Resumo
 
 \begin{resumo}
-	Dentro do curso de bacharelado em Ciências da Computação, a disciplina de compiladores possui uma dificuldade considerável no seu aprendizado, portanto, torna-se importante, ferramentas que auxiliem na compreensão do conteúdo da disciplina. O desenvolvimento do interpretador D+ possibilitou abordar o ensino da matéria de compiladores de forma mais ilustrativa, mostrando para os estudantes de forma mais clara o processo de compilação. A implementação da framework foi feita utilizando do software QT Creator, criado de um compilador D+ e modificado para se tornar um Interpretador. Para obtenção de dados de aprendizado utilizando o Interpretador D+, foi disponibilizado a framework para os estudantes e solicitado que respondessem a um questionário. A partir destes questionários podemos concluir que o interpretador auxiliou os alunos a compreenderem melhor a disciplina  mostrando de forma mais ilustrativa a compilação do código.
+	Dentro do curso de bacharelado em Ciências da Computação, a disciplina de compiladores possui uma dificuldade considerável no seu aprendizado, portanto, torna-se importante, ferramentas que auxiliem na compreensão do conteúdo da disciplina. O desenvolvimento do interpretador D+ possibilitou abordar o ensino da matéria de compiladores de forma mais ilustrativa, mostrando para os estudantes de forma mais clara o processo de compilação. A implementação da framework foi feita utilizando do software QT Creator, nele foi criado um compilador D+ e modificado para se tornar um Interpretador. Para obtenção de dados de aprendizado utilizando o Interpretador D+, foi disponibilizado a framework para os estudantes e solicitado que respondessem a um questionário. A partir destes questionários podemos concluir que o interpretador auxiliou os alunos a compreenderem melhor a disciplina  mostrando de forma mais ilustrativa a compilação do código.
     
     \palavraschave{Interpretador, Compilador, Autômatos, Árvore Sintática}   
 
+\newpage
 \begin{center}
-\textbf{\textit{\\ABSTRACT}}
+\textbf{\textit{ABSTRACT}}
 \end{center}
 \textit{Within the bachelor's degree in Computer Science, a compiler discipline has a learning disability, so it becomes important tools that help in understanding the subject's content. The development of the D + interpreter made it possible to approach the teaching of compiler material in a more illustrative way, showing students more clearly the compilation process. The implementation of the framework was made using QT Creator software, created from a D + compiler and modified to become an Interpreter. To obtain learning data using the D + Interpreter, the framework was made available to the students and asked to answer a questionnaire. From these questionnaires we can conclude that the interpreter helped the students to better understand the discipline by showing more compilation of the code.
 }
@@ -117,11 +118,11 @@ Universidade Tuiuti do Paraná, como requisito à obtenção ao grau de Bacharel
 \label{cap:introducao}
 
 
-Dentro do curso de bacharelado em Ciências da Computação, a disciplina de Compiladores é responsável por apresentar ao aluno a forma e os significados contidos na construção de um compilador. Um compilador da forma convencional apresenta fases, análises, em que efetua os processos necessários para transformar o código da linguagem de alto nível para código de máquina. A disciplina de compiladores apresenta uma considerável dificuldade no seu aprendizado, uma vez que é uma disciplina muito abrangente e muito profunda. Ela faz uma síntese de todo curso de bacharelado em Ciências da Computação, uma vez que exige conhecimentos em algoritmos, programação estruturada e orientado a objetos, estrutura de dados, métodos de autômatos, gramáticas e ainda conhecimento de assembly. 
+Dentro do curso de bacharelado em Ciências da Computação, a disciplina de Compiladores é responsável por apresentar ao aluno a forma e os significados contidos na construção de um compilador. Um compilador da forma convencional apresenta fases, análises, em que efetua os processos necessários para transformar o código da linguagem de alto nível para código de máquina. A disciplina de compiladores apresenta uma considerável dificuldade no seu aprendizado, uma vez que é uma disciplina muito abrangente e muito profunda. Ela faz uma síntese de todo curso de bacharelado em Ciências da Computação, uma vez que exige conhecimentos em algoritmos, programação estruturada e orientada a objetos, estrutura de dados, métodos de autômatos, gramáticas e ainda conhecimento de assembly. 
 
-O presente projeto tem como objetivo o desenvolvimento de um interpretador da linguagem D+, para auxiliar os alunos na absorção do conteúdo, ajudando-os a fixar melhor os conceitos. O interpretador compila linha por linha e mostra visualmente em uma interface o programa já compilado. Neste software vai aplicar conteúdos visto em sala de aula, na prática, proporcionando ao aluno entender como eles são elaborados dentro dos processos de análise léxica e sintática.
+O presente projeto tem como objetivo o desenvolvimento de um interpretador da linguagem D+, para auxiliar os alunos na absorção do conteúdo, ajudando-os a fixar melhor os conceitos. O interpretador compila linha por linha e mostra visualmente em uma interface o programa já compilado. Conteúdos vistos em sala de aula, na prática, proporcionando ao aluno entender como eles são elaborados dentro dos processos de análise léxica e sintática.
 
-Para desenvolver este software, é implementado um compilador D+, linguagem elaborada pelo mestre Diógenes Cogo Furlan. Este compilador terá modificações para se tornar um interpretador. Para o desenvolvimento deste software, é utilizado o editor QT Creator com a linguagem C++, pelo fato de que este editor juntamente com a linguagem, disponibiliza ferramentas que facilitam a sua criação.
+Para desenvolver este software, é implementado um compilador D+, linguagem elaborada pelo mestre Diógenes Cogo Furlan. Este compilador será modificado e se tornará um interpretador. Para o desenvolvimento deste software, é utilizado o editor QT Creator com a linguagem C++, pelo fato de que este editor já foi utilizado em trabalhos elaborados para o curso, e por disponibiliza componentes que facilitam a criação de interface.
 
 Com este projeto, os alunos da disciplina de Compiladores terão ao seu alcance uma ferramenta (software) que os auxiliará no aprendizado da disciplina, podendo criar códigos e ver a transformação que passa pelo compilador, passando pela análise léxica, análise sintática e análise semântica. Os alunos que utilizarem este software terão exemplos de árvores sintáticas no código escrito na interface. Com toda a informação apresentada para os estudantes da disciplina, é facilitada a compreensão da lógica de compiladores.
 
@@ -131,11 +132,11 @@ Com este projeto, os alunos da disciplina de Compiladores terão ao seu alcance 
 \chapter{Teoria da Compilação}
 \label{cap:teoria-da-compilação}
 
-Este capítulo tem como objetivo apresentar os conceitos envolvendo a compilação, técnicas encontradas nela, razão pelo qual foi criado, seu funcionamento e sua estrutura, como análise léxica, análise sintática e analise semântica, também explicando o funcionamento de um compilador e um interpretador, dando ênfase em suas diferenças.
+Este capítulo tem como objetivo apresentar os conceitos envolvendo a compilação, técnicas encontradas nela, razão pelo qual o Compilador foi criado, seu funcionamento e sua estrutura, como análise léxica, análise sintática e analise semântica, também explicando o funcionamento de um compilador e um interpretador, dando ênfase em suas diferenças.
 
-Um processo de compilação designa o conjunto de tarefas que o compilador deve realizar para poder gerar uma descrição em uma linguagem a partir de outra \cite{pedro2018}. No começo da compilação, o compilador deve garantir que a tradução efetuada do código inserido seja correta, para que a execução dos comandos seja feita sem nenhum erro.
+Um processo de compilação designa o conjunto de tarefas que o compilador deve realizar para poder gerar uma descrição em uma linguagem a partir de outra \cite{pedro2018}. No início do processo de compilação, o compilador deve garantir que a tradução efetuada do código inserido seja correta, para que a execução dos comandos seja feita sem nenhum erro.
 
-O motivo que influenciou o desenvolvimento dos compiladores se deve ao fato de se obter uma maior eficiência de programação. No princípio os computadores possuíam arquiteturas distintas entre eles, tornando assim a mesma instrução diferente para todas. Este mesmo problema era encontrado na representação de dados \cite{ricarte2008}.
+O motivo que influenciou o desenvolvimento dos compiladores se deve ao fato de se obter uma maior facilidade, produtividade, de programação. No princípio os computadores possuíam arquiteturas distintas entre eles, tornando assim a mesma operação diferente para todas. Este mesmo problema era encontrado na representação de dados \cite{ricarte2008}.
 
 Na figura 1 é ilustrada uma situação em que se utiliza uma instrução de soma, nesta imagem pode se observar a complexidade que a comunicação atingia ao transmitir para outra máquina a instrução. Devido a este empecilho, era necessária uma intervenção humana, ocasionando em contratar um especialista para resolver este problema, para cada plataforma. Uma situação pouco eficiente e de alto custo para as empresas  \cite{ricarte2008}.
 
@@ -157,10 +158,10 @@ A figura 2 ilustra o processo já incluindo os compiladores. Com essa automaçã
 \section{Compiladores}
 \label{sec:compiladores}
 
-Para se conceituar um compilador de forma simples, é um programa responsável por traduzir um algoritmo de uma linguagem fonte para outra linguagem alvo \cite{alfred1995}. Na figura 3 é ilustrado a forma do funcionamento dos compiladores como descrito acima, ilustrando os passos internos de um compilador, e o que é gerado em cada passo, como os tokens na análise léxica, árvore sintática na análise sintática e a tabela de símbolos.
+Para se conceituar um compilador de forma simples, é um programa responsável por traduzir um algoritmo de uma linguagem fonte para outra linguagem alvo \cite{alfred1995}. Na figura 3 é ilustrada a forma do funcionamento dos compiladores como descrito acima, ilustrando os passos internos de um compilador, e o que é gerado em cada passo, como os tokens na análise léxica, e a tabela de símbolos.
 
 \begin{figure}[htb]
-    \legenda[fig:figura]{Exemplo do Funcionamento de um Compilador}
+    \legenda[fig:figura]{Funcionamento de um Compilador}
     \fig{scale=0.7}{imagens/figura3}
     \fonte{O próprio autor}
 \end{figure}
@@ -177,7 +178,7 @@ O compilador segue passos para a tradução correta do código fonte para o cód
 \section{Interpretadores}
 \label{sec:interpretadores}
 
-O interpretador é o programa que converte a linguagem atual para uma especifica, mas ao contrário do compilador, ele não converte o código todo para linguagem de máquina de uma vez. Ele executa diretamente cada instrução, passo a passo. MATLAB, LISP, Perl e PHP são apontadas como interpretadas \cite{penelope2019}.  O interpretador efetua a tradução em operações especificadas, dependendo de como foi construído, podendo percorrer o código e ao decorrer desta análise, efetuar as operações necessárias. 
+O interpretador é o programa que converte a linguagem atual para uma especifica, mas ao contrário do compilador, ele não converte o código todo para linguagem de máquina de uma vez. Ele executa diretamente cada instrução, passo a passo. MATLAB, LISP, Perl e PHP são apontadas como interpretadas \cite{penelope2019}.
 
 Na figura 5 é ilustrado um fluxo geral de como é convertido o código, comparando o compilador ao interpretador. O que difere entre ambos é em qual momento ocorre a inserção de dados, tempo de execução e a diferença na saída de arquivos após os processos, o compilador gera um arquivo com a linguagem alvo (neste caso linguagem de máquina), e o interpretador executa diretamente a instrução, sem criar um arquivo fonte.
 
@@ -204,7 +205,7 @@ Um exemplo que pode ser dado, é analisando um programa na linguagem D+ como ilu
 
 Efetuando uma análise léxica no código da linguagem D+  ilustrado na figura 6, é possível apontar os tokens criados e os erros encontrados neste passo. 
 
-Descrevendo as linhas corretas e os tokens retirados dela.
+Tokens retirados:
 
 \begin{lista}
 	\item Identificador    X 
@@ -213,7 +214,7 @@ Descrevendo as linhas corretas e os tokens retirados dela.
 	\item Identificador    Y
 \end{lista}
 
-Estes tokens citados acima, são os gerados na análise léxica, atribuídos e guardados para a próxima análise. Porém o código da figura 6 contém erros, impedindo de avançar para o próximo etapa.
+Estes tokens citados acima, são os gerados na análise léxica, atribuídos e guardados para a próxima análise. Porém o código da figura 6 contém erros.
 
 Os erros encontrados na análise léxica são:
 
@@ -223,12 +224,12 @@ Os erros encontrados na análise léxica são:
 	\item Linha 8, é iniciado um comando de bloco de comentário (/*), mas não é fechado com (*/).
 \end{lista}
 
-Na figura 5 ocorrem erros de análise sintática, que é o passo que abordaremos na seção 2.4.
+Na figura 6 ocorrem erros de análise sintática, que é o passo que será tratada na seção 2.4.
 
 \subsection{Autômatos}
 \label{sec:automatos}
 
-Os autômatos finitos é constituído de um conjunto de estados, estes estados possuem transições dirigidas que são rotuladas \cite{pedro2018}. Estes autômatos ilustram a expressão regular da gramática, e é através de seus passos que são verificados se uma cadeia de caracteres X faz parte da linguagem analisada ou não \cite{alfred1995}.
+São constituídos de um conjunto de estados, estes estados possuem transições dirigidas que são rotuladas \cite{pedro2018}. Estes autômatos ilustram a expressão regular da gramática, e é através de seus passos que são verificados se uma cadeia de caracteres X faz parte da linguagem analisada ou não \cite{alfred1995}.
 
 A representação de um autômato utiliza de:
 
@@ -240,7 +241,7 @@ A representação de um autômato utiliza de:
 
 •	Esfera dentro de esfera: Para informar fim do autômato.
 
-Na figura 7 é ilustrado um autômato que reproduz a palavra “ABA”. Este autômato é atendido apenas se a primeira letra da palavra que está sendo verificada ser “A”, em seguida “B” e por fim “A” novamente, percorrendo o caminho ate chegar ao fim no estado 4.
+Na figura 7 é ilustrado um autômato que reproduz a palavra “ABA”. Este autômato é atendido apenas se a primeira letra da palavra que está sendo verificada ser “A”, em seguida “B” e por fim “A” novamente, percorrendo o caminho até chegar ao fim no estado 4.
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Autômato Finito}
@@ -248,7 +249,7 @@ Na figura 7 é ilustrado um autômato que reproduz a palavra “ABA”. Este aut
     \fonte{O próprio autor}
 \end{figure}
 
-Os autômatos finitos são classificados em dois, sendo eles: determinísticos e não determinísticos. Os autômatos finitos não determinísticos possuem mais de um caminho que pode ser tomado em um estado para o mesmo caractere analisado, um exemplo de fácil compreensão é de um estado poder ir por um caminho analisando o caractere e para outro caminho com o mesmo caractere, já os autômatos finitos determinísticos seguem apenas um caminho, não dando a opção para mais de um estado \cite{alfred1995}.
+Os autômatos finitos são classificados em dois, sendo eles: determinísticos e não determinísticos. Os autômatos finitos não determinísticos possuem mais de um caminho que pode ser tomado em um estado para o mesmo caractere analisado, já os autômatos finitos determinísticos seguem apenas um caminho, não dando a opção para mais de um estado \cite{alfred1995}.
 
 Na figura 8 é ilustrado um autômato finito determinístico.
 
@@ -271,7 +272,7 @@ Na figura 9 é ilustrado um autômato finito não determinístico.
 
 Análise Sintática é chamada também de análise hierárquica ou análise gramatical. Este passo utiliza dos tokens criados pela análise léxica, para criar um significado coletivo, obtendo uma ordem sequencial \cite{alfred1995}.
 
-O analisador sintático é responsável por avaliar se os tokens obtidos pelo passo anterior são válidos para a linguagem de programação em que ele é empregado, validando expressões, funções e métodos. A análise sintática geralmente utiliza de gramática livre de contexto para especificar a sintaxe de uma linguagem de programação \cite{maragon2015}.
+O analisador sintático é responsável por avaliar se os tokens obtidos pelo passo anterior são válidos para a linguagem de programação em que ele é empregado, validando expressões, funções e métodos. A análise sintática geralmente utiliza de gramática livre de contexto (que descreve um conjunto de palavras de forma recursiva) para especificar a sintaxe de uma linguagem de programação \cite{maragon2015}.
 
 Na figura 10 é ilustrado um código em linguagem D+ com alguns erros encontrados na análise sintática, estes erros estão descritos abaixo da figura.
 
@@ -293,7 +294,7 @@ Após passar pela análise sintática, é verificado se o código faz sentido pa
 \section{Árvore Sintática}
 \label{sec:arvoresintaticafuncadamentação}
 
-Uma árvore sintática tem como princípio ilustrar de forma estrutural o código junto às regras da gramática. A árvore de análise é elaborada conectando os símbolos derivados da regra ao qual pertence \cite{appel1998}. Um exemplo que pode ser usado para melhorar a compreensão, é do seguinte comando:
+Uma árvore sintática tem como princípio ilustrar de forma estrutural o código junto às regras da gramática, seu objetivo é obter uma estrutura de dados do código que possua a sequência hierárquica dos tokens. A árvore de análise é elaborada conectando os símbolos derivados da regra ao qual pertence \cite{appel1998}. Um exemplo que pode ser usado para melhorar a compreensão, é do seguinte comando:
 
 •	X > 0
 
@@ -308,7 +309,7 @@ Esta expressão gera uma árvore sintática ilustrada na figura 11. A árvore se
 \section{Análise Semântica}
 \label{sec:analise-semantica}
 
-Até o momento foi abordada as etapas de análise léxica, que separa o programa fonte em tokens, e a análise sintática, que valida as regras e sintaxe da linguagem de programação. Não é possível representar com expressões regulares ou com uma gramática livre de contexto regras como: "todo identificador deve ser declarado antes de ser usado". Muitas verificações devem ser realizadas com meta-informações e com elementos que estão presentes em vários pontos do código fonte, distantes uns dos outros. O analisador semântico utiliza a árvore sintática e a tabela de símbolos para fazer a análise semântica. 
+Até o momento foram abordadas as etapas de análise léxica, que separa o programa fonte em tokens, e a análise sintática, que valida as regras e sintaxe da linguagem de programação. Não é possível representar com expressões regulares ou com uma gramática livre de contexto regras como: "todo identificador deve ser declarado antes de ser usado". Muitas verificações devem ser realizadas com meta-informações (informações sobre aquele dado) e com elementos que estão presentes em vários pontos do código fonte, distantes uns dos outros. O analisador semântico utiliza a árvore sintática e a tabela de símbolos para fazer a análise semântica. 
 
 A análise semântica é responsável por verificar aspectos relacionados ao significado das instruções, essa é a terceira etapa do processo de compilação e nesse momento ocorre a validação de uma série de regras que não podem ser verificadas nas etapas anteriores \cite{maragon2015}.
 
@@ -330,7 +331,7 @@ Lista dos erros:
 \section{Tabela de Símbolos}
 \label{sec:tabela-semantica}
 
-A tabela de símbolos é uma estrutura auxiliar que tem como função apoiar a análise semântica nas atividades do código \cite{ricarte2008}. Este recurso é responsável por armazenar informações de identificadores, como variáveis, tipos de dados, funções e constantes. A estrutura da tabela de símbolos pode ser de uma árvore ou tabela \textit{hash}.
+A tabela de símbolos é uma estrutura auxiliar que tem como função apoiar a análise semântica nas atividades do algorítimo analisado \cite{ricarte2008}. Este recurso é responsável por armazenar informações de identificadores, como variáveis, tipos de dados, funções e constantes. A estrutura da tabela de símbolos pode ser uma árvore ou tabela \textit{hash}.
 
 Na figura 13 é ilustrado um código na linguagem D+ como exemplo para a explicação da tabela de símbolos. No código são encontrados declarações de vários identificadores, sendo eles, soma, x, y, a, b, todos são armazenados em uma tabela com dados daquele identificador.
 
@@ -381,9 +382,9 @@ A geração de código intermediário cria uma sequência linear de comandos, in
     \fonte{\cite{alfred1995}}
 \end{figure}
 
-Apesar de o compilador conseguir gerar, sem problemas, um programa alvo do programa fonte sem a necessidade da geração de código intermediário, efetuar este passo é visto com bons olhos por conta de duas vantagens que ele oferece:
+Apesar de o compilador conseguir gerar, sem problemas, um programa alvo do programa fonte sem a necessidade da geração de código intermediário, efetuar este passo é adotado como uma boa prática por conta de duas vantagens que ele oferece:
 
-•	Redirecionamento facilitado, o código é reaproveitado para outros computadores, necessitando apenas a elaboração a partir da geração de código \cite{alfred1995};
+•	Redirecionamento facilitado, o código é reaproveitado para outros computadores, necessitando apenas a elaboração a partir da geração de código;
 
 
 •	Uma otimização pode ser aplicada em qualquer máquina utilizando do código intermediário \cite{alfred1995}.
@@ -391,7 +392,7 @@ Apesar de o compilador conseguir gerar, sem problemas, um programa alvo do progr
 \section{Geração de código}
 \label{sec:geracao-de-codigo}
 
-A fase final do compilador é o gerador de código, esta etapa é responsável por transformar o código de entrada no código objeto \cite{alfred1995}. É imprescindível que execute de maneira correta suas especificações, caso contrário todo o trabalho efetuado até o momento é desperdiçado \cite{alfred1995}.
+A fase final do compilador é o gerador de código, esta etapa é responsável por transformar o código de entrada no código objeto \cite{alfred1995}.
 
 Na figura 15 é ilustrado um esquema do gerador de código, módulos de vanguarda são os geradores de códigos intermediários.
 
@@ -405,7 +406,7 @@ Os dados utilizados na entrada do gerador de código são, o programa escrito, o
 
 A saída obtida do gerador de código é o programa na linguagem alvo. Este programa pode ter três formas, sendo elas linguagem absoluta de máquina, linguagem realocável de máquina e linguagem de montagem \cite{alfred1995}.
 
-Um programa em linguagem absoluta de máquina consegue ser carregado em um local fixo na memória e executado imediatamente \cite{alfred1995}, tornando imediata sua execução.
+Um programa em linguagem absoluta de máquina consegue ser carregado em um local fixo na memória e executado \cite{alfred1995}.
 
 Um programa em linguagem realocável de máquina separa o resultado da compilação em módulos, permitindo executá-los separadamente, sua execução depende de um carregador ou editor de ligações \cite{alfred1995}. Com esta característica é possível pegar partes do programa alvo, ganhando grande flexibilidade do código compilado.
 
@@ -437,7 +438,7 @@ Caso a regra literal seja atendida, encontrando um número inteiro, real, caract
 
 Este capitulo tem como objetivo apresentar os conceitos primordiais da interface, os objetivos dela, história e os ganhos ofertados ao elaborá-la. 
 
-O surgimento do conceito da interface no princípio, era compreendido como o hardware e o software com que o homem poderia se comunicar \cite{rocha2003}.  Toda a comunicação que teria entre um ser humano e uma máquina, abrangia este conceito, desde uma atividade mais simples como uma leitura em uma tela, a atividades mais complexas como desenvolvimento de um software. A evolução deste conceito levou a inclusão dos aspectos cognitivos e emocionais do usuário durante a comunicação \cite{rocha2003}.
+O surgimento do conceito da interface, no princípio, era compreendido como o hardware e o software com que o homem poderia se comunicar \cite{rocha2003}.  Toda a comunicação que haveria entre um ser humano e uma máquina, abrangia este conceito, desde uma atividade mais simples como uma leitura em uma tela, a atividades mais complexas como desenvolvimento de um software. A evolução deste conceito levou a inclusão dos aspectos cognitivos e emocionais do usuário durante a comunicação \cite{rocha2003}.
 
 Na figura 17 é ilustrada a comunicação entre uma pessoa e a máquina. O humano é representado pelo usuário, e as ações de comunicação são representadas pelas setas de interpretação e ação, a interface recebe as comunicações dos usuários e se comunica com a parte lógica do software, aplicação.
 
@@ -447,11 +448,11 @@ Na figura 17 é ilustrada a comunicação entre uma pessoa e a máquina. O human
     \fonte{\cite{ana2012}}
 \end{figure}
 
-A interface pode ser visualizada como um lugar onde ocorre o contato entre duas entidades, homem e máquina, um exemplo é a tela de um computador \cite{rocha2003}. Com este exemplo, pode-se estender a várias situações, como, maçanetas de porta, botões de elevadores, controle de uma televisão, um joystick de um jogo, etc.
+A interface pode ser visualizada como um lugar onde ocorre o contato entre duas entidades, homem e máquina, um exemplo é a tela de um computador \cite{rocha2003}, pode-se estender a várias situações, como, maçanetas de porta, botões de elevadores, controle de uma televisão, um joystick de um jogo, etc.
 
-Uma definição que englobaria estes casos, seria, que a interface é uma superfície de contato que possui propriedade que alteram o que é visto, ou sentido, e alterando o controle da interação \cite{laurel1993}. Uma interface é responsável por passar em tempo real o estado que se encontra o software, respondendo a cada interação do usuário, um exemplo para melhor compreensão é de um jogo de videogame, se o jogador aperta um botão, o personagem pode pular, abaixar ou movimentar-se.
+Um outro exemplo que englobaria estes casos, seria, que a interface é uma superfície de contato que possui propriedade que alteram o que é visto, ou sentido, e alterando o controle da interação \cite{laurel1993}. Uma interface é responsável por passar em tempo real o estado que se encontra o software, respondendo a cada interação do usuário, um exemplo para melhor compreensão é de um jogo de videogame, se o jogador aperta um botão, o personagem pode pular, abaixar ou movimentar-se.
 
-IHC não possui uma definição estabelecida, mas a que mais a representa é, uma disciplina preocupada com o design, avaliação e implementação de sistemas computacionais interativos para uso humano e com o estudo dos principais fenômenos ao redor deles \cite{rocha2003}. Na figura 18 é ilustrada esta definição.
+A definição mais aceita para descrever IHC é de uma disciplina preocupada com o design, avaliação e implementação de sistemas computacionais interativos para uso humano e com o estudo dos principais fenômenos ao redor deles \cite{rocha2003}. Na figura 18 é ilustrada esta definição.
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Interação Humano-computador Adaptada da Descrição do comitê SIGCHI 1992}
@@ -485,7 +486,7 @@ O feedback é dar ao usuário um retorno de informação sobre a ação que ele 
 \subsection{Restrições}
 \label{sec:restricoes}
 
-A restrição tem como objetivo facilitar o uso do objeto da maneira mais simples e compreensível para quem está usando, tentando minimizar os erros e impossibilitando sua utilização de outra forma \cite{norman2002}. Um exemplo que pode ser dado é o conector de USB, não é possível conectá-lo de maneira errada, se a pessoa não conseguiu encaixá-lo, basta verificar a posição correta junto ao conector.
+A restrição tem como objetivo facilitar o uso do objeto da maneira mais simples e compreensível para quem está usando, tentando minimizar os erros e impossibilitando sua utilização de outra forma \cite{norman2002}. Um exemplo que pode ser dado é o conector de USB tipo A, não é possível conectá-lo de maneira errada, se a pessoa não conseguiu encaixá-lo, basta verificar a posição correta junto ao conector.
 
 \subsection{Mapeamento}
 \label{sec:mapeamento}
@@ -497,10 +498,10 @@ O mapeamento é o relacionamento entre duas coisas, como os controles e seus mov
 
 A consistência tem como regra obter um padrão(coerência), este princípio é responsável por ter operações similares com elementos parecidos para realizar as tarefas semelhantes \cite{agni2015}. Uma interface que segue esta regra, possui um padrão para todas as suas ações, botões com proporções iguais e cores da interface similares.
 
-\subsection{Affordance}
+\subsection{\textit{Affordance}}
 \label{sec:affordance}
 
-O affordance refere-se ao significado real dos objetos, principalmente aos seus significados e utilidades fundamentais ao qual aquele objeto pode possuir \cite{norman2002}. Não existe tradução literal desta palavra para o português, seu significado tem como um objeto que as pessoas saibam como usá-los por conta de sua simplicidade, sendo óbvio, podendo se utilizar de seu visual \cite{agni2015}. Um exemplo que pode ser apresentado é de uma porta com maçaneta, quando se depara com a porta, a única interação que é mais lógica é de mexer na maçaneta.
+O \textit{affordance} refere-se ao significado real dos objetos, principalmente aos seus significados e utilidades fundamentais que aquele objeto pode possuir \cite{norman2002}. Não existe tradução literal desta palavra para o português, seu significado tem como um objeto que as pessoas saibam como usá-los por conta de sua simplicidade, sendo óbvio, podendo se utilizar de seu visual \cite{agni2015}. Um exemplo que pode ser apresentado é de uma porta com maçaneta, quando se depara com a porta, a única interação que é mais lógica é de mexer na maçaneta.
 
 % -----------------------------------------------------------------------
 % -----------------------------------------------------------------------
@@ -510,7 +511,7 @@ O affordance refere-se ao significado real dos objetos, principalmente aos seus 
 \section{Ambiente de programação visual baseado em componentes}
 \label{sec:ambiente-de-programacao-visual-baseado-em-componentes}
  
-\cite{juliana2015} apresenta um trabalho sobre a criação de um ambiente de desenvolvimento utilizando componentes vindos de fluxogramas, e transformando-os em código da linguagem C, para que auxilie pessoas que estão iniciando na área de programação, e também pessoas que já tem familiaridade na área, mas que não possuem conhecimento da linguagem ao qual o fluxo é convertido.
+\cite{juliana2015} apresenta um trabalho sobre a criação de um ambiente de desenvolvimento utilizando componentes vindos de fluxogramas, e transformando-os em código da linguagem C, para que auxilie pessoas que estão iniciando na área de programação, e também pessoas que já possuem familiaridade na área, mas que não possuem conhecimento da linguagem ao qual o fluxo é convertido.
 
 Neste trabalho foi utilizada a linguagem C\#, fluxogramas e o banco de dados SQL Server. A linguagem C\#, foi escolhida devido a sua facilidade em criar um ambiente gráfico e de sua administração com imagens como fluxograma.
 
@@ -531,11 +532,11 @@ Foram realizados experimentos com 50 alunos, porém apenas 20\% responderam o qu
 \section{SCC: Um Compilador C como Ferramenta de Ensino de Compiladores}
 \label{sec:scc}
  
-\cite{juliano2009} apresenta um trabalho do desenvolvimento de um compilador que permite criar programas na linguagem C e serem executados com supervisão em tempo real. Estas supervisões funcionam com uma execução detalhada, passo a passo. Com este recurso tem se um auxílio no aprendizado de compiladores, e suas etapas da geração do código.
+\cite{juliano2009} apresentam um trabalho do desenvolvimento de um compilador que permite criar programas na linguagem C e serem executados com supervisão em tempo real. Estas supervisões funcionam com uma execução detalhada, passo a passo. Com este recurso tem-se um auxílio no aprendizado de compiladores, e suas etapas da geração do código.
 
 Foram utilizadas a linguagem C e Assembly juntamente com a ferramenta SASM, que é um software que gera códigos objetos compatíveis com a arquitetura IA-32.
 
-A maior parte do trabalho foi desenvolvido na linguagem C, porém algumas das rotinas básicas foram desenvolvidas em Assembly para melhorar o desempenho. Utilizando também o SASM, para testar a compatibilidade do compilador com esta ferramenta.
+A maior parte do trabalho foi desenvolvida na linguagem C, porém algumas das rotinas básicas foram desenvolvidas em Assembly para melhorar o desempenho. Utilizando também o SASM, para testar a compatibilidade do compilador com esta ferramenta.
 
 A figura 21 ilustra uma árvore de símbolos como saída de um código escrito para este compilador. 
 
@@ -548,7 +549,7 @@ A figura 21 ilustra uma árvore de símbolos como saída de um código escrito p
 \section{Compiler Basic Design and Construction}
 \label{sec:compiler-basic}
 
-\cite{mahak2009} apresenta um trabalho com sistema de compilação adaptativa, com o objetivo de fornecer uma documentação sobre o projeto e desenvolvimento do compilador, para auxiliar na compreensão do tema e criar técnicas eficazes para desenvolver.
+\cite{mahak2009} apresentam um trabalho com sistema de compilação adaptativa, com o objetivo de fornecer uma documentação sobre o projeto e desenvolvimento do compilador, para auxiliar na compreensão do tema e criar técnicas eficazes para desenvolver.
 
 Neste trabalho foi utilizada a linguagem Scheme para a implementação do compilador, e código de montagem (Assembly) como linguagem alvo. As técnicas implementadas foram análise léxica e análise sintática.
 
@@ -572,11 +573,11 @@ A figura 22 ilustra a arquitetura Python, tendo no centro o interpretador, e nel
 \section{ Compiler Construction}
 \label{sec:compiler-construction}
 
-\cite{aastha2013} apresenta um artigo informando técnicas e exemplos, que facilitam a implementação de um compilador. 
+\cite{aastha2013} apresentam um artigo informando técnicas e exemplos, que facilitam a implementação de um compilador. 
 
-Neste artigo é apresentado exemplos das técnicas de análise léxica e análise semântica, também mostrando trechos de códigos para melhor compreensão.
+Neste artigo são apresentados exemplos das técnicas de análise léxica e análise semântica, também mostrando trechos de códigos para melhor compreensão.
 
-Foi utilizado a linguagem Scheme para a construção do compilador, e a linguagem de montagem, código de máquina (Uma linguagem composta apenas de números na base binaria), como linguagem alvo. Schema é uma linguagem que suporta programação funcional e procedural, facilitando assim a elaboração do compilador. O compilador criado utiliza de um gerenciamento de armazenamento do tipo pilha, \textit{FIFO (first in first out)}, essa estrutura tem a característica o manejo do último elemento a entrar nela, é o primeiro a sair.
+Foram utilizadas as linguagens mencionadas a seguir: Scheme para a construção do compilador, e a linguagem de montagem, código de máquina (Uma linguagem composta apenas de números na base binaria), como linguagem alvo. Scheme é uma linguagem que suporta programação funcional e procedural, facilitando assim a elaboração do compilador. O compilador criado utiliza de um gerenciamento de armazenamento do tipo pilha, \textit{LIFO (last-in first-out)}, essa estrutura tem a característica o manejo do último elemento a entrar nela, é o primeiro a sair.
 
 \begin{quadro}[htb]
     \centering
@@ -584,7 +585,7 @@ Foi utilizado a linguagem Scheme para a construção do compilador, e a linguage
     \legenda[quadro:trabalhosRelacionados]{Comparação dos trabalhos relacionados}
     \begin{tabular}{|p{3.0cm}|p{3.0cm}|p{3.0cm}|p{3.0cm}|p{3.0cm}|}
         \hline
-        \textbf{Trabalho} & \textbf{Mètodo} & \textbf{Gera uma saída} & \textbf{Ferramentas utilizaas} & \textbf{Linguagens utilizadas} \\ 
+        \textbf{Trabalho} & \textbf{Mètodo} & \textbf{Gera uma saída} & \textbf{Ferramentas utilizadas} & \textbf{Linguagens utilizadas} \\ 
         \hline\hline
         Trabalho 1 & Componentes de fluxogramas; Administração de Imagens. & Código na linguagem C.   &  SQL Server; Fluxogramas. & C\#; SQL    \\ \hline 
         Trabalho 2 & Análise sintática recursiva descendente    & Árvore sintática; Árvore de Símbolos.   & SASM.  & C; Assembly  \\ \hline
@@ -606,16 +607,16 @@ Foi utilizado a linguagem Scheme para a construção do compilador, e a linguage
 
 Neste capítulo são informados quais os métodos e ferramentas que foram utilizados para desenvolver o interpretador e a interface, a forma de abordagem para a coleta de dados, o cenário e os indivíduos participantes.
 
-A metodologia seguida para se obter dados sobre a utilização e a funcionalidades para os alunos e para o professor da matéria de Compiladores, é a utilização de um questionário elaborado para ser respondido após o uso do software, este questionário encontra-se no apêndice.
+A metodologia seguida para se obter dados sobre a utilização e as funcionalidades para os alunos e para o professor da matéria de Compiladores, foi utilização de um questionário elaborado para ser respondido após o uso do software, este questionário encontra-se no apêndice.
 
-As tecnologias utilizadas para o desenvolvimento do interpretador, foram: linguagem de programação C++, QT Creator, JFLAP, e as metodologias de criação de um compilador, Análise Léxica, Análise Sintática e tabela de símbolos.  
+As tecnologias utilizadas para o desenvolvimento do interpretador foram: linguagem de programação C++, QT Creator, JFLAP, e as metodologias de criação de um compilador, Análise Léxica, Análise Sintática e tabela de símbolos.  
 
 \section{Linguagem C++}
 \label{sec:linugagemc++}
 
 A linguagem utilizada para o desenvolvimento deste software é C++, que é a predominante no programa QT Creator, e por se diferenciar pouco da linguagem C, a base no ensino no curso de Ciências da Computação. Esta linguagem também possui bibliotecas que auxiliam no desenvolvimento, como o regex, que é utilizado neste trabalho para tratar expressões regulares e assim tornar o código melhor escrito sem necessidade de repetição de regra.
 
-Na figura 23 é ilustrado a função descrita acima, nela é chamada a função regex\_match, está função verifica se a letra passada, a variável line[aux], faz parte da gramatica enviada junto, regex("[a-zA-Z\_]").
+Na figura 23 é ilustrado a função descrita acima, nela é chamada a função regex\_match, esta função verifica se a letra passada, a variável line[aux], faz parte da gramática enviada.
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Função do código de validação de caractere}
@@ -751,7 +752,7 @@ O diretório resources guarda todas as imagens utilizadas no software, sendo ela
 
 Para o desenvolvimento da análise léxica, foram utilizados os autômatos criados, em apêndice, como guias, o autômato do estado 0 é o que seleciona o caminho que aquele caractere irá percorrer, o mesmo é feito na função state00, ao encontrar o caminho é atribuído um valor para a variável state sendo o valor o número do próximo estado, e assim prossegue para o estado subsequente.
 
-Na figura 34 é ilustrado um trecho da função state00, nela é verificado a letra que o programa está analisando, caso faça parte da gramática, é direcionada para o caminho correto, do contrário é retornado erro.
+Na figura 34 é ilustrado um trecho da função state00, nela é verificado que o programa está analisando, caso faça parte da gramática, é direcionada para o caminho correto, do contrário é retornado erro.
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Função state00}
@@ -759,7 +760,7 @@ Na figura 34 é ilustrado um trecho da função state00, nela é verificado a le
     \fonte{O próprio autor}
 \end{figure} 
 
-A função reservWorks contém a lógica para verificar se aquele lexema formado é uma palavra reservada, a função possui um laço de repetição, em que percorre uma matriz criada que contém todas as palavras reservadas da linguagem D+, caso seja igual a alguma delas, é atribuído o token da palavra reservada, do contrário o token é atribuído como identificador. Na figura 35 é ilustrado a função reservWorks.
+A função "reservWords" contém a lógica para verificar se aquela token formado é uma palavra reservada, a função possui um laço de repetição, em que percorre uma matriz criada que contém todas as palavras reservadas da linguagem D+, caso seja igual a alguma delas, é atribuído o token da palavra reservada, do contrário o token é atribuído como identificador. Na figura 35 é ilustrado a função reservWorks.
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Função reservWorks}
@@ -775,7 +776,7 @@ Após a análise obter os valores de lexema e token, é chamada a função queue
     \fonte{O próprio autor}
 \end{figure} 
 
-Para identificar por qual autômato o código passou são utilizadas variáveis globais booleanas, em que ao acessar um estado essas funções criadas como state01, state02, são atribuídos true para a variável correspondente aquele estado, como a variável automato1. No fim de toda compilação é selecionada a imagem de todos os autômatos para as labels da interface, caso aquela variável do autômato seja true ele troca a imagem preto e branco para a colorida.  
+Para identificar por qual autômato o código passou são utilizadas variáveis globais booleanas, em que ao acessar um estado essas funções criadas como state01, state02, são atribuídos true para a variável correspondente aquele estado, como a variável automato1, este método utilizado não possibilita verificar quantas vezes aquele autômato foi utilizado. No fim de toda compilação é selecionada a imagem de todos os autômatos para as labels da interface, caso aquela variável do autômato seja true ele troca a imagem preto e branco para a colorida.  
 
 Na figura 37 é ilustrado o trecho do código que valida se o que será carregado é o autômato colorido ou o preto e branco. 
 
@@ -798,7 +799,7 @@ Na figura 38 é ilustrado os dois casos, um autômato em preto e branco, quando 
 \subsection{Análise Sintática}
 \label{subsec:analisesintatica}
 
-Para o desenvolvimento da análise sintática, foi utilizado a criação de uma matriz que armazena todos os tokens e lexemas encontrados após a análise léxica, esta matriz é utilizada para verificar a sequência de tokens, e validá-los se estão na ordem correta.  
+Para o desenvolvimento da análise sintática, foi utilizado uma matriz que armazena todos os tokens e lexemas encontrados após a análise léxica, esta matriz é utilizada para verificar a sequência de tokens, e validá-los se estão na ordem correta.  
 
 Após finalizar a análise léxica o software chama em sequência a rotina para a análise sintática, ela inicia a verificação na posição 0 da matriz tokensLexemasTable, e percorre-a validando junto das regras da gramática.  
 
@@ -878,9 +879,9 @@ Nos quadros 3, 4 e 5 são ilustradas as funções criadas referentes a cada regr
     \fonte{próprio autor}
 \end{quadro}
 
-Todas as funções criadas para satisfazer as regras da gramática possuem uma operação de incremento na variável chamada tamanho, esta variável global tem como função ser o index da matriz que contém todos os lexemas e tokens, tokensLexemasTable, com isto obtém a localização que se encontra o percurso tomado dentro da matriz, o valor daquela posição é comparado com o token esperado na regra que a análise se encontra, caso seja igual é seguido o caminho até finalizar a regra, do contrário é retornado erro.
+Todas as funções criadas para satisfazer as regras da gramática possuem uma operação de incremento na variável chamada "tamanho", esta variável global tem como função ser o index da matriz que contém todos os lexemas e tokens, tokensLexemasTable, com isto obtém a localização que se encontra o percurso tomado dentro da matriz, o valor daquela posição é comparado com o token esperado na regra que a análise se encontra, caso seja igual é seguido o caminho até finalizar a regra, do contrário é retornado erro.
 
-A figura 39 ilustra a função DV que corresponde a regra decl-var, nela é efetuada uma chamada para função ET e em seguida a função LV, após estas chamadas ocorrerem e não retornarem erro, ele valida se possui o lexema de ( ; ), casso possua, é retornado uma mensagem de sucesso ao log, ao contrário retorna a mensagem de erro, a variável keySintatico funciona como uma chave, sempre que é encontrado um erro no código, é atribuído o valor 1, assim o software para de efetuar a análise sintática, por já ter encontrado erro. 
+A figura 39 ilustra a função DV que corresponde a regra decl-var, nela é efetuada uma chamada para função ET e em seguida a função LV, após estas chamadas ocorrerem e não retornarem erro, ele valida se possui o lexema de ( ; ), caso possua, é retornado uma mensagem de sucesso ao log, ao contrário retorna a mensagem de erro, a variável keySintatico funciona como uma chave, sempre que é encontrado um erro no código, é atribuído o valor 1, assim o software para de efetuar a análise sintática, por já ter encontrado erro. 
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Função DV}
@@ -888,7 +889,7 @@ A figura 39 ilustra a função DV que corresponde a regra decl-var, nela é efet
     \fonte{O próprio autor}
 \end{figure} 
 
-No processo de desenvolvimento desta análise, foi identificado um problema na gramática, o comando “ DO B WHILE exp ; ”, da forma que foi desenvolvido a lógica impossibilitava este comando, a implementação seguia o conceito de recursividade, onde uma função é chamada por ela mesma, seguindo este conceito caso existisse no código um comando de bloco, o software chamava novamente a função LV e assim abria opções para chamar novamente comandos de repetição, porem todos as regras que possui o bloco também possuem um token de saída do bloco, como “WHILE exp B LOOP”, o token loop informa que o bloco acabou, mas no comando “ DO B WHILE exp ; ” era confundido como um novo comando de repetição do WHILE, por conta de não conseguir sair do bloco, e não distinguir se o token atual era um token de saída, a palavra desta regra foi alterada para AS, resolvendo a questão.
+No processo de desenvolvimento desta análise, foi identificado um problema na gramática, o comando “ DO B WHILE exp ; ”, da forma que foi desenvolvida a lógica impossibilitava este comando, a implementação seguia o conceito de recursividade, onde uma função é chamada por ela mesma, seguindo este conceito caso existisse no código um comando de bloco, o software chamava novamente a função LV e assim abria opções para chamar novamente comandos de repetição, porém todos as regras que possui o bloco também possuem um token de saída do bloco, como “WHILE exp B LOOP”, o token loop informa que o bloco acabou, mas no comando “ DO B WHILE exp ; ” era confundido como um novo comando de repetição do WHILE, por conta de não conseguir sair do bloco, e não distinguir se o token atual era um token de saída, a palavra desta regra foi alterada para AS, resolvendo a questão.
 
 Após finalizar a análise sintática é exibido na interface um log do percurso tomado, apresentando uma mensagem de sucesso ou erro, e em seguida mensagens de quais regras foram validadas e em qual regra o interpretador encontrou o erro.  Na mensagem de erro é apresentado qual foi o erro encontrado, como a falta de um ( ; ) ou de uma palavra reservada como END, e o número da linha que ocorreu o erro.
 
@@ -975,7 +976,7 @@ Na figura 45 são ilustradas as saídas da análise semântica, no canto superio
 
 Na criação da interface gráfica foi utilizado como base o editor de texto básico Notepad, e editores de desenvolvimento simples como Code Blocks e VIsual Studio Code. 
 
-Na barra superior do programa foi incrementando funcionalidades simples, mas práticas, sendo elas:
+Na barra superior do programa foi implementado funcionalidades simples, mas práticas, sendo elas:
 
 •	Novo: Limpa o editor e cria um arquivo novo;
 
@@ -989,7 +990,7 @@ Na barra superior do programa foi incrementando funcionalidades simples, mas pr�
 
 •	Refazer: Efetua um comando retrocedido no editor.
 
-Na figura 46 é ilustrado a barra onde se encontra as funcionalidades descritas acima. Todos os ícones utilizados nesta interface são encontrados no site (https://www.flaticon.com).
+Na figura 46 é ilustrado a barra onde se encontram as funcionalidades descritas acima. Todos os ícones utilizados nesta interface são encontrados no site (https://www.flaticon.com).
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Barra de funcionalidade}
@@ -999,9 +1000,9 @@ Na figura 46 é ilustrado a barra onde se encontra as funcionalidades descritas 
 
 A interface do software abrange todos os passos e resultados das análises implementadas, para melhor aproveitamento de espaço de tela e organizar de forma funcional, é utilizado de abas, similar ao dos navegadores como Google Chrome e Firefox. O usuário do programa tem a liberdade de selecionar nas abas a informação que deseja que seja apresentada. 
 
-Na aba “editor” é o local em que insere o código D+,. Foi deixado um fundo acinzentado para auxiliar e destacar o local de escrita do código, na aba “Código Numerado”, é uma cópia do código inserido, porém numerado, para que assim seja mais fácil encontrar o erro acusado pelo log da análise sintática, esta funcionalidade foi implementada pois no decorrer do desenvolvimento, foi reparado que havia dificuldade para verificar qual linha havia um problema, mesmo passando o número desta. 
+Na aba “editor” é o local em que insere o código D+,. Foi deixado um fundo acinzentado para auxiliar e destacar o local de escrita do código, na aba “Código Numerado”, é uma cópia do código inserido, porém numerado, para que assim seja mais fácil encontrar o erro acusado pelo log da análise sintática, esta funcionalidade foi implementada pois no decorrer do desenvolvimento havia dificuldade para verificar qual linha havia um problema, mesmo passando o número desta. 
 
-Na figura 47 é ilustrada as duas abas descritas acima, no canto esquerdo a aba do “Editor” e no canto direito a aba do “Código Numerado”. 
+Na figura 47 são ilustradas as duas abas descritas acima, no canto esquerdo a aba do “Editor” e no canto direito a aba do “Código Numerado”. 
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Interface do editor}
@@ -1009,7 +1010,7 @@ Na figura 47 é ilustrada as duas abas descritas acima, no canto esquerdo a aba 
     \fonte{O próprio autor}
 \end{figure}
 
-Na figura 48 é ilustrado uma visão geral da interface implementada. 
+Na figura 48 é ilustrada uma visão geral da interface implementada. 
 
 \begin{figure}[htb]
     \legenda[fig:figura]{Interface do interpretador}
@@ -1025,8 +1026,7 @@ Na figura 48 é ilustrado uma visão geral da interface implementada.
 
 Para distribuir o interpretador foi criado um arquivo executável simples em que necessitou apenas autorizar o processo de instalação, este método foi efetuado com o objetivo de facilitar na distribuição.
 
-•	A forma escolhida para a obtenção de dados relativas ao framework, foi a da elaboração de um questionário, em apêndice, com 26 perguntas, com os temas de:
-Praticidade do software;
+•	Escolhida para a obtenção de dados relativas ao framework, foi a da elaboração de um questionário, em apêndice, com 27 perguntas, com os temas de:
 
 •	Se a informação exposta nele é objetiva e clara;
 
@@ -1034,12 +1034,14 @@ Praticidade do software;
 
 •	Se indicaria para algum colega que possui dificuldade de entendimento do conteúdo;
 
-•	Quall dado apresentado no interpretador mais chamou a atenção ?.
+•	Qual dado apresentado no interpretador mais chamou a atenção ?.
+
+Os dados obtidos são subjetivos, pois não consegue validar de maneira científica a eficiência do interpretador.
 
 \section{Resultados obtidos}
 \label{sec:resultados}
 
-Os alunos selecionados para testar o interpretador são os que cursam a matéria de compiladores do professor Diógenes Cogo Furla. Nesta disciplina sete estudantes a frequentam, aos quais foi solicitado que utilizassem o software e respondessem o questionário elaborado.
+Os alunos selecionados para testar o interpretador são os que cursam a matéria de compiladores do professor Diógenes Cogo Furlan. Nesta disciplina sete estudantes a frequentaram, aos quais foi solicitado que utilizassem o software e respondessem o questionário elaborado.
 
 No gráfico 1 é ilustrado o nível de experiência profissional que os alunos possuem.
 
@@ -1060,7 +1062,7 @@ O gráfico 2 ilustra o nível de dificuldade que os estudantes atribuem a discip
 No gráfico 3 é ilustrado se o interpretador auxiliou no entendimento da disciplina de compiladores.
 
 \begin{grafico}[H]
-    \legenda[fig:grafico]{Gráfico de auxilio do interpretador}
+    \legenda[fig:grafico]{Gráfico de auxílio do interpretador}
     \fig{scale=0.6}{imagens/grafico3}
     \fonte{O próprio autor}
 \end{grafico}
@@ -1125,9 +1127,9 @@ Apesar de o interpretador cumprir o seu objetivo, é possível implementar funci
 \apendice[apendice:questionario]{QUESTIONÁRIO DE UTILIZAÇÃO DO INTERPRETADOR INTEGRADO A UMA INTERFACE DA LINGUAGEM D+}
 \includegraphics[scale=0.8, clip,trim=10mm 10mm 0mm 20mm, angle=-90, page=1]{QUESTIONARIO.pdf}
 
-\includegraphics[scale=0.8, clip,trim=10mm 10mm 0mm 20mm, angle=-90, page=2]{QUESTIONARIO.pdf}
+\includegraphics[scale=0.8, clip,trim=10mm 10mm 0mm 10mm, angle=-90, page=2]{QUESTIONARIO.pdf}
 
-\includegraphics[scale=0.8, clip,trim=10mm 10mm 0mm 20mm, angle=-90, page=3]{QUESTIONARIO.pdf}
+\includegraphics[scale=0.8, clip,trim=10mm 10mm 0mm 10mm, angle=-90, page=3]{QUESTIONARIO.pdf}
 
 \apendice[apendice:automatos]{Autômatos Ativos}
 \begin{figure}[htb]
@@ -1417,7 +1419,7 @@ Na figura 89 é ilustrado o fluxograma do código, as análises dentro dele e su
 
 Neste apêndice é explicado como utilizar o interpretador, informando cada funcionalidade na interface e o local dos resultados.
 
-O interpretador contém o editor para inserção do código, a esquerda, e o resultado das análises a direita. Para facilitar o usuário procurar o erro indicado na linha do código, o editor possui uma aba de “Código Numerado”, esta aba replica o código e enumera todas as linhas. 
+O interpretador contém o editor para inserção do código a esquerda, e o resultado das análises a direita. Para facilitar a procura do usuário pelo erro indicado na linha do código, o editor possui uma aba de “Código Numerado”, está aba replica o código e enumera todas as linhas. 
 
 Na figura 90 é ilustrado o Editor. A esquerda a aba “Editor” e a direita a aba “Código Numerado”, ambos com o mesmo código implementado.
 
@@ -1542,7 +1544,7 @@ Na figura 100 é ilustrado a árvore sintática montada, seguindo a regra utiliz
 
 Na aba “Gramática D+” é apresentada todas as regras da linguagem D+ e também as regras pintadas de verde que foram utilizadas para efetuar a compilação.
 
-Na figura 101 é ilustrada as regras da linguagem D+ e as regras utilizadas para compilação do programa.
+Na figura 101 são ilustrada as regras da linguagem D+ e as regras utilizadas para compilação do programa.
 
 \begin{figure}[H]
     \legenda[fig:figura]{Aba "Gramática D+"}
