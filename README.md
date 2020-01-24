@@ -31,3 +31,5 @@ obtain learning data using the D + Interpreter, the framework was made available
 the students and asked to answer a questionnaire. From these questionnaires we can
 conclude that the interpreter helped the students to better understand the discipline by
 showing more compilation of the code.
+
+<h3><a href="https://icons8.com/icon/46832/instalador-de-software">Instalador de software icon by Icons8</a></h3>
