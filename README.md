@@ -1,9 +1,10 @@
-# **Interpretador D+ integrado a uma interface.**
+![](https://github.githubassets.com/images/icons/emoji/unicode/1f4da.png) # **Interpretador D+ integrado a uma interface.**
 
 **Universidade Tuiuti do Paraná - UTP**
 
 **Gabriel Pinto Ribeiro da Fonse**
-**Orientador: Mestre Diógenes Cogo Furlan
+
+**Orientador: Mestre Diógenes Cogo Furlan**
 
 
 ### Resumo
