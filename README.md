@@ -3,6 +3,7 @@
 **Universidade Tuiuti do Paraná - UTP**
 
 **Gabriel Pinto Ribeiro da Fonse**
+**Orientador: Mestre Diógenes Cogo Furlan
 
 
 ### Resumo
@@ -29,4 +30,3 @@ obtain learning data using the D + Interpreter, the framework was made available
 the students and asked to answer a questionnaire. From these questionnaires we can
 conclude that the interpreter helped the students to better understand the discipline by
 showing more compilation of the code.
-
