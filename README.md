@@ -32,4 +32,4 @@ the students and asked to answer a questionnaire. From these questionnaires we c
 conclude that the interpreter helped the students to better understand the discipline by
 showing more compilation of the code.
 
-<h3><a href="https://icons8.com/icon/46832/instalador-de-software">Instalador de software icon by Icons8</a></h3>
+<h3><img src="https://img.icons8.com/dusk/64/000000/software-installer.png"></h3>
