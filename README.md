@@ -1,4 +1,4 @@
-<h1> ![](https://github.githubassets.com/images/icons/emoji/unicode/1f4da.png) **Interpretador D+ integrado a uma interface.**</h1>
+<h1> <g-emoji class="g-emoji" alias="books" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4da.png">📚</g-emoji> **Interpretador D+ integrado a uma interface.**</h1>
 
 **Universidade Tuiuti do Paraná - UTP**
 
