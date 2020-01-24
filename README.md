@@ -32,4 +32,4 @@ the students and asked to answer a questionnaire. From these questionnaires we c
 conclude that the interpreter helped the students to better understand the discipline by
 showing more compilation of the code.
 
-<h3><img src="https://img.icons8.com/dusk/64/000000/software-installer.png"></h3>
+<h3><img src="https://github.com/GabrielPRDF/TCC_Interpretador/blob/master/Documentos/Icons/instala%C3%A7%C3%A3o.png"></h3>
