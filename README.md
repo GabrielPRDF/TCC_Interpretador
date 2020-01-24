@@ -1,4 +1,4 @@
-<h1> <g-emoji class="g-emoji" alias="books" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4da.png">📚</g-emoji> <b>Interpretador D+ integrado a uma interface.</b></h1>
+<h1> <src="https://github.com/GabrielPRDF/TCC_Interpretador/blob/master/Documentos/Icons/interpretador.png"> <b>Interpretador D+ integrado a uma interface.</b></h1>
 
 **Universidade Tuiuti do Paraná - UTP**
 
