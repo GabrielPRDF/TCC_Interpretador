@@ -38,7 +38,7 @@ Para facilitar o acesso a framework, foi efetuado um deploy do interpretador D+ 
   
 Para instalar o Interpretador execute o arquivo "InterpretadorD+", após executálo, aparecerá uma janela igual a figura 1, clique em next.
 
-<center><img src="https://github.com/GabrielPRDF/TCC_Interpretador/blob/master/Documentos/Monografia/imagens/instala%C3%A7%C3%A3o1.png"></center>
+<div style="text-align:center" ><img src="https://github.com/GabrielPRDF/TCC_Interpretador/blob/master/Documentos/Monografia/imagens/instala%C3%A7%C3%A3o1.png"></center>
 
 A janela prosseguirá e aparecerá o local que você deseja instalar o software, selecione o local e clique em next, conforma e figura 2.
 
