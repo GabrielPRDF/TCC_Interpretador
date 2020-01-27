@@ -60,4 +60,14 @@ Após a instalação clique em "Finish"igual a figura 6, e o interpretador estar
 
 <img src="https://github.com/GabrielPRDF/TCC_Interpretador/blob/master/Documentos/Monografia/imagens/instala%C3%A7%C3%A3o6.png">
 
-<h1><img src="https://github.com/GabrielPRDF/TCC_Interpretador/blob/master/Documentos/Icons/objetivo.png" height="50" width="50"></h1>
+<h1><img src="https://github.com/GabrielPRDF/TCC_Interpretador/blob/master/Documentos/Icons/objetivo.png" height="50" width="50"><b>Objetivos</b></h1>
+
+O objetivo principal deste projeto foi criação de um interpretador da linguagem D+, que executará junto a uma interface desenvolvida para facilitar o aprendizado do estudante.
+
+Objetivos específicos:
+
+* Compilar um código desenvolvido em tempo real;
+* Ilustrar a saída dos estágios de análise léxica e análise sintática.
+* Caso o código tenha algum erro de análise léxica ou análise sintática, mostrar em tempo real ao desenvolvedor o erro;
+* Facilitar o entendimento para alunos que estejam estudando compiladores;
+* Criar a documentação do funcionamento do interpretador
