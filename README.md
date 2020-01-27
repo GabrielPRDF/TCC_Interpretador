@@ -7,7 +7,7 @@
 **Orientador: Mestre Diógenes Cogo Furlan**
 
 
-### Resumo
+<h2><img src="https://github.com/GabrielPRDF/TCC_Interpretador/blob/master/Documentos/Icons/resumo.png"> <b>Resumo</b></h2>
 
 Dentro do curso de bacharelado em Ciências da Computação, a disciplina de compiladores possui uma dificuldade considerável no seu aprendizado, portanto, torna-se
 importante, ferramentas que auxiliem na compreensão do conteúdo da disciplina. O
@@ -19,7 +19,7 @@ um questionário. A partir destes questionários podemos concluir que o interpre
 auxiliou os alunos a compreenderem melhor a disciplina mostrando de forma mais
 ilustrativa a compilação do código.
 
-### _Abstract_
+<h2><img src="https://github.com/GabrielPRDF/TCC_Interpretador/blob/master/Documentos/Icons/resumo.png"> <b><i>Abstract</i></b></h2>
 
 Within the bachelor’s degree in Computer Science, a compiler discipline has a learning
 disability, so it becomes important tools that help in understanding the subject’s content.
