@@ -32,7 +32,11 @@ the students and asked to answer a questionnaire. From these questionnaires we c
 conclude that the interpreter helped the students to better understand the discipline by
 showing more compilation of the code.
 
-<h1><img src="https://github.com/GabrielPRDF/TCC_Interpretador/blob/master/Documentos/Icons/instala%C3%A7%C3%A3o.png" height="50" width="50"></h1>
+<h1><img src="https://github.com/GabrielPRDF/TCC_Interpretador/blob/master/Documentos/Icons/instala%C3%A7%C3%A3o.png" height="50" width="50"><b>Instalação do Interpretador D+</b></h1>
 
+<p>Para facilitar o acesso a framework, foi efetuado um deploy do interpretador D+ e criado um arquivo executável para efetuar a instalação do software, assim não precisando instalar o QtCreator e suas bibliotecas.
+  
+Para instalar o Interpretador execute o arquivo "InterpretadorD+", após executálo, aparecerá uma janela igual a figura 1, clique em next.
+</P>
 
 <h1><img src="https://github.com/GabrielPRDF/TCC_Interpretador/blob/master/Documentos/Icons/objetivo.png" height="50" width="50"></h1>
