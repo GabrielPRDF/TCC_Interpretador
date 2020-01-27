@@ -62,7 +62,7 @@ Após a instalação clique em "Finish"igual a figura 6, e o interpretador estar
 
 <h1><img src="https://github.com/GabrielPRDF/TCC_Interpretador/blob/master/Documentos/Icons/objetivo.png" height="50" width="50"><b>Objetivos</b></h1>
 
-O objetivo principal deste projeto foi criação de um interpretador da linguagem D+, que executará junto a uma interface desenvolvida para facilitar o aprendizado do estudante.
+O objetivo principal deste projeto foi a criação de um interpretador da linguagem D+, que executará junto a uma interface desenvolvida para facilitar o aprendizado do estudante.
 
 Objetivos específicos:
 
