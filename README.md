@@ -7,7 +7,7 @@
 **Orientador: Mestre Diógenes Cogo Furlan**
 
 
-<h2><img src="https://github.com/GabrielPRDF/TCC_Interpretador/blob/master/Documentos/Icons/resumo.png"> <b>Resumo</b></h2>
+<h2><img src="https://github.com/GabrielPRDF/TCC_Interpretador/blob/master/Documentos/Icons/resumo.png" height="50" width="50"> <b>Resumo</b></h2>
 
 Dentro do curso de bacharelado em Ciências da Computação, a disciplina de compiladores possui uma dificuldade considerável no seu aprendizado, portanto, torna-se
 importante, ferramentas que auxiliem na compreensão do conteúdo da disciplina. O
