@@ -1,4 +1,4 @@
-<h1><img src="https://github.com/GabrielPRDF/TCC_Interpretador/blob/master/Documentos/Icons/interpretador.png"> <b>Interpretador D+ integrado a uma interface.</b></h1>
+<h1><img src="https://github.com/GabrielPRDF/TCC_Interpretador/blob/master/Documentos/Icons/interpretador.png" height="50" width="50"> <b>Interpretador D+ integrado a uma interface.</b></h1>
 
 **Universidade Tuiuti do Paraná - UTP**
 
@@ -19,7 +19,7 @@ um questionário. A partir destes questionários podemos concluir que o interpre
 auxiliou os alunos a compreenderem melhor a disciplina mostrando de forma mais
 ilustrativa a compilação do código.
 
-<h2><img src="https://github.com/GabrielPRDF/TCC_Interpretador/blob/master/Documentos/Icons/resumo.png"> <b><i>Abstract</i></b></h2>
+<h2><img src="https://github.com/GabrielPRDF/TCC_Interpretador/blob/master/Documentos/Icons/resumo.png" height="50" width="50"> <b><i>Abstract</i></b></h2>
 
 Within the bachelor’s degree in Computer Science, a compiler discipline has a learning
 disability, so it becomes important tools that help in understanding the subject’s content.
@@ -32,7 +32,7 @@ the students and asked to answer a questionnaire. From these questionnaires we c
 conclude that the interpreter helped the students to better understand the discipline by
 showing more compilation of the code.
 
-<h1><img src="https://github.com/GabrielPRDF/TCC_Interpretador/blob/master/Documentos/Icons/instala%C3%A7%C3%A3o.png"></h1>
+<h1><img src="https://github.com/GabrielPRDF/TCC_Interpretador/blob/master/Documentos/Icons/instala%C3%A7%C3%A3o.png" height="50" width="50"></h1>
 
 
-<h1><img src="https://github.com/GabrielPRDF/TCC_Interpretador/blob/master/Documentos/Icons/objetivo.png"></h1>
+<h1><img src="https://github.com/GabrielPRDF/TCC_Interpretador/blob/master/Documentos/Icons/objetivo.png" height="50" width="50"></h1>
