@@ -38,5 +38,26 @@ Para facilitar o acesso a framework, foi efetuado um deploy do interpretador D+ 
   
 Para instalar o Interpretador execute o arquivo "InterpretadorD+", após executálo, aparecerá uma janela igual a figura 1, clique em next.
 
+<img src="https://github.com/GabrielPRDF/TCC_Interpretador/blob/master/Documentos/Monografia/imagens/instala%C3%A7%C3%A3o1.png">,
+
+A janela prosseguirá e aparecerá o local que você deseja instalar o software, selecione o local e clique em next, conforma e figura 2.
+
+<img src="https://github.com/GabrielPRDF/TCC_Interpretador/blob/master/Documentos/Monografia/imagens/instala%C3%A7%C3%A3o2.png">
+
+Após prosseguir carregará uma página igual a figura 3 selecione o "Interpretador_D+"e clique em next.
+
+<img src="https://github.com/GabrielPRDF/TCC_Interpretador/blob/master/Documentos/Monografia/imagens/instala%C3%A7%C3%A3o3.png">
+
+A janela prosseguirá e carregará uma janela igual a figura 4, clique em next.
+
+<img src="https://github.com/GabrielPRDF/TCC_Interpretador/blob/master/Documentos/Monografia/imagens/instala%C3%A7%C3%A3o4.png">
+
+Clique em "Install"conforme a figura 5.
+
+<img src="https://github.com/GabrielPRDF/TCC_Interpretador/blob/master/Documentos/Monografia/imagens/instala%C3%A7%C3%A3o5.png">
+
+Após a instalação clique em "Finish"igual a figura 6, e o interpretador estará disponível no menu iniciar.
+
+<img src="https://github.com/GabrielPRDF/TCC_Interpretador/blob/master/Documentos/Monografia/imagens/instala%C3%A7%C3%A3o6.png">
 
 <h1><img src="https://github.com/GabrielPRDF/TCC_Interpretador/blob/master/Documentos/Icons/objetivo.png" height="50" width="50"></h1>
